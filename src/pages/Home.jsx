@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import SectionHeading from "../components/SectionHeading";
 import CtaBand from "../components/CtaBand";
 import Reveal from "../components/Reveal";
+import MapEmbed from "../components/MapEmbed";
 import usePageMeta from "../hooks/usePageMeta";
 import { bgImage } from "../lib/media";
 import { serviceCategories, brandsServiced, faqs, stats } from "../data/services";
@@ -311,8 +312,8 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="lg:col-span-2 aspect-[16/7] rounded-lg border border-white/10 bg-jc-black flex items-center justify-center text-jc-gray-steel text-sm">
-            Map embed — Metro Atlanta service area
+          <div className="lg:col-span-2 aspect-[16/7] rounded-lg border border-white/10 overflow-hidden">
+            <MapEmbed className="h-full" />
           </div>
         </div>
       </section>

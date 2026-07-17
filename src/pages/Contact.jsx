@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import usePageMeta from "../hooks/usePageMeta";
+import MapEmbed from "../components/MapEmbed";
 
 const CITIES = ["Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
 
@@ -118,8 +119,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="aspect-video rounded-lg border border-white/10 bg-jc-black-soft flex items-center justify-center text-jc-gray-steel text-sm">
-              Map embed — Metro Atlanta service area
+            <div className="aspect-video rounded-lg border border-white/10 overflow-hidden">
+              <MapEmbed className="h-full" />
             </div>
           </div>
         </div>
