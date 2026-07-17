@@ -53,11 +53,16 @@ export default function ServicesC() {
                 className={`text-left rounded-lg border overflow-hidden transition-colors ${
                   active === cat.slug
                     ? "border-jc-orange-primary bg-jc-orange-primary/10"
-                    : "border-white/10 bg-jc-black-soft hover:border-jc-orange-primary/60"
-                } ${cat.featured ? "md:col-span-2 lg:col-span-3" : ""}`}
+                    : cat.featured
+                      ? "border-jc-orange-primary/40 bg-jc-black-soft hover:border-jc-orange-primary"
+                      : "border-white/10 bg-jc-black-soft hover:border-jc-orange-primary/60"
+                }`}
               >
                 <div className="aspect-video bg-cover bg-center" style={bgImage(cat.image)} />
                 <div className="p-6">
+                  {cat.featured && (
+                    <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Featured</p>
+                  )}
                   <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
                   <ul className="space-y-1 text-sm text-jc-gray-steel mb-3">
                     {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
