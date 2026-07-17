@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import usePageMeta from "../hooks/usePageMeta";
 import MapEmbed from "../components/MapEmbed";
 
-const CITIES = ["Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
+const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
 
 export default function Contact() {
   usePageMeta(
@@ -92,18 +92,17 @@ export default function Contact() {
                 </a>
                 <a href="mailto:info@jctrailmaster.com" className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
                   <Mail size={18} className="text-jc-orange-primary shrink-0" />
-                  info@jctrailmaster.com
+                  info@jctrailmaster.com <span className="text-xs text-jc-gray-steel">(Service)</span>
                 </a>
                 <div className="flex items-start gap-3 text-jc-white">
                   <MapPin size={18} className="text-jc-orange-primary shrink-0 mt-0.5" />
-                  1230 Industrial Blvd, Conyers, GA 30012
+                  5225 John G Glover Ind Ct, Ellenwood, GA 30294
                 </div>
                 <div className="flex items-start gap-3 text-jc-white">
                   <Clock size={18} className="text-jc-orange-primary shrink-0 mt-0.5" />
                   <span>
-                    Mon–Fri: 7:00 AM – 6:00 PM<br />
-                    Saturday: 7:00 AM – 2:00 PM<br />
-                    Sunday: By Appointment<br />
+                    Mon–Fri: 9:00 AM – 6:00 PM<br />
+                    Saturday: By Appointment Only<br />
                     <span className="text-jc-orange-primary font-semibold">24/7 Emergency Dispatch</span>
                   </span>
                 </div>

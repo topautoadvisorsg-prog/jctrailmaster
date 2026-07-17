@@ -89,7 +89,7 @@ export const brandsServiced = [
 
 export const faqs = [
   { question: "Do you offer mobile/on-site repair?", answer: "Yes. Our fully equipped mobile repair trucks come to your yard, dock, or breakdown location — no need to bring the trailer to us." },
-  { question: "What areas do you service?", answer: "We proudly serve metro Atlanta and the surrounding areas, including Alpharetta, Marietta, McDonough, Lawrenceville, Fairburn, Conyers, Douglasville, and Snellville." },
+  { question: "What areas do you service?", answer: "We proudly serve metro Atlanta and the surrounding areas, including Ellenwood, Alpharetta, Marietta, McDonough, Lawrenceville, Fairburn, Conyers, Douglasville, and Snellville." },
   { question: "Do you work with fleets and repeat accounts?", answer: "Yes. We partner with fleet managers and owner-operators on priority scheduling and billing accounts." },
   { question: "How fast can you respond to a breakdown?", answer: "We offer 24/7 emergency dispatch for on-site breakdowns — call us and we'll get a truck moving." },
   { question: "What types of trailers/chassis do you repair?", answer: "Dry vans, reefers, flatbeds, and intermodal chassis across all major manufacturers." },

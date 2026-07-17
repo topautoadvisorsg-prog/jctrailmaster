@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 
-const CITIES = ["Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
+const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
 
 function FacebookIcon(props) {
   return (
@@ -70,10 +70,10 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-jc-gray-steel">
             <li className="flex items-center gap-2"><Phone size={15} className="text-jc-orange-primary shrink-0" /> 770-906-4781 · 24/7 Dispatch</li>
             <li className="flex items-center gap-2"><Mail size={15} className="text-jc-orange-primary shrink-0" /> info@jctrailmaster.com</li>
-            <li className="flex items-start gap-2"><MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> 1230 Industrial Blvd, Conyers, GA 30012</li>
+            <li className="flex items-start gap-2"><MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> 5225 John G Glover Ind Ct, Ellenwood, GA 30294</li>
           </ul>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mt-5 mb-2">Hours</h4>
-          <p className="text-sm text-jc-gray-steel">Mon–Fri: 7:00 AM – 6:00 PM<br />Saturday: 7:00 AM – 2:00 PM<br />Sunday: By Appointment</p>
+          <p className="text-sm text-jc-gray-steel">Mon–Fri: 9:00 AM – 6:00 PM<br />Saturday: By Appointment Only</p>
         </div>
       </div>
 

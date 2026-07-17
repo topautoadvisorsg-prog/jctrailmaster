@@ -34,7 +34,7 @@ const WHY_CHOOSE = [
   { icon: BadgeCheck, label: "Quality Repairs", sub: "We do it right the first time." },
 ];
 
-const CITIES = ["Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
+const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
 
 function FaqItem({ q, a }) {
   const [open, setOpen] = useState(false);
