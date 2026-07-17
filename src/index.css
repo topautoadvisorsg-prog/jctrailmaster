@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-jc-black: #0a0a0a;
+  --color-jc-black-soft: #121212;
+  --color-jc-orange-primary: #f5820f;
+  --color-jc-orange-deep: #d9480f;
+  --color-jc-amber: #ffb347;
+  --color-jc-white: #ffffff;
+  --color-jc-gray-steel: #b0b0b0;
+
+  --breakpoint-xs: 420px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-jc-black);
+  color: var(--color-jc-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-jc-orange-primary);
+  color: var(--color-jc-black);
+}
+
+.jc-gradient-sunset {
+  background: radial-gradient(circle at 50% 45%, var(--color-jc-amber) 0%, var(--color-jc-orange-deep) 60%, transparent 75%);
+}
+
+.jc-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-jc-orange-primary), transparent);
+}

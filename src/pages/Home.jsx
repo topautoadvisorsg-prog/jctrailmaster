@@ -1,0 +1,287 @@
+import { motion } from "framer-motion";
+import {
+  ShieldCheck, Clock, BadgeCheck, Wrench, Phone, Star, MapPin, ChevronDown,
+} from "lucide-react";
+import { useState } from "react";
+import Button from "../components/Button";
+import SectionHeading from "../components/SectionHeading";
+import CtaBand from "../components/CtaBand";
+import { serviceCategories, brandsServiced, faqs, stats } from "../data/services";
+import { projects, testimonials } from "../data/projects";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const TRUST_BADGES = [
+  { icon: ShieldCheck, label: "Expert Technicians", sub: "Skilled. Certified. Trusted." },
+  { icon: Clock, label: "Fast Response", sub: "Minimizing downtime. Maximizing uptime." },
+  { icon: BadgeCheck, label: "Quality Guaranteed", sub: "We do it right the first time." },
+  { icon: Wrench, label: "In Shop & Mobile Service", sub: "We come to you or you come to us." },
+];
+
+const WHY_CHOOSE = [
+  { icon: Wrench, label: "Mobile Service", sub: "We come to you. Minimize downtime." },
+  { icon: Clock, label: "Fast Response", sub: "Quick arrivals. Fast solutions." },
+  { icon: BadgeCheck, label: "Experienced Technicians", sub: "Skilled experts with years of hands-on experience." },
+  { icon: ShieldCheck, label: "Fleet Specialists", sub: "We understand commercial fleets and deadlines." },
+  { icon: ShieldCheck, label: "Licensed & Insured", sub: "Fully licensed and insured for your protection." },
+  { icon: BadgeCheck, label: "Quality Repairs", sub: "We do it right the first time." },
+];
+
+const CITIES = ["Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
+
+function FaqItem({ q, a }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-white/10">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between py-5 text-left"
+      >
+        <span className="font-semibold text-jc-white pr-4">{q}</span>
+        <ChevronDown
+          size={18}
+          className={`shrink-0 text-jc-orange-primary transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && <p className="pb-5 text-sm text-jc-gray-steel leading-relaxed">{a}</p>}
+    </div>
+  );
+}
+
+export default function Home() {
+  const standardCategories = serviceCategories.filter((c) => !c.featured);
+  const mobileCategory = serviceCategories.find((c) => c.featured);
+
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-jc-black">
+        <div className="absolute inset-0 jc-gradient-sunset opacity-40" />
+        <div className="relative mx-auto max-w-5xl px-4 py-24 text-center lg:py-32">
+          <motion.div initial="hidden" animate="show" variants={fadeUp} className="mb-8 flex justify-center">
+            <span className="flex h-28 w-28 items-center justify-center rounded-full jc-gradient-sunset shadow-2xl shadow-orange-900/50">
+              <span className="text-jc-black font-black text-2xl leading-none text-center">
+                JC<br /><span className="text-[9px] tracking-widest">TRAILMASTER</span>
+              </span>
+            </span>
+          </motion.div>
+          <motion.h1
+            initial="hidden" animate="show" variants={fadeUp}
+            className="text-4xl md:text-6xl font-black tracking-tight text-jc-white"
+          >
+            Experienced. Reliable.
+            <span className="block text-jc-orange-primary">We Keep You Rolling.</span>
+          </motion.h1>
+          <motion.p
+            initial="hidden" animate="show" variants={fadeUp} transition={{ delay: 0.1 }}
+            className="mx-auto mt-5 max-w-2xl text-jc-gray-steel text-lg"
+          >
+            With over 25 years of hands-on experience, we deliver high-quality trailer and chassis repairs — In Shop or On Site.
+          </motion.p>
+          <motion.div
+            initial="hidden" animate="show" variants={fadeUp} transition={{ delay: 0.2 }}
+            className="mt-8 flex flex-wrap justify-center gap-4"
+          >
+            <Button variant="primary" icon="wrench" href="/contact">Request Service</Button>
+            <Button variant="secondary" icon="phone">Call Now</Button>
+          </motion.div>
+
+          <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
+            {TRUST_BADGES.map((b) => (
+              <div key={b.label} className="text-center">
+                <b.icon className="mx-auto mb-2 text-jc-orange-primary" size={26} strokeWidth={1.5} />
+                <p className="text-sm font-bold text-jc-white">{b.label}</p>
+                <p className="text-xs text-jc-gray-steel">{b.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAR — MOCKUP, swap real figures before launch */}
+      <section className="bg-jc-black-soft border-y border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-2 gap-6 md:grid-cols-4 lg:px-8">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center">
+              <p className="text-2xl md:text-3xl font-black text-jc-orange-primary">{s.value}</p>
+              <p className="text-xs uppercase tracking-wide text-jc-gray-steel">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICE CATEGORIES */}
+      <section className="bg-jc-black py-20">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading title={<>Complete <span className="text-jc-orange-primary">Repair and Maintenance</span> Solutions.</>} />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {standardCategories.map((cat) => (
+              <div key={cat.slug} className="rounded-lg border border-white/10 bg-jc-black-soft p-6 hover:border-jc-orange-primary/60 transition-colors">
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-jc-orange-primary/10">
+                  <Wrench className="text-jc-orange-primary" size={20} />
+                </div>
+                <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
+                <ul className="mb-4 space-y-1 text-sm text-jc-gray-steel">
+                  {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
+                </ul>
+                <a href={`/services/a#${cat.slug}`} className="text-sm font-bold text-jc-orange-primary hover:text-jc-amber">
+                  Learn More →
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {mobileCategory && (
+            <div className="mt-6 rounded-lg border border-jc-orange-primary/40 bg-gradient-to-r from-jc-black-soft to-jc-orange-primary/10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 justify-between">
+              <div>
+                <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Featured</p>
+                <h3 className="text-2xl font-black text-jc-white mb-2">{mobileCategory.title}</h3>
+                <p className="text-jc-gray-steel max-w-xl">{mobileCategory.tagline}</p>
+              </div>
+              <Button variant="outline" href="/services/a#mobile-service" className="shrink-0">Learn More</Button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 24/7 EMERGENCY CALLOUT */}
+      <section className="bg-jc-orange-primary">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <h3 className="text-jc-black text-2xl md:text-3xl font-black">24/7 Emergency & Mobile Service</h3>
+            <p className="text-jc-black/80 font-semibold mt-1">Round-the-clock breakdown response.</p>
+            <p className="text-jc-black/70 text-sm mt-1">We're on-site when and where you need us most.</p>
+          </div>
+          <a href="tel:7709064781" className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white">
+            <Phone size={20} className="text-jc-orange-primary" />
+            <span>
+              <span className="block text-xs uppercase tracking-wide text-jc-gray-steel">Call Now</span>
+              <span className="block font-black text-lg">770-906-4781</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="bg-jc-black py-20">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading title={<>Why Choose <span className="text-jc-orange-primary">JC Trailmaster?</span></>} />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {WHY_CHOOSE.map((item) => (
+              <div key={item.label} className="rounded-lg border border-white/10 p-6 text-center">
+                <item.icon className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
+                <p className="font-bold text-jc-white">{item.label}</p>
+                <p className="text-xs text-jc-gray-steel mt-1">{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FLEET & COMMERCIAL ACCOUNTS */}
+      <section className="bg-jc-black-soft py-16 border-y border-white/10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid gap-8 md:grid-cols-2 items-center">
+          <div>
+            <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Fleet & Commercial Accounts</p>
+            <h3 className="text-2xl md:text-3xl font-black text-jc-white mb-4">
+              We partner with fleet managers and owner-operators to keep your business moving.
+            </h3>
+            <p className="text-jc-gray-steel mb-6 max-w-xl">
+              Ask about our priority scheduling and billing accounts — a single point of contact for every unit in your fleet.
+            </p>
+            <Button variant="outline" href="/contact">Learn More</Button>
+          </div>
+          <div className="aspect-video rounded-lg bg-cover bg-center jc-gradient-sunset opacity-70" style={{ backgroundImage: "url(/images/fleet-accounts.jpg)" }} />
+        </div>
+      </section>
+
+      {/* BRANDS SERVICED */}
+      <section className="bg-jc-black py-14">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8">Brands & Equipment Serviced</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
+            {brandsServiced.map((b) => (
+              <span key={b.name} className="text-jc-gray-steel font-bold text-lg tracking-wide">{b.name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED PROJECTS */}
+      <section className="bg-jc-black-soft py-20 border-y border-white/10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Our Work" title={<>Featured <span className="text-jc-orange-primary">Projects</span></>} />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {projects.filter((p) => p.featured).map((p) => (
+              <a key={p.id} href="/projects/a" className="group block rounded-lg overflow-hidden border border-white/10">
+                <div className="aspect-[4/3] bg-cover bg-center bg-jc-black" style={{ backgroundImage: `url(${p.image})` }} />
+                <div className="p-3">
+                  <span className="inline-block mb-1 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
+                    {p.categoryLabel}
+                  </span>
+                  <p className="text-sm font-bold text-jc-white leading-tight">{p.title}</p>
+                  <p className="text-xs text-jc-gray-steel">{p.location}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Button variant="outline" href="/projects/a">View All Projects</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="bg-jc-black py-20">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Reviews" title="What Our Customers Say" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <div key={t.name} className="rounded-lg border border-white/10 p-6">
+                <div className="flex gap-1 mb-3 text-jc-orange-primary">
+                  {Array.from({ length: t.rating }).map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                </div>
+                <p className="text-jc-gray-steel text-sm italic mb-4">&ldquo;{t.quote}&rdquo;</p>
+                <p className="text-sm font-bold text-jc-white">{t.name}</p>
+                <p className="text-xs text-jc-gray-steel">{t.location}</p>
+                <p className="text-xs text-jc-orange-primary mt-1">Google · 5.0</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE AREA */}
+      <section className="bg-jc-black-soft py-20 border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid gap-10 lg:grid-cols-3">
+          <div>
+            <SectionHeading center={false} eyebrow="Coverage" title="Service Area" subtitle="Proudly serving metro Atlanta and surrounding areas." />
+            <ul className="grid grid-cols-2 gap-2 text-sm text-jc-gray-steel">
+              {CITIES.map((c) => (
+                <li key={c} className="flex items-center gap-2"><MapPin size={13} className="text-jc-orange-primary" /> {c}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="lg:col-span-2 aspect-[16/7] rounded-lg border border-white/10 bg-jc-black flex items-center justify-center text-jc-gray-steel text-sm">
+            Map embed — Metro Atlanta service area
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-jc-black py-20">
+        <div className="mx-auto max-w-3xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Questions" title="Frequently Asked Questions" />
+          <div>
+            {faqs.map((f) => <FaqItem key={f.question} q={f.question} a={f.answer} />)}
+          </div>
+        </div>
+      </section>
+
+      <CtaBand />
+    </>
+  );
+}
