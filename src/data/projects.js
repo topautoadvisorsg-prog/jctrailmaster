@@ -1,4 +1,6 @@
-// STATUS: PLACEHOLDER — swap images/copy for real completed jobs before launch.
+// STATUS: TEMPORARY STOCK PHOTOS (Pexels, free-license) — filling the gap so nothing looks
+// missing during review. Swap for real completed-job photos before launch; copy/descriptions
+// are also placeholder and need real client job details.
 export const projects = [
   {
     id: "p1",
