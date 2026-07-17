@@ -173,8 +173,8 @@ export default function Home() {
             <p className="text-jc-black/80 font-semibold mt-1">Mobile repair trucks dispatched to your yard, dock, or roadside.</p>
             <p className="text-jc-black/70 text-sm mt-1">Call during business hours and we'll get a truck moving.</p>
           </div>
-          <a href={BUSINESS.phone.href} className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white hover:bg-jc-black-soft transition-colors">
-            <Phone size={20} className="text-jc-orange-primary" />
+          <a href={BUSINESS.phone.href} className="inline-flex items-center gap-3 whitespace-nowrap rounded-md bg-jc-black px-8 py-4 text-jc-white hover:bg-jc-black-soft transition-colors">
+            <Phone size={20} className="text-jc-orange-primary shrink-0" />
             <span>
               <span className="block text-xs uppercase tracking-wide text-jc-gray-steel">Call Now</span>
               <span className="block font-black text-lg">{BUSINESS.phone.display}</span>

@@ -81,7 +81,7 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-6">
             <div className="rounded-lg border border-white/10 p-6">
               <div className="space-y-4 text-sm">
-                <a href={BUSINESS.phone.href} className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
+                <a href={BUSINESS.phone.href} className="flex items-center gap-3 whitespace-nowrap text-jc-white hover:text-jc-orange-primary">
                   <Phone size={18} className="text-jc-orange-primary shrink-0" />
                   {BUSINESS.phone.display}
                 </a>

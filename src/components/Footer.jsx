@@ -63,7 +63,7 @@ export default function Footer() {
         <div>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mb-3">Contact Us</h4>
           <ul className="space-y-3 text-sm text-jc-gray-steel">
-            <li className="flex items-center gap-2"><Phone size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.phone.display}</li>
+            <li className="flex items-center gap-2 whitespace-nowrap"><Phone size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.phone.display}</li>
             <li className="flex items-center gap-2"><Mail size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.email.service}</li>
             <li className="flex items-start gap-2"><MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> {BUSINESS.address.full}</li>
           </ul>

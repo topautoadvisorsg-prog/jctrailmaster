@@ -14,8 +14,8 @@ export default function CtaBand({
           </h3>
         </div>
         <div className="flex items-center gap-4">
-          <a href={BUSINESS.phone.href} className="flex items-center gap-2 text-jc-black font-bold text-lg">
-            <Phone size={20} /> {BUSINESS.phone.display}
+          <a href={BUSINESS.phone.href} className="flex items-center gap-2 whitespace-nowrap text-jc-black font-bold text-lg">
+            <Phone size={20} className="shrink-0" /> {BUSINESS.phone.display}
           </a>
           <a
             href="/contact"

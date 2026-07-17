@@ -48,8 +48,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href={BUSINESS.phone.href} className="flex items-center gap-2 text-jc-orange-primary font-bold">
-            <Phone size={18} />
+          <a href={BUSINESS.phone.href} className="flex items-center gap-2 whitespace-nowrap text-jc-orange-primary font-bold">
+            <Phone size={18} className="shrink-0" />
             {BUSINESS.phone.display}
           </a>
           <a
@@ -82,8 +82,8 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <a href={BUSINESS.phone.href} className="flex items-center gap-2 text-jc-orange-primary font-bold pt-2 border-t border-white/10">
-              <Phone size={18} />
+            <a href={BUSINESS.phone.href} className="flex items-center gap-2 whitespace-nowrap text-jc-orange-primary font-bold pt-2 border-t border-white/10">
+              <Phone size={18} className="shrink-0" />
               {BUSINESS.phone.display}
             </a>
           </nav>
