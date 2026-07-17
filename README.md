@@ -49,5 +49,13 @@ npm run build     # production build to /dist
 - Contact form currently only shows a success state client-side — needs a real submission endpoint (email/CRM) before launch
 - Google Maps embed is a placeholder block — needs a real embed once address is confirmed final
 
+## Image slots
+Two different kinds of missing images in this build — don't confuse them:
+- **Project/portfolio photos** (`src/data/projects.js`) — real completed jobs. These come from the
+  client's own files, never generated.
+- **Marketing photos** (hero, category cards, Fleet Accounts banner, About shop shot) — generic
+  brand/mood photography. See `IMAGE_PROMPTS.md` for a ready-to-use generation prompt per slot,
+  with the exact file path each one drops into.
+
 ## Deploy
 See `deploy-instructions.md`.
