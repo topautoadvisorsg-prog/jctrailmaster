@@ -27,7 +27,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-jc-black">
-              <span className="font-brand text-jc-orange-deep text-sm leading-none">JC</span>
+              <span className="font-brand italic text-jc-orange-deep text-xl leading-none">JC</span>
             </span>
             <span className="font-brand text-jc-orange-primary text-lg tracking-wide">
               TRAILMASTER
