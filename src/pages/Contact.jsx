@@ -8,7 +8,7 @@ const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "
 export default function Contact() {
   usePageMeta(
     "Contact Us — Request Service",
-    "Request trailer or chassis repair service from JC Trailmaster. Call 770-906-4781 for 24/7 dispatch, or send us your details."
+    "Request trailer or chassis repair service from JC Trailmaster. Call 770-906-4781 or send us your details and we'll get back to you fast."
   );
 
   const [submitted, setSubmitted] = useState(false);
@@ -88,7 +88,7 @@ export default function Contact() {
               <div className="space-y-4 text-sm">
                 <a href="tel:7709064781" className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
                   <Phone size={18} className="text-jc-orange-primary shrink-0" />
-                  <span>770-906-4781 <span className="block text-xs text-jc-gray-steel">24/7 Dispatch</span></span>
+                  770-906-4781
                 </a>
                 <a href="mailto:info@jctrailmaster.com" className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
                   <Mail size={18} className="text-jc-orange-primary shrink-0" />
@@ -102,8 +102,7 @@ export default function Contact() {
                   <Clock size={18} className="text-jc-orange-primary shrink-0 mt-0.5" />
                   <span>
                     Mon–Fri: 9:00 AM – 6:00 PM<br />
-                    Saturday: By Appointment Only<br />
-                    <span className="text-jc-orange-primary font-semibold">24/7 Emergency Dispatch</span>
+                    Saturday: By Appointment Only
                   </span>
                 </div>
               </div>

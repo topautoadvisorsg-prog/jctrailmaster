@@ -39,7 +39,7 @@ export default function About() {
                 across metro Atlanta — without losing the hands-on, no-nonsense approach we started with.
               </p>
               <p className="text-jc-gray-steel leading-relaxed">
-                Every job — whether it's a single trailer in our shop or a mobile call to a fleet yard at 2 AM — gets the same
+                Every job — whether it's a single trailer in our shop or a mobile call out to a fleet yard — gets the same
                 standard of work. That's the promise behind "We Keep You Rolling."
               </p>
             </div>
@@ -52,11 +52,10 @@ export default function About() {
 
       {/* Experience */}
       <section className="bg-jc-black-soft py-16 border-y border-white/10">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8 grid grid-cols-2 gap-6 md:grid-cols-4 text-center">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8 grid grid-cols-3 gap-6 text-center">
           <div><p className="text-3xl font-black text-jc-orange-primary">25+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Years in Business</p></div>
           <div><p className="text-3xl font-black text-jc-orange-primary">5000+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Trailers Repaired</p></div>
           <div><p className="text-3xl font-black text-jc-orange-primary">1000+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Fleet Clients Served</p></div>
-          <div><p className="text-3xl font-black text-jc-orange-primary">24/7</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Dispatch & Support</p></div>
         </div>
       </section>
 

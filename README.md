@@ -36,26 +36,33 @@ npm run dev       # http://localhost:5173 (or configured port)
 npm run build     # production build to /dist
 ```
 
-## Open items before launch (spec Section 17 — needs client answers)
-- Real logo file + brand photography (site currently uses placeholder image paths under `/public/images/`, referenced in `src/data/services.js` and `src/data/projects.js`)
+## Resolved (was open, now confirmed)
+- **Address**: `5225 John G Glover Ind Ct, Ellenwood, GA 30294` (the mockup's address was wrong — corrected 2026-07-17, wired into `MapEmbed.jsx`, `Footer.jsx`, `Contact.jsx`)
+- **Hours**: Mon–Fri 9:00 AM–6:00 PM, Saturday by appointment only. No Sunday hours.
+- **No 24/7/emergency dispatch** — confirmed not a real offering. All "24/7" wording was removed site-wide (2026-07-17) — it was in the original mockup but isn't accurate to the real business.
+- **Google Maps** — real embed live on Home and Contact, pinned to the address above.
+- **Marketing photos** — all 9 slots from `IMAGE_PROMPTS.md` delivered and wired in.
+- **Projects gallery** — temporarily filled with stock photos (Pexels, free license) so nothing looks missing; still flagged `TEMPORARY` in `src/data/projects.js`, swap for real completed-job photos when the client sends them.
+
+## Open items before launch (spec Section 17 — still needs client answers)
+- Real logo file (currently using a generated circular badge, not the client's actual logo file)
 - Real Credibility Bar stats (currently mocked per spec instruction — `src/data/services.js` → `stats`)
 - Real Google reviews (currently placeholder — `src/data/projects.js` → `testimonials`)
-- Real completed-job photos + before/after pairs for Projects page
+- Real completed-job photos + before/after pairs for Projects page (stock photos in place as a temporary stand-in)
 - Confirm exact brand hex values against source logo files (current values taken from spec Section 2.1)
 - Confirm Fleet & Commercial Accounts as a real offering (billing/volume pricing) or simplify to general inquiry
 - Confirm actual brands/equipment serviced list
-- Confirm emergency/after-hours coverage details
 - Confirm FAQ homepage section vs. standalone page (Section 5A)
 - Contact form currently only shows a success state client-side — needs a real submission endpoint (email/CRM) before launch
-- Google Maps embed is a placeholder block — needs a real embed once address is confirmed final
+- **Layout variant decision** — client is choosing between the 3 Services and 3 Projects layout variants (see below), pending
 
 ## Image slots
-Two different kinds of missing images in this build — don't confuse them:
-- **Project/portfolio photos** (`src/data/projects.js`) — real completed jobs. These come from the
-  client's own files, never generated.
-- **Marketing photos** (hero, category cards, Fleet Accounts banner, About shop shot) — generic
-  brand/mood photography. See `IMAGE_PROMPTS.md` for a ready-to-use generation prompt per slot,
-  with the exact file path each one drops into.
+Two different kinds of images in this build — don't confuse them:
+- **Project/portfolio photos** (`src/data/projects.js`) — real completed jobs. Currently
+  temporary stock photos; will be replaced with the client's own files, never generated.
+- **Marketing photos** (hero, category cards, Fleet Accounts banner, About shop shot) — all
+  delivered. See `IMAGE_PROMPTS.md` for the prompt/sourcing history per slot.
 
 ## Deploy
-See `deploy-instructions.md`.
+Pushed to GitHub: https://github.com/topautoadvisorsg-prog/jctrailmaster (main branch).
+See `deploy-instructions.md` for the Vercel steps.

@@ -91,9 +91,9 @@ export const faqs = [
   { question: "Do you offer mobile/on-site repair?", answer: "Yes. Our fully equipped mobile repair trucks come to your yard, dock, or breakdown location — no need to bring the trailer to us." },
   { question: "What areas do you service?", answer: "We proudly serve metro Atlanta and the surrounding areas, including Ellenwood, Alpharetta, Marietta, McDonough, Lawrenceville, Fairburn, Conyers, Douglasville, and Snellville." },
   { question: "Do you work with fleets and repeat accounts?", answer: "Yes. We partner with fleet managers and owner-operators on priority scheduling and billing accounts." },
-  { question: "How fast can you respond to a breakdown?", answer: "We offer 24/7 emergency dispatch for on-site breakdowns — call us and we'll get a truck moving." },
+  { question: "How fast can you respond to a breakdown?", answer: "Call us during business hours and we'll get a mobile repair truck moving to your location as fast as possible." },
   { question: "What types of trailers/chassis do you repair?", answer: "Dry vans, reefers, flatbeds, and intermodal chassis across all major manufacturers." },
-  { question: "Do you offer emergency roadside service?", answer: "Yes, 24/7 dispatch and mobile response for roadside breakdowns." },
+  { question: "What are your business hours?", answer: "Monday–Friday, 9:00 AM–6:00 PM. Saturdays by appointment only." },
 ];
 
 // STATUS: MOCKUP per spec Section 5 — placeholder values, swap before launch.
@@ -101,5 +101,4 @@ export const stats = [
   { label: "Years of Experience", value: "25+" },
   { label: "Satisfied Customers", value: "1000+" },
   { label: "Trailers Repaired", value: "5000+" },
-  { label: "Dispatch & Support", value: "24/7" },
 ];

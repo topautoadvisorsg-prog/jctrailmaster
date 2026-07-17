@@ -59,7 +59,7 @@ function FaqItem({ q, a }) {
 export default function Home() {
   usePageMeta(
     "Trailer, Container & Chassis Repair in Metro Atlanta",
-    "Experienced, reliable trailer and chassis repair — in shop or on site. 25+ years serving metro Atlanta fleets and owner-operators. 24/7 dispatch."
+    "Experienced, reliable trailer and chassis repair — in shop or on site. 25+ years serving metro Atlanta fleets and owner-operators."
   );
 
   const standardCategories = serviceCategories.filter((c) => !c.featured);
@@ -119,7 +119,7 @@ export default function Home() {
 
       {/* STATS BAR — MOCKUP, swap real figures before launch */}
       <section className="bg-jc-black-soft border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-2 gap-6 md:grid-cols-4 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-3 gap-6 lg:px-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
               <p className="text-2xl md:text-3xl font-black text-jc-orange-primary">{s.value}</p>
@@ -178,13 +178,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 24/7 EMERGENCY CALLOUT */}
+      {/* MOBILE SERVICE CALLOUT */}
       <section className="bg-jc-orange-primary">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-jc-black text-2xl md:text-3xl font-black">24/7 Emergency & Mobile Service</h3>
-            <p className="text-jc-black/80 font-semibold mt-1">Round-the-clock breakdown response.</p>
-            <p className="text-jc-black/70 text-sm mt-1">We're on-site when and where you need us most.</p>
+            <h3 className="text-jc-black text-2xl md:text-3xl font-black">Breakdown? We Come To You.</h3>
+            <p className="text-jc-black/80 font-semibold mt-1">Mobile repair trucks dispatched to your yard, dock, or roadside.</p>
+            <p className="text-jc-black/70 text-sm mt-1">Call during business hours and we'll get a truck moving.</p>
           </div>
           <a href="tel:7709064781" className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white hover:bg-jc-black-soft transition-colors">
             <Phone size={20} className="text-jc-orange-primary" />
