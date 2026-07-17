@@ -15,7 +15,7 @@ const DIFFERENTIATORS = [
 export default function About() {
   usePageMeta(
     "About Us",
-    "25+ years of hands-on trailer and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
+    "20+ years of hands-on trailer and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
   );
 
   return (
@@ -32,11 +32,11 @@ export default function About() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
           <Reveal>
             <div>
-              <SectionHeading center={false} eyebrow="Our Story" title="Built by people who work on trucks, for people who run them." />
+              <SectionHeading center={false} eyebrow="Our Story" title="Built on 20 years of hands-on experience." />
               <p className="text-jc-gray-steel mb-4 leading-relaxed">
-                JC Trailmaster was founded on a simple idea: trailer and chassis repair should be fast, honest, and done right the
-                first time. What started as a small shop has grown into a trusted partner for fleet managers and owner-operators
-                across metro Atlanta — without losing the hands-on, no-nonsense approach we started with.
+                JC Trailmaster is backed by two decades in the trailer, container, and chassis repair business. After 20 years
+                in the industry, JC brought that experience in-house with a dedicated shop — now offering both in-shop repair
+                and fully equipped mobile trucks for jobs that can't come to us.
               </p>
               <p className="text-jc-gray-steel leading-relaxed">
                 Every job — whether it's a single trailer in our shop or a mobile call out to a fleet yard — gets the same
@@ -53,7 +53,7 @@ export default function About() {
       {/* Experience */}
       <section className="bg-jc-black-soft py-16 border-y border-white/10">
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid grid-cols-3 gap-6 text-center">
-          <div><p className="text-3xl font-black text-jc-orange-primary">25+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Years in Business</p></div>
+          <div><p className="text-3xl font-black text-jc-orange-primary">20+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Years of Experience</p></div>
           <div><p className="text-3xl font-black text-jc-orange-primary">5000+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Trailers Repaired</p></div>
           <div><p className="text-3xl font-black text-jc-orange-primary">1000+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Fleet Clients Served</p></div>
         </div>
@@ -62,10 +62,10 @@ export default function About() {
       {/* Mission */}
       <section className="bg-jc-black py-16 text-center">
         <div className="mx-auto max-w-2xl px-4">
-          <SectionHeading eyebrow="Our Mission" title="Every trailer back on the road, done right, the first time." />
+          <SectionHeading eyebrow="Our Mission" title={<>"We do what it takes to get the job done, rain or shine."</>} />
           <p className="text-jc-gray-steel">
-            We promise honest diagnostics, quality repairs, and a team that shows up when we say we will — whether that's in
-            our shop or at your yard. That's what "We Keep You Rolling" means to us.
+            We deliver outstanding, high-quality work at a fair price — whether that's in our shop or on site.
+            Let our work speak for itself.
           </p>
         </div>
       </section>

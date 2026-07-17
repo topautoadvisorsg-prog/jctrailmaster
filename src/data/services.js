@@ -98,7 +98,7 @@ export const faqs = [
 
 // STATUS: MOCKUP per spec Section 5 — placeholder values, swap before launch.
 export const stats = [
-  { label: "Years of Experience", value: "25+" },
+  { label: "Years of Experience", value: "20+" },
   { label: "Satisfied Customers", value: "1000+" },
   { label: "Trailers Repaired", value: "5000+" },
 ];
