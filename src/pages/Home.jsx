@@ -62,9 +62,6 @@ export default function Home() {
     "Experienced, reliable trailer and chassis repair — in shop or on site. 20+ years serving metro Atlanta fleets and owner-operators."
   );
 
-  const standardCategories = serviceCategories.filter((c) => !c.featured);
-  const mobileCategory = serviceCategories.find((c) => c.featured);
-
   return (
     <>
       {/* HERO — image carries the JC Trailmaster wordmark baked in; headline sits below it.
@@ -136,14 +133,23 @@ export default function Home() {
             <SectionHeading title={<>Complete <span className="text-jc-orange-primary">Repair and Maintenance</span> Solutions.</>} />
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {standardCategories.map((cat, i) => (
+            {serviceCategories.map((cat, i) => (
               <Reveal key={cat.slug} delay={i * 0.06}>
-                <div className="group h-full rounded-lg border border-white/10 bg-jc-black-soft overflow-hidden hover:border-jc-orange-primary/60 transition-colors">
+                <div
+                  className={`group h-full rounded-lg border bg-jc-black-soft overflow-hidden transition-colors ${
+                    cat.featured
+                      ? "border-jc-orange-primary/50 hover:border-jc-orange-primary"
+                      : "border-white/10 hover:border-jc-orange-primary/60"
+                  }`}
+                >
                   <div
                     className="aspect-video bg-cover bg-center bg-jc-black-soft"
                     style={bgImage(cat.image)}
                   />
                   <div className="p-6">
+                    {cat.featured && (
+                      <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Featured</p>
+                    )}
                     <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
                     <ul className="mb-4 space-y-1 text-sm text-jc-gray-steel">
                       {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
@@ -156,25 +162,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-
-          {mobileCategory && (
-            <Reveal delay={0.1}>
-              <div
-                className="relative mt-6 overflow-hidden rounded-lg border border-jc-orange-primary/40 bg-cover bg-center p-8 md:p-10"
-                style={bgImage(mobileCategory.image)}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-jc-black via-jc-black/85 to-jc-black/40" />
-                <div className="relative flex flex-col md:flex-row items-center gap-6 justify-between">
-                  <div>
-                    <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Featured</p>
-                    <h3 className="text-2xl font-black text-jc-white mb-2">{mobileCategory.title}</h3>
-                    <p className="text-jc-gray-steel max-w-xl">{mobileCategory.tagline}</p>
-                  </div>
-                  <Button variant="outline" href="/services/a#mobile-service" className="shrink-0">Learn More</Button>
-                </div>
-              </div>
-            </Reveal>
-          )}
         </div>
       </section>
 
