@@ -26,11 +26,11 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 lg:px-8 grid gap-10 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full jc-gradient-sunset">
-              <span className="text-jc-black font-black text-sm">JC</span>
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-jc-black">
+              <span className="font-brand text-jc-orange-deep text-sm leading-none">JC</span>
             </span>
-            <span className="font-black tracking-tight">
-              JC<span className="text-jc-orange-primary">TRAILMASTER</span>
+            <span className="font-brand text-jc-orange-primary text-lg tracking-wide">
+              TRAILMASTER
             </span>
           </div>
           <p className="text-sm text-jc-gray-steel leading-relaxed">

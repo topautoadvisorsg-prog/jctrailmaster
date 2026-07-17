@@ -18,15 +18,12 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-jc-black/95 backdrop-blur border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 lg:px-8">
         <NavLink to="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full jc-gradient-sunset">
-            <span className="text-jc-black font-black text-lg">JC</span>
+          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-jc-black">
+            <span className="font-brand text-jc-orange-deep text-lg leading-none">JC</span>
           </span>
           <span className="leading-tight text-left">
-            <span className="block font-black tracking-tight text-lg">
-              JC<span className="text-jc-orange-primary">TRAILMASTER</span>
-            </span>
-            <span className="block text-[10px] tracking-widest text-jc-gray-steel">
-              TRAILER · CONTAINER · CHASSIS REPAIR
+            <span className="block font-brand text-jc-orange-primary text-xl tracking-wide">
+              TRAILMASTER
             </span>
           </span>
         </NavLink>

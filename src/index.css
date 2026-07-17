@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "Anton", "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --color-jc-black: #0a0a0a;
   --color-jc-black-soft: #121212;
@@ -28,10 +29,6 @@ body {
 ::selection {
   background: var(--color-jc-orange-primary);
   color: var(--color-jc-black);
-}
-
-.jc-gradient-sunset {
-  background: radial-gradient(circle at 50% 45%, var(--color-jc-amber) 0%, var(--color-jc-orange-deep) 60%, transparent 75%);
 }
 
 .jc-divider {
