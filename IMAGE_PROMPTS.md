@@ -1,7 +1,8 @@
 # Marketing Image Prompts
 
-**Status (2026-07-16):** 8 of 9 slots delivered and wired in — only #9 (About shop photo) is
-still outstanding.
+**Status (2026-07-16):** All 9 slots delivered and wired in. Nothing outstanding here — the
+only remaining image work is real project/portfolio photos and brand-equipment logos (see
+"Not in this list" below), which aren't part of this doc.
 
 These are the **marketing/brand photography** slots in the site — not project photos.
 Project/portfolio images (`src/data/projects.js`) are real completed jobs and come from
@@ -85,7 +86,7 @@ composition as the reference mockup — instead of overlaid on top of the photo.
 > professional and trustworthy mood, handshake or collaborative pose. Photorealistic, high
 > contrast, 16:9 landscape. No text, no logos.
 
-## 9. About — shop photo
+## 9. About — shop photo ✅ DONE
 **File:** `public/images/about-shop.jpg`
 **Used in:** `src/pages/About.jsx`, Company Story section, aspect 4:3
 
