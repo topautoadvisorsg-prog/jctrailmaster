@@ -8,19 +8,72 @@ Trailer, container, and chassis repair company site. Built per `SPEC.md` (v2.3).
 - Framer Motion (hero entrance animation)
 - lucide-react (icons)
 
-## Structure
+## Architecture
+
+**How a page comes together:** `App.jsx` maps each URL to a file in `pages/`. A page pulls
+its content from `data/` (never hardcoded in the page itself) and assembles it using pieces
+from `components/`. Site-wide facts (phone, address, hours, cities) live in exactly one place,
+`data/business.js` — nothing else hardcodes them. That's the whole mental model.
+
 ```
 src/
-├── components/     Header, Footer, MobileCallBar, Button, CtaBand, ServiceDetailBlock,
-│                   Lightbox, BeforeAfterSlider, CategoryFilter, VariantSwitcher, etc.
-├── data/           services.js (categories/services/FAQ/brands/stats), projects.js (projects/testimonials)
-├── pages/
-│   ├── Home.jsx            Locked homepage layout (spec Section 5)
-│   ├── About.jsx           Spec Section 6B/8
-│   ├── Contact.jsx         Spec Section 9
-│   ├── services/            ServicesA.jsx (stacked), ServicesB.jsx (tabbed/accordion), ServicesC.jsx (grid-to-detail)
-│   └── projects/            ProjectsA.jsx (grid+lightbox), ProjectsB.jsx (before/after), ProjectsC.jsx (carousel)
+├── App.jsx                 Route table — every URL in the site is defined here, nowhere else
+├── main.jsx                React entry point (rarely touched)
+├── index.css                Brand colors/fonts (Tailwind v4 @theme tokens) — change the palette here
+│
+├── data/                    ALL editable content lives here. No copy should be hardcoded in a page/component.
+│   ├── business.js           ⭐ Phone, email, address, hours, service-area cities. Single source of truth.
+│   ├── services.js           The 6 service categories (titles, descriptions, images), FAQ, brand-logo list, stats bar
+│   └── projects.js           The 6 portfolio projects (title/image/before/after/description), testimonials
+│
+├── pages/                   One file per route. This is where sections get assembled top-to-bottom.
+│   ├── Home.jsx               / — hero, stats, service grid, mobile callout, why-us, fleet, brands, projects, reviews, FAQ
+│   ├── About.jsx               /about
+│   ├── Contact.jsx             /contact — form + info card + map
+│   ├── services/
+│   │   ├── ServicesA.jsx       /services/a — stacked full-page sections
+│   │   ├── ServicesB.jsx       /services/b — tabs (desktop) / accordion (mobile)
+│   │   └── ServicesC.jsx       /services/c — category grid that expands into detail on click
+│   └── projects/
+│       ├── ProjectsA.jsx       /projects/a — grid + click-to-open lightbox
+│       ├── ProjectsB.jsx       /projects/b — before/after drag slider
+│       └── ProjectsC.jsx       /projects/c — horizontal-scroll carousel per category
+│
+├── components/               Reusable building blocks, used by 2+ pages. Edit here to change something everywhere at once.
+│   ├── Header.jsx / Footer.jsx / MobileCallBar.jsx    Site chrome, on every page
+│   ├── Button.jsx / CtaBand.jsx / SectionHeading.jsx / Reveal.jsx    Small generic pieces (Reveal = scroll-in animation)
+│   ├── ServiceDetailBlock.jsx   The "one category, full detail" card — shared by all 3 Services variants
+│   ├── CategoryFilter.jsx / Lightbox.jsx / BeforeAfterSlider.jsx    Projects-page building blocks
+│   ├── VariantSwitcher.jsx      The "Layout Preview: A · B · C" pill bar (temporary, for client review)
+│   └── MapEmbed.jsx             Google Maps iframe, reads the address from data/business.js
+│
+├── hooks/
+│   └── usePageMeta.js        Sets the browser tab title + meta description per page
+│
+└── lib/
+    └── media.js             bgImage() helper — makes any photo slot fall back to a branded pattern
+                              instead of a blank box if the file is missing/not-yet-added
 ```
+
+### Want to change something? Start here.
+| I want to change... | Edit this file |
+|---|---|
+| Phone, email, address, or business hours | `data/business.js` |
+| A service category's name, description, or photo | `data/services.js` → `serviceCategories` |
+| The FAQ | `data/services.js` → `faqs` |
+| The brands/equipment logo strip | `data/services.js` → `brandsServiced` |
+| The homepage stats bar numbers | `data/services.js` → `stats` |
+| A completed-job project (photos, description) | `data/projects.js` → `projects` |
+| Customer reviews | `data/projects.js` → `testimonials` |
+| Header nav links / logo | `components/Header.jsx` |
+| Footer content | `components/Footer.jsx` |
+| Brand colors | `src/index.css` (`@theme` block at the top) |
+| Anything on the homepage's layout/order | `pages/Home.jsx` |
+| Which Services/Projects layout variant is "the" one | Point `/services` and `/projects` in `App.jsx` at the winning variant, delete the other two files |
+
+**Safe to edit without breaking anything:** any file under `data/`, plus wording/text inside
+`pages/`. Editing a `components/` file changes it everywhere that component is used — that's
+usually what you want, just know it's not page-local.
 
 ## Client review — layout variants
 Per spec Section 18: Services and Projects each have 3 real, clickable layout variants.
@@ -43,6 +96,9 @@ npm run build     # production build to /dist
 - **Google Maps** — real embed live on Home and Contact, pinned to the address above.
 - **Marketing photos** — all 9 slots from `IMAGE_PROMPTS.md` delivered and wired in.
 - **Projects gallery** — temporarily filled with stock photos (Pexels, free license) so nothing looks missing; still flagged `TEMPORARY` in `src/data/projects.js`, swap for real completed-job photos when the client sends them.
+- **Years of experience**: 20+, not 25+ (verified against jctrailmaster.com/aboutus — corrected 2026-07-17, also rewrote the About page story/mission to match the real narrative)
+- **Contact info centralized** (2026-07-17) — was hardcoded in 7+ files (that's why the address/hours fixes above each needed a multi-file hunt), now lives once in `src/data/business.js`. See Architecture section above.
+- **Homepage service grid** — Mobile Service is now the 6th grid card instead of a separate band below (client feedback: the standalone band looked disconnected, and left an empty gap in the 5-card grid's last row)
 
 ## Open items before launch (spec Section 17 — still needs client answers)
 - Real logo file (currently using a generated circular badge, not the client's actual logo file)
