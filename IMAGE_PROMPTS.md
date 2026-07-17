@@ -1,5 +1,8 @@
 # Marketing Image Prompts
 
+**Status (2026-07-16):** 8 of 9 slots delivered and wired in — only #9 (About shop photo) is
+still outstanding.
+
 These are the **marketing/brand photography** slots in the site — not project photos.
 Project/portfolio images (`src/data/projects.js`) are real completed jobs and come from
 the client directly; they are not listed here.
@@ -25,7 +28,7 @@ composition as the reference mockup — instead of overlaid on top of the photo.
 
 ---
 
-## 2. Service category — Trailer & Chassis Repairs
+## 2. Service category — Trailer & Chassis Repairs ✅ DONE
 **File:** `public/images/service-trailer-chassis.jpg`
 **Used in:** category card (Home + Services page), aspect ~4:3 / 16:9
 
@@ -34,35 +37,35 @@ composition as the reference mockup — instead of overlaid on top of the photo.
 > work lights, orange safety-vest accent for a pop of brand color. Gritty, hands-on industrial
 > detail. High contrast, shallow depth of field. No text, no logos.
 
-## 3. Service category — Brake & Suspension
+## 3. Service category — Brake & Suspension ✅ DONE
 **File:** `public/images/service-brake-suspension.jpg`
 
 > Photorealistic shot of a mechanic's hands inspecting or repairing a heavy-duty trailer brake
 > drum and air-ride suspension system underneath a trailer. Warm amber-toned shop lighting,
 > tools visible in frame, dramatic shadows. Photorealistic, high contrast. No text, no logos.
 
-## 4. Service category — Fleet Maintenance
+## 4. Service category — Fleet Maintenance ✅ DONE
 **File:** `public/images/service-fleet-maintenance.jpg`
 
 > Wide photorealistic shot of a row of commercial trailers lined up in a service yard at dusk
 > for inspection, a technician with a clipboard walking the line. Warm sunset lighting, orange
 > sky, sense of scale and organization. Photorealistic, high contrast. No text, no logos.
 
-## 5. Service category — Electrical Services
+## 5. Service category — Electrical Services ✅ DONE
 **File:** `public/images/service-electrical.jpg`
 
 > Photorealistic close-up of a technician repairing trailer tail-light wiring or an electrical
 > harness at the rear of a trailer. Dusk ambient light mixed with glowing LED lights, warm
 > orange undertone. Photorealistic, high contrast, shallow depth of field. No text, no logos.
 
-## 6. Service category — Cleaning & Appearance
+## 6. Service category — Cleaning & Appearance ✅ DONE
 **File:** `public/images/service-cleaning.jpg`
 
 > Photorealistic shot of a pressure washer blasting grime off the side of a semi-trailer in a
 > wash bay, water spray catching golden dusk light, dramatic backlit mist. Photorealistic, high
 > contrast. No text, no logos.
 
-## 7. Service category — Mobile Service (featured, wider treatment)
+## 7. Service category — Mobile Service (featured, wider treatment) ✅ DONE
 **File:** `public/images/service-mobile.jpg`
 **Used in:** featured/larger card — give it a 16:9 crop, this one carries more visual weight than the other five
 
@@ -73,7 +76,7 @@ composition as the reference mockup — instead of overlaid on top of the photo.
 
 ---
 
-## 8. Fleet & Commercial Accounts banner
+## 8. Fleet & Commercial Accounts banner ✅ DONE
 **File:** `public/images/fleet-accounts.jpg`
 **Used in:** `src/pages/Home.jsx`, Fleet & Commercial Accounts section, aspect 16:9
 

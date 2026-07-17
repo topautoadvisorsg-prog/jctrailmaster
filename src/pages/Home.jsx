@@ -67,16 +67,16 @@ export default function Home() {
   return (
     <>
       {/* HERO — image carries the JC Trailmaster wordmark baked in; headline sits below it.
-          Height is capped (not aspect-ratio-locked) so it doesn't balloon on wide viewports
-          and drag the headline down behind a wall of dark sky/pavement. */}
+          Height is capped (not aspect-ratio-locked) so it stays big/full without ballooning
+          past ~820px on ultra-wide screens and dragging the headline behind dead black space. */}
       <section className="bg-jc-black">
         <div
-          className="relative w-full h-[300px] sm:h-[380px] md:h-[480px] lg:h-[560px] bg-cover bg-center"
+          className="relative w-full h-[420px] sm:h-[520px] md:h-[680px] lg:h-[760px] xl:h-[820px] bg-cover bg-center"
           style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg")}
           role="img"
           aria-label="JC Trailmaster semi-truck and trailer at sunset"
         >
-          <div className="absolute inset-x-0 bottom-0 h-16 md:h-20 bg-gradient-to-t from-jc-black to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 md:h-24 bg-gradient-to-t from-jc-black to-transparent" />
         </div>
 
         <div className="mx-auto max-w-5xl px-4 pb-16 pt-6 md:pt-8 text-center">
