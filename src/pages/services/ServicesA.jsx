@@ -1,7 +1,8 @@
 import VariantSwitcher from "../../components/VariantSwitcher";
-import SectionHeading from "../../components/SectionHeading";
 import ServiceDetailBlock from "../../components/ServiceDetailBlock";
 import CtaBand from "../../components/CtaBand";
+import Reveal from "../../components/Reveal";
+import usePageMeta from "../../hooks/usePageMeta";
 import { serviceCategories } from "../../data/services";
 
 const VARIANTS = [
@@ -11,6 +12,11 @@ const VARIANTS = [
 ];
 
 export default function ServicesA() {
+  usePageMeta(
+    "Services — Trailer, Chassis & Fleet Repair",
+    "Trailer & chassis repair, brake & suspension, fleet maintenance, electrical, cleaning, and mobile service — full details on every repair we offer."
+  );
+
   return (
     <>
       <VariantSwitcher base="/services" variants={VARIANTS} />
@@ -25,7 +31,7 @@ export default function ServicesA() {
         </div>
       </section>
 
-      <nav className="bg-jc-black-soft border-b border-white/10 sticky top-[113px] z-30">
+      <nav className="bg-jc-black-soft border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 py-3 flex flex-wrap gap-2 overflow-x-auto">
           {serviceCategories.map((c) => (
             <a
@@ -42,7 +48,9 @@ export default function ServicesA() {
       <section className="bg-jc-black py-16">
         <div className="mx-auto max-w-6xl px-4 lg:px-8 space-y-20">
           {serviceCategories.map((cat, i) => (
-            <ServiceDetailBlock key={cat.slug} category={cat} reverse={i % 2 === 1} />
+            <Reveal key={cat.slug}>
+              <ServiceDetailBlock category={cat} reverse={i % 2 === 1} />
+            </Reveal>
           ))}
         </div>
       </section>

@@ -6,6 +6,9 @@ import { useState } from "react";
 import Button from "../components/Button";
 import SectionHeading from "../components/SectionHeading";
 import CtaBand from "../components/CtaBand";
+import Reveal from "../components/Reveal";
+import usePageMeta from "../hooks/usePageMeta";
+import { bgImage } from "../lib/media";
 import { serviceCategories, brandsServiced, faqs, stats } from "../data/services";
 import { projects, testimonials } from "../data/projects";
 
@@ -39,6 +42,7 @@ function FaqItem({ q, a }) {
       <button
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between py-5 text-left"
+        aria-expanded={open}
       >
         <span className="font-semibold text-jc-white pr-4">{q}</span>
         <ChevronDown
@@ -52,25 +56,28 @@ function FaqItem({ q, a }) {
 }
 
 export default function Home() {
+  usePageMeta(
+    "Trailer, Container & Chassis Repair in Metro Atlanta",
+    "Experienced, reliable trailer and chassis repair — in shop or on site. 25+ years serving metro Atlanta fleets and owner-operators. 24/7 dispatch."
+  );
+
   const standardCategories = serviceCategories.filter((c) => !c.featured);
   const mobileCategory = serviceCategories.find((c) => c.featured);
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-jc-black">
-        <div className="absolute inset-0 jc-gradient-sunset opacity-40" />
-        <div className="relative mx-auto max-w-5xl px-4 py-24 text-center lg:py-32">
-          <motion.div initial="hidden" animate="show" variants={fadeUp} className="mb-8 flex justify-center">
-            <span className="flex h-28 w-28 items-center justify-center rounded-full jc-gradient-sunset shadow-2xl shadow-orange-900/50">
-              <span className="text-jc-black font-black text-2xl leading-none text-center">
-                JC<br /><span className="text-[9px] tracking-widest">TRAILMASTER</span>
-              </span>
-            </span>
-          </motion.div>
+      {/* HERO — full-bleed photo slot; swap /public/images/hero-truck.jpg for the real shot */}
+      <section
+        className="relative overflow-hidden bg-jc-black bg-cover bg-center min-h-[640px] md:min-h-[80vh] flex items-end"
+        style={bgImage("/images/hero-truck.jpg")}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-jc-black via-jc-black/70 to-jc-black/20" />
+        <div className="absolute inset-0 jc-gradient-sunset opacity-25 mix-blend-screen" />
+
+        <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-32 text-center w-full">
           <motion.h1
             initial="hidden" animate="show" variants={fadeUp}
-            className="text-4xl md:text-6xl font-black tracking-tight text-jc-white"
+            className="text-4xl md:text-6xl font-black tracking-tight text-jc-white drop-shadow-lg"
           >
             Experienced. Reliable.
             <span className="block text-jc-orange-primary">We Keep You Rolling.</span>
@@ -88,21 +95,24 @@ export default function Home() {
             <Button variant="primary" icon="wrench" href="/contact">Request Service</Button>
             <Button variant="secondary" icon="phone">Call Now</Button>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="mt-14 grid grid-cols-2 gap-6 md:grid-cols-4">
-            {TRUST_BADGES.map((b) => (
-              <div key={b.label} className="text-center">
-                <b.icon className="mx-auto mb-2 text-jc-orange-primary" size={26} strokeWidth={1.5} />
-                <p className="text-sm font-bold text-jc-white">{b.label}</p>
-                <p className="text-xs text-jc-gray-steel">{b.sub}</p>
-              </div>
-            ))}
-          </div>
+      {/* TRUST BADGES */}
+      <section className="bg-jc-black py-12 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 grid grid-cols-2 gap-6 md:grid-cols-4">
+          {TRUST_BADGES.map((b) => (
+            <div key={b.label} className="text-center">
+              <b.icon className="mx-auto mb-2 text-jc-orange-primary" size={26} strokeWidth={1.5} />
+              <p className="text-sm font-bold text-jc-white">{b.label}</p>
+              <p className="text-xs text-jc-gray-steel">{b.sub}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* STATS BAR — MOCKUP, swap real figures before launch */}
-      <section className="bg-jc-black-soft border-y border-white/10">
+      <section className="bg-jc-black-soft border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-6 grid grid-cols-2 gap-6 md:grid-cols-4 lg:px-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
@@ -116,33 +126,48 @@ export default function Home() {
       {/* SERVICE CATEGORIES */}
       <section className="bg-jc-black py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading title={<>Complete <span className="text-jc-orange-primary">Repair and Maintenance</span> Solutions.</>} />
+          <Reveal>
+            <SectionHeading title={<>Complete <span className="text-jc-orange-primary">Repair and Maintenance</span> Solutions.</>} />
+          </Reveal>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {standardCategories.map((cat) => (
-              <div key={cat.slug} className="rounded-lg border border-white/10 bg-jc-black-soft p-6 hover:border-jc-orange-primary/60 transition-colors">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-jc-orange-primary/10">
-                  <Wrench className="text-jc-orange-primary" size={20} />
+            {standardCategories.map((cat, i) => (
+              <Reveal key={cat.slug} delay={i * 0.06}>
+                <div className="group h-full rounded-lg border border-white/10 bg-jc-black-soft overflow-hidden hover:border-jc-orange-primary/60 transition-colors">
+                  <div
+                    className="aspect-video bg-cover bg-center bg-jc-black-soft"
+                    style={bgImage(cat.image)}
+                  />
+                  <div className="p-6">
+                    <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
+                    <ul className="mb-4 space-y-1 text-sm text-jc-gray-steel">
+                      {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
+                    </ul>
+                    <a href={`/services/a#${cat.slug}`} className="text-sm font-bold text-jc-orange-primary group-hover:text-jc-amber transition-colors">
+                      Learn More →
+                    </a>
+                  </div>
                 </div>
-                <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
-                <ul className="mb-4 space-y-1 text-sm text-jc-gray-steel">
-                  {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
-                </ul>
-                <a href={`/services/a#${cat.slug}`} className="text-sm font-bold text-jc-orange-primary hover:text-jc-amber">
-                  Learn More →
-                </a>
-              </div>
+              </Reveal>
             ))}
           </div>
 
           {mobileCategory && (
-            <div className="mt-6 rounded-lg border border-jc-orange-primary/40 bg-gradient-to-r from-jc-black-soft to-jc-orange-primary/10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 justify-between">
-              <div>
-                <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Featured</p>
-                <h3 className="text-2xl font-black text-jc-white mb-2">{mobileCategory.title}</h3>
-                <p className="text-jc-gray-steel max-w-xl">{mobileCategory.tagline}</p>
+            <Reveal delay={0.1}>
+              <div
+                className="relative mt-6 overflow-hidden rounded-lg border border-jc-orange-primary/40 bg-cover bg-center p-8 md:p-10"
+                style={bgImage(mobileCategory.image)}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-jc-black via-jc-black/85 to-jc-black/40" />
+                <div className="relative flex flex-col md:flex-row items-center gap-6 justify-between">
+                  <div>
+                    <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Featured</p>
+                    <h3 className="text-2xl font-black text-jc-white mb-2">{mobileCategory.title}</h3>
+                    <p className="text-jc-gray-steel max-w-xl">{mobileCategory.tagline}</p>
+                  </div>
+                  <Button variant="outline" href="/services/a#mobile-service" className="shrink-0">Learn More</Button>
+                </div>
               </div>
-              <Button variant="outline" href="/services/a#mobile-service" className="shrink-0">Learn More</Button>
-            </div>
+            </Reveal>
           )}
         </div>
       </section>
@@ -155,7 +180,7 @@ export default function Home() {
             <p className="text-jc-black/80 font-semibold mt-1">Round-the-clock breakdown response.</p>
             <p className="text-jc-black/70 text-sm mt-1">We're on-site when and where you need us most.</p>
           </div>
-          <a href="tel:7709064781" className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white">
+          <a href="tel:7709064781" className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white hover:bg-jc-black-soft transition-colors">
             <Phone size={20} className="text-jc-orange-primary" />
             <span>
               <span className="block text-xs uppercase tracking-wide text-jc-gray-steel">Call Now</span>
@@ -168,14 +193,18 @@ export default function Home() {
       {/* WHY CHOOSE US */}
       <section className="bg-jc-black py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading title={<>Why Choose <span className="text-jc-orange-primary">JC Trailmaster?</span></>} />
+          <Reveal>
+            <SectionHeading title={<>Why Choose <span className="text-jc-orange-primary">JC Trailmaster?</span></>} />
+          </Reveal>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY_CHOOSE.map((item) => (
-              <div key={item.label} className="rounded-lg border border-white/10 p-6 text-center">
-                <item.icon className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
-                <p className="font-bold text-jc-white">{item.label}</p>
-                <p className="text-xs text-jc-gray-steel mt-1">{item.sub}</p>
-              </div>
+            {WHY_CHOOSE.map((item, i) => (
+              <Reveal key={item.label} delay={i * 0.05}>
+                <div className="h-full rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
+                  <item.icon className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
+                  <p className="font-bold text-jc-white">{item.label}</p>
+                  <p className="text-xs text-jc-gray-steel mt-1">{item.sub}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -184,17 +213,21 @@ export default function Home() {
       {/* FLEET & COMMERCIAL ACCOUNTS */}
       <section className="bg-jc-black-soft py-16 border-y border-white/10">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid gap-8 md:grid-cols-2 items-center">
-          <div>
-            <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Fleet & Commercial Accounts</p>
-            <h3 className="text-2xl md:text-3xl font-black text-jc-white mb-4">
-              We partner with fleet managers and owner-operators to keep your business moving.
-            </h3>
-            <p className="text-jc-gray-steel mb-6 max-w-xl">
-              Ask about our priority scheduling and billing accounts — a single point of contact for every unit in your fleet.
-            </p>
-            <Button variant="outline" href="/contact">Learn More</Button>
-          </div>
-          <div className="aspect-video rounded-lg bg-cover bg-center jc-gradient-sunset opacity-70" style={{ backgroundImage: "url(/images/fleet-accounts.jpg)" }} />
+          <Reveal>
+            <div>
+              <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Fleet & Commercial Accounts</p>
+              <h3 className="text-2xl md:text-3xl font-black text-jc-white mb-4">
+                We partner with fleet managers and owner-operators to keep your business moving.
+              </h3>
+              <p className="text-jc-gray-steel mb-6 max-w-xl">
+                Ask about our priority scheduling and billing accounts — a single point of contact for every unit in your fleet.
+              </p>
+              <Button variant="outline" href="/contact">Learn More</Button>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="aspect-video rounded-lg bg-cover bg-center" style={bgImage("/images/fleet-accounts.jpg")} />
+          </Reveal>
         </div>
       </section>
 
@@ -213,19 +246,23 @@ export default function Home() {
       {/* FEATURED PROJECTS */}
       <section className="bg-jc-black-soft py-20 border-y border-white/10">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Our Work" title={<>Featured <span className="text-jc-orange-primary">Projects</span></>} />
+          <Reveal>
+            <SectionHeading eyebrow="Our Work" title={<>Featured <span className="text-jc-orange-primary">Projects</span></>} />
+          </Reveal>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {projects.filter((p) => p.featured).map((p) => (
-              <a key={p.id} href="/projects/a" className="group block rounded-lg overflow-hidden border border-white/10">
-                <div className="aspect-[4/3] bg-cover bg-center bg-jc-black" style={{ backgroundImage: `url(${p.image})` }} />
-                <div className="p-3">
-                  <span className="inline-block mb-1 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
-                    {p.categoryLabel}
-                  </span>
-                  <p className="text-sm font-bold text-jc-white leading-tight">{p.title}</p>
-                  <p className="text-xs text-jc-gray-steel">{p.location}</p>
-                </div>
-              </a>
+            {projects.filter((p) => p.featured).map((p, i) => (
+              <Reveal key={p.id} delay={i * 0.05}>
+                <a href="/projects/a" className="group block rounded-lg overflow-hidden border border-white/10 hover:border-jc-orange-primary/60 transition-colors">
+                  <div className="aspect-[4/3] bg-cover bg-center bg-jc-black" style={bgImage(p.image)} />
+                  <div className="p-3">
+                    <span className="inline-block mb-1 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
+                      {p.categoryLabel}
+                    </span>
+                    <p className="text-sm font-bold text-jc-white leading-tight">{p.title}</p>
+                    <p className="text-xs text-jc-gray-steel">{p.location}</p>
+                  </div>
+                </a>
+              </Reveal>
             ))}
           </div>
           <div className="mt-8 text-center">
@@ -237,25 +274,29 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <section className="bg-jc-black py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Reviews" title="What Our Customers Say" />
+          <Reveal>
+            <SectionHeading eyebrow="Reviews" title="What Our Customers Say" />
+          </Reveal>
           <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <div key={t.name} className="rounded-lg border border-white/10 p-6">
-                <div className="flex gap-1 mb-3 text-jc-orange-primary">
-                  {Array.from({ length: t.rating }).map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={i * 0.06}>
+                <div className="h-full rounded-lg border border-white/10 p-6 hover:border-jc-orange-primary/30 transition-colors">
+                  <div className="flex gap-1 mb-3 text-jc-orange-primary">
+                    {Array.from({ length: t.rating }).map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+                  </div>
+                  <p className="text-jc-gray-steel text-sm italic mb-4">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="text-sm font-bold text-jc-white">{t.name}</p>
+                  <p className="text-xs text-jc-gray-steel">{t.location}</p>
+                  <p className="text-xs text-jc-orange-primary mt-1">Google · 5.0</p>
                 </div>
-                <p className="text-jc-gray-steel text-sm italic mb-4">&ldquo;{t.quote}&rdquo;</p>
-                <p className="text-sm font-bold text-jc-white">{t.name}</p>
-                <p className="text-xs text-jc-gray-steel">{t.location}</p>
-                <p className="text-xs text-jc-orange-primary mt-1">Google · 5.0</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* SERVICE AREA */}
-      <section className="bg-jc-black-soft py-20 border-t border-white/10">
+      <section className="bg-jc-black-soft py-20 border-y border-white/10">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid gap-10 lg:grid-cols-3">
           <div>
             <SectionHeading center={false} eyebrow="Coverage" title="Service Area" subtitle="Proudly serving metro Atlanta and surrounding areas." />

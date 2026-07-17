@@ -1,11 +1,10 @@
 import { useState, useRef } from "react";
 import VariantSwitcher from "../../components/VariantSwitcher";
-import SectionHeading from "../../components/SectionHeading";
 import ServiceDetailBlock from "../../components/ServiceDetailBlock";
 import CtaBand from "../../components/CtaBand";
-import Button from "../../components/Button";
+import usePageMeta from "../../hooks/usePageMeta";
+import { bgImage } from "../../lib/media";
 import { serviceCategories } from "../../data/services";
-import { Wrench } from "lucide-react";
 
 const VARIANTS = [
   { path: "a", label: "A · Stacked" },
@@ -14,6 +13,11 @@ const VARIANTS = [
 ];
 
 export default function ServicesC() {
+  usePageMeta(
+    "Services — Trailer, Chassis & Fleet Repair",
+    "Trailer & chassis repair, brake & suspension, fleet maintenance, electrical, cleaning, and mobile service — full details on every repair we offer."
+  );
+
   const [active, setActive] = useState(null);
   const detailRef = useRef(null);
 
@@ -45,28 +49,29 @@ export default function ServicesC() {
               <button
                 key={cat.slug}
                 onClick={() => handleSelect(cat.slug)}
-                className={`text-left rounded-lg border p-6 transition-colors ${
+                aria-pressed={active === cat.slug}
+                className={`text-left rounded-lg border overflow-hidden transition-colors ${
                   active === cat.slug
                     ? "border-jc-orange-primary bg-jc-orange-primary/10"
                     : "border-white/10 bg-jc-black-soft hover:border-jc-orange-primary/60"
                 } ${cat.featured ? "md:col-span-2 lg:col-span-3" : ""}`}
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-md bg-jc-orange-primary/10">
-                  <Wrench className="text-jc-orange-primary" size={20} />
+                <div className="aspect-video bg-cover bg-center" style={bgImage(cat.image)} />
+                <div className="p-6">
+                  <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
+                  <ul className="space-y-1 text-sm text-jc-gray-steel mb-3">
+                    {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
+                  </ul>
+                  <span className="text-sm font-bold text-jc-orange-primary">
+                    {active === cat.slug ? "Viewing details ↓" : "View Details →"}
+                  </span>
                 </div>
-                <h3 className="font-bold text-jc-white mb-2">{cat.title}</h3>
-                <ul className="space-y-1 text-sm text-jc-gray-steel mb-3">
-                  {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
-                </ul>
-                <span className="text-sm font-bold text-jc-orange-primary">
-                  {active === cat.slug ? "Viewing details ↓" : "View Details →"}
-                </span>
               </button>
             ))}
           </div>
 
           {activeCategory && (
-            <div ref={detailRef} className="mt-12 scroll-mt-32">
+            <div ref={detailRef} className="mt-12 scroll-mt-36">
               <div className="border-t border-white/10 pt-12">
                 <ServiceDetailBlock category={activeCategory} />
               </div>

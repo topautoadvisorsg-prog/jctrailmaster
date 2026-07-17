@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
-import SectionHeading from "../components/SectionHeading";
+import usePageMeta from "../hooks/usePageMeta";
 
 const CITIES = ["Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
 
 export default function Contact() {
+  usePageMeta(
+    "Contact Us — Request Service",
+    "Request trailer or chassis repair service from JC Trailmaster. Call 770-906-4781 for 24/7 dispatch, or send us your details."
+  );
+
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -28,7 +33,7 @@ export default function Contact() {
           {/* Form */}
           <div className="lg:col-span-3 rounded-lg border border-white/10 bg-jc-black-soft p-6 md:p-8">
             {submitted ? (
-              <div className="text-center py-10">
+              <div className="text-center py-10" role="status" aria-live="polite">
                 <p className="text-jc-orange-primary font-black text-xl mb-2">Request Received.</p>
                 <p className="text-jc-gray-steel">We'll be in touch shortly. For anything urgent, call 770-906-4781.</p>
               </div>
@@ -36,22 +41,22 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Name</label>
-                    <input required type="text" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" />
+                    <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Name</label>
+                    <input id="name" name="name" required type="text" autoComplete="name" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Phone</label>
-                    <input required type="tel" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" />
+                    <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Phone</label>
+                    <input id="phone" name="phone" required type="tel" autoComplete="tel" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Email</label>
-                  <input required type="email" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" />
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Email</label>
+                  <input id="email" name="email" required type="email" autoComplete="email" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Service Needed</label>
-                  <select required className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary">
-                    <option value="">Select a service</option>
+                  <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Service Needed</label>
+                  <select id="service" name="service" required defaultValue="" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary">
+                    <option value="" disabled>Select a service</option>
                     <option>Trailer & Chassis Repairs</option>
                     <option>Brake & Suspension</option>
                     <option>Fleet Maintenance</option>
@@ -63,8 +68,8 @@ export default function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Message</label>
-                  <textarea rows={4} className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" placeholder="Tell us what's going on with your trailer or chassis..." />
+                  <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Message</label>
+                  <textarea id="message" name="message" rows={4} className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" placeholder="Tell us what's going on with your trailer or chassis..." />
                 </div>
                 <button
                   type="submit"

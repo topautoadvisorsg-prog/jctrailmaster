@@ -1,20 +1,18 @@
 import { useState } from "react";
+import { bgImage } from "../lib/media";
 
 export default function BeforeAfterSlider({ before, after, label }) {
   const [pos, setPos] = useState(50);
 
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-white/10 select-none">
+      <div className="absolute inset-0 bg-cover bg-center" style={bgImage(after)} />
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${after})` }}
+        style={{ ...bgImage(before), clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       />
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${before})`, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
-      />
-      <div
-        className="absolute top-0 bottom-0 w-0.5 bg-jc-orange-primary"
+        className="absolute top-0 bottom-0 w-0.5 bg-jc-orange-primary pointer-events-none"
         style={{ left: `${pos}%` }}
       />
       <span className="absolute top-3 left-3 rounded bg-jc-black/70 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-white">Before</span>

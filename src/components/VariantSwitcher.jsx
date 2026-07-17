@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function VariantSwitcher({ base, variants }) {
   return (
-    <div className="sticky top-[65px] z-40 bg-jc-black-soft border-b border-white/10">
+    <div className="sticky top-[69px] z-40 bg-jc-black-soft border-b border-white/10">
       <div className="mx-auto max-w-7xl px-4 lg:px-8 py-3 flex flex-wrap items-center gap-3">
         <span className="text-xs font-bold uppercase tracking-widest text-jc-gray-steel">Layout Preview:</span>
         <div className="flex gap-2">

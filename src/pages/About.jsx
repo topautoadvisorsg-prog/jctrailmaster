@@ -1,6 +1,9 @@
-import { ShieldCheck, Award, Users, Wrench } from "lucide-react";
+import { ShieldCheck, Award, Wrench } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import CtaBand from "../components/CtaBand";
+import Reveal from "../components/Reveal";
+import usePageMeta from "../hooks/usePageMeta";
+import { bgImage } from "../lib/media";
 
 const DIFFERENTIATORS = [
   { title: "Mobile & In-Shop", body: "We come to you or you come to us — whichever gets you back on the road faster." },
@@ -10,6 +13,11 @@ const DIFFERENTIATORS = [
 ];
 
 export default function About() {
+  usePageMeta(
+    "About Us",
+    "25+ years of hands-on trailer and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
+  );
+
   return (
     <>
       <section className="bg-jc-black py-20 text-center border-b border-white/10">
@@ -22,19 +30,23 @@ export default function About() {
       {/* Company Story */}
       <section className="bg-jc-black py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
-          <div>
-            <SectionHeading center={false} eyebrow="Our Story" title="Built by people who work on trucks, for people who run them." />
-            <p className="text-jc-gray-steel mb-4 leading-relaxed">
-              JC Trailmaster was founded on a simple idea: trailer and chassis repair should be fast, honest, and done right the
-              first time. What started as a small shop has grown into a trusted partner for fleet managers and owner-operators
-              across metro Atlanta — without losing the hands-on, no-nonsense approach we started with.
-            </p>
-            <p className="text-jc-gray-steel leading-relaxed">
-              Every job — whether it's a single trailer in our shop or a mobile call to a fleet yard at 2 AM — gets the same
-              standard of work. That's the promise behind "We Keep You Rolling."
-            </p>
-          </div>
-          <div className="aspect-[4/3] rounded-lg bg-cover bg-center border border-white/10 jc-gradient-sunset" style={{ backgroundImage: "url(/images/about-shop.jpg)" }} />
+          <Reveal>
+            <div>
+              <SectionHeading center={false} eyebrow="Our Story" title="Built by people who work on trucks, for people who run them." />
+              <p className="text-jc-gray-steel mb-4 leading-relaxed">
+                JC Trailmaster was founded on a simple idea: trailer and chassis repair should be fast, honest, and done right the
+                first time. What started as a small shop has grown into a trusted partner for fleet managers and owner-operators
+                across metro Atlanta — without losing the hands-on, no-nonsense approach we started with.
+              </p>
+              <p className="text-jc-gray-steel leading-relaxed">
+                Every job — whether it's a single trailer in our shop or a mobile call to a fleet yard at 2 AM — gets the same
+                standard of work. That's the promise behind "We Keep You Rolling."
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="aspect-[4/3] rounded-lg bg-cover bg-center border border-white/10" style={bgImage("/images/about-shop.jpg")} />
+          </Reveal>
         </div>
       </section>
 
@@ -64,15 +76,15 @@ export default function About() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <SectionHeading eyebrow="Credentials" title="Licensed, Insured, and Certified" />
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-lg border border-white/10 p-6 text-center">
+            <div className="rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
               <ShieldCheck className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
               <p className="font-bold text-jc-white">Fully Licensed</p>
             </div>
-            <div className="rounded-lg border border-white/10 p-6 text-center">
+            <div className="rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
               <Award className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
               <p className="font-bold text-jc-white">Fully Insured</p>
             </div>
-            <div className="rounded-lg border border-white/10 p-6 text-center">
+            <div className="rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
               <Wrench className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
               <p className="font-bold text-jc-white">Certified Technicians</p>
             </div>
@@ -86,7 +98,7 @@ export default function About() {
           <SectionHeading eyebrow="Why Us" title="Why Customers Choose JC Trailmaster" />
           <div className="grid gap-6 sm:grid-cols-2">
             {DIFFERENTIATORS.map((d) => (
-              <div key={d.title} className="rounded-lg border border-white/10 p-6">
+              <div key={d.title} className="rounded-lg border border-white/10 p-6 hover:border-jc-orange-primary/30 transition-colors">
                 <p className="font-bold text-jc-white mb-1">{d.title}</p>
                 <p className="text-sm text-jc-gray-steel">{d.body}</p>
               </div>

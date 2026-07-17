@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Plus } from "lucide-react";
 import VariantSwitcher from "../../components/VariantSwitcher";
 import ServiceDetailBlock from "../../components/ServiceDetailBlock";
 import CtaBand from "../../components/CtaBand";
+import usePageMeta from "../../hooks/usePageMeta";
 import { serviceCategories } from "../../data/services";
 
 const VARIANTS = [
@@ -11,6 +13,11 @@ const VARIANTS = [
 ];
 
 export default function ServicesB() {
+  usePageMeta(
+    "Services — Trailer, Chassis & Fleet Repair",
+    "Trailer & chassis repair, brake & suspension, fleet maintenance, electrical, cleaning, and mobile service — full details on every repair we offer."
+  );
+
   const [active, setActive] = useState(serviceCategories[0].slug);
   const activeCategory = serviceCategories.find((c) => c.slug === active);
 
@@ -28,13 +35,15 @@ export default function ServicesB() {
         </div>
       </section>
 
-      {/* Desktop tabs */}
       <section className="bg-jc-black py-14">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="hidden md:flex flex-wrap gap-2 mb-10 border-b border-white/10 pb-4">
+          {/* Desktop tabs */}
+          <div role="tablist" className="hidden md:flex flex-wrap gap-2 mb-10 border-b border-white/10 pb-4">
             {serviceCategories.map((c) => (
               <button
                 key={c.slug}
+                role="tab"
+                aria-selected={active === c.slug}
                 onClick={() => setActive(c.slug)}
                 className={`rounded-md px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition-colors ${
                   active === c.slug
@@ -58,10 +67,11 @@ export default function ServicesB() {
                 <div key={c.slug} className="rounded-lg border border-white/10 overflow-hidden">
                   <button
                     onClick={() => setActive(open ? "" : c.slug)}
+                    aria-expanded={open}
                     className="w-full flex items-center justify-between px-5 py-4 text-left"
                   >
                     <span className="font-bold text-jc-white">{c.title}</span>
-                    <span className={`text-jc-orange-primary transition-transform ${open ? "rotate-45" : ""}`}>+</span>
+                    <Plus size={18} className={`shrink-0 text-jc-orange-primary transition-transform ${open ? "rotate-45" : ""}`} />
                   </button>
                   {open && (
                     <div className="px-5 pb-6">

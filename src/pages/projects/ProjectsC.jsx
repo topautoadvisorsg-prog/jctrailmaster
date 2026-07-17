@@ -3,6 +3,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import VariantSwitcher from "../../components/VariantSwitcher";
 import CtaBand from "../../components/CtaBand";
 import Button from "../../components/Button";
+import usePageMeta from "../../hooks/usePageMeta";
+import { bgImage } from "../../lib/media";
 import { serviceCategories } from "../../data/services";
 import { projects } from "../../data/projects";
 
@@ -26,18 +28,18 @@ function CategoryCarousel({ category }) {
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-xl font-black text-jc-white">{category.title}</h3>
         <div className="flex gap-2">
-          <button onClick={() => scroll(-1)} className="rounded-full border border-white/15 p-2 text-jc-white hover:border-jc-orange-primary" aria-label="Scroll left">
+          <button onClick={() => scroll(-1)} className="rounded-full border border-white/15 p-2 text-jc-white hover:border-jc-orange-primary transition-colors" aria-label={`Scroll ${category.title} left`}>
             <ChevronLeft size={18} />
           </button>
-          <button onClick={() => scroll(1)} className="rounded-full border border-white/15 p-2 text-jc-white hover:border-jc-orange-primary" aria-label="Scroll right">
+          <button onClick={() => scroll(1)} className="rounded-full border border-white/15 p-2 text-jc-white hover:border-jc-orange-primary transition-colors" aria-label={`Scroll ${category.title} right`}>
             <ChevronRight size={18} />
           </button>
         </div>
       </div>
-      <div ref={scrollRef} className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-thin">
+      <div ref={scrollRef} className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2">
         {items.map((p) => (
           <div key={p.id} className="snap-start shrink-0 w-72 rounded-lg overflow-hidden border border-white/10">
-            <div className="aspect-[4/3] bg-cover bg-center" style={{ backgroundImage: `url(${p.image})` }} />
+            <div className="aspect-[4/3] bg-cover bg-center" style={bgImage(p.image)} />
             <div className="p-4">
               <p className="font-bold text-jc-white">{p.title}</p>
               <p className="text-xs text-jc-gray-steel mb-2">{p.location}</p>
@@ -51,6 +53,11 @@ function CategoryCarousel({ category }) {
 }
 
 export default function ProjectsC() {
+  usePageMeta(
+    "Completed Projects — Browse By Category",
+    "Swipe through real completed trailer, chassis, and fleet repair jobs organized by service category."
+  );
+
   return (
     <>
       <VariantSwitcher base="/projects" variants={VARIANTS} />
