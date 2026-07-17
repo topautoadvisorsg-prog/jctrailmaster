@@ -13,20 +13,15 @@ breaks until you're ready to swap it in.
 
 ---
 
-## 1. Hero — full-bleed homepage background
-**File:** `public/images/hero-truck.jpg`
+## 1. Hero — full-bleed homepage background ✅ DONE
+**File:** `public/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg`
 **Used in:** `src/pages/Home.jsx` (top of page)
-**Aspect:** wide landscape, works at 1920×1080 or larger
 
-You mentioned you already have a direction for this one and will supply the file directly —
-the section is built to receive it (full-bleed photo, dark gradient scrim at the bottom for
-text legibility, headline/CTA overlaid). Prompt below is here as a fallback/reference only:
-
-> Cinematic wide shot of a red semi-truck pulling a trailer, driving toward camera on an open
-> highway at golden-hour sunset. Dramatic orange and amber sky, sun low on the horizon directly
-> behind the truck creating a glowing halo/disc effect. Headlights on, light dust or haze in the
-> air, industrial and powerful mood. Photorealistic, high contrast, low camera angle, 16:9
-> landscape. No text, no logos, no watermarks.
+Delivered and wired in (2026-07-16) — compressed from a 2MB PNG to a 273KB JPEG at 1718×915
+for page-speed. The hero section was restructured to match this asset: the wordmark is baked
+into the photo, so the section now shows the image at its native ratio (no cropping) with the
+"Experienced. Reliable. We Keep You Rolling." headline sitting below it on solid black — same
+composition as the reference mockup — instead of overlaid on top of the photo.
 
 ---
 

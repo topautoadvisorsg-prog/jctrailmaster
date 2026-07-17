@@ -66,18 +66,21 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO — full-bleed photo slot; swap /public/images/hero-truck.jpg for the real shot */}
-      <section
-        className="relative overflow-hidden bg-jc-black bg-cover bg-center min-h-[640px] md:min-h-[80vh] flex items-end"
-        style={bgImage("/images/hero-truck.jpg")}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-jc-black via-jc-black/70 to-jc-black/20" />
-        <div className="absolute inset-0 jc-gradient-sunset opacity-25 mix-blend-screen" />
+      {/* HERO — image carries the JC Trailmaster wordmark baked in; headline sits below it */}
+      <section className="bg-jc-black">
+        <div
+          className="relative w-full aspect-[1718/915] bg-cover bg-center"
+          style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg")}
+          role="img"
+          aria-label="JC Trailmaster semi-truck and trailer at sunset"
+        >
+          <div className="absolute inset-x-0 bottom-0 h-20 md:h-28 bg-gradient-to-t from-jc-black to-transparent" />
+        </div>
 
-        <div className="relative mx-auto max-w-5xl px-4 pb-16 pt-32 text-center w-full">
+        <div className="mx-auto max-w-5xl px-4 pb-16 pt-10 md:pt-14 text-center">
           <motion.h1
             initial="hidden" animate="show" variants={fadeUp}
-            className="text-4xl md:text-6xl font-black tracking-tight text-jc-white drop-shadow-lg"
+            className="text-4xl md:text-6xl font-black tracking-tight text-jc-white"
           >
             Experienced. Reliable.
             <span className="block text-jc-orange-primary">We Keep You Rolling.</span>
