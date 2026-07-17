@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import usePageMeta from "../hooks/usePageMeta";
 import MapEmbed from "../components/MapEmbed";
-
-const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
+import { BUSINESS, SERVICE_AREA_CITIES } from "../data/business";
+import { serviceCategories } from "../data/services";
 
 export default function Contact() {
   usePageMeta(
     "Contact Us — Request Service",
-    "Request trailer or chassis repair service from JC Trailmaster. Call 770-906-4781 or send us your details and we'll get back to you fast."
+    `Request trailer or chassis repair service from JC Trailmaster. Call ${BUSINESS.phone.display} or send us your details and we'll get back to you fast.`
   );
 
   const [submitted, setSubmitted] = useState(false);
@@ -36,7 +36,7 @@ export default function Contact() {
             {submitted ? (
               <div className="text-center py-10" role="status" aria-live="polite">
                 <p className="text-jc-orange-primary font-black text-xl mb-2">Request Received.</p>
-                <p className="text-jc-gray-steel">We'll be in touch shortly. For anything urgent, call 770-906-4781.</p>
+                <p className="text-jc-gray-steel">We'll be in touch shortly. For anything urgent, call {BUSINESS.phone.display}.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -58,12 +58,7 @@ export default function Contact() {
                   <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Service Needed</label>
                   <select id="service" name="service" required defaultValue="" className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary">
                     <option value="" disabled>Select a service</option>
-                    <option>Trailer & Chassis Repairs</option>
-                    <option>Brake & Suspension</option>
-                    <option>Fleet Maintenance</option>
-                    <option>Electrical Services</option>
-                    <option>Cleaning & Appearance</option>
-                    <option>Mobile Service</option>
+                    {serviceCategories.map((c) => <option key={c.slug}>{c.title}</option>)}
                     <option>Fleet / Commercial Account</option>
                     <option>Other</option>
                   </select>
@@ -86,23 +81,27 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-6">
             <div className="rounded-lg border border-white/10 p-6">
               <div className="space-y-4 text-sm">
-                <a href="tel:7709064781" className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
+                <a href={BUSINESS.phone.href} className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
                   <Phone size={18} className="text-jc-orange-primary shrink-0" />
-                  770-906-4781
+                  {BUSINESS.phone.display}
                 </a>
-                <a href="mailto:info@jctrailmaster.com" className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
+                <a href={`mailto:${BUSINESS.email.service}`} className="flex items-center gap-3 text-jc-white hover:text-jc-orange-primary">
                   <Mail size={18} className="text-jc-orange-primary shrink-0" />
-                  info@jctrailmaster.com <span className="text-xs text-jc-gray-steel">(Service)</span>
+                  {BUSINESS.email.service} <span className="text-xs text-jc-gray-steel">(Service)</span>
                 </a>
                 <div className="flex items-start gap-3 text-jc-white">
                   <MapPin size={18} className="text-jc-orange-primary shrink-0 mt-0.5" />
-                  5225 John G Glover Ind Ct, Ellenwood, GA 30294
+                  {BUSINESS.address.full}
                 </div>
                 <div className="flex items-start gap-3 text-jc-white">
                   <Clock size={18} className="text-jc-orange-primary shrink-0 mt-0.5" />
                   <span>
-                    Mon–Fri: 9:00 AM – 6:00 PM<br />
-                    Saturday: By Appointment Only
+                    {BUSINESS.hours.map((h, i) => (
+                      <span key={h.days}>
+                        {i > 0 && <br />}
+                        {h.days}: {h.time}
+                      </span>
+                    ))}
                   </span>
                 </div>
               </div>
@@ -111,7 +110,7 @@ export default function Contact() {
             <div className="rounded-lg border border-white/10 p-6">
               <p className="text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-3">Service Area</p>
               <div className="flex flex-wrap gap-2">
-                {CITIES.map((c) => (
+                {SERVICE_AREA_CITIES.map((c) => (
                   <span key={c} className="rounded-full border border-white/15 px-3 py-1 text-xs text-jc-gray-steel">{c}</span>
                 ))}
               </div>

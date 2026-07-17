@@ -12,6 +12,7 @@ import usePageMeta from "../hooks/usePageMeta";
 import { bgImage } from "../lib/media";
 import { serviceCategories, brandsServiced, faqs, stats } from "../data/services";
 import { projects, testimonials } from "../data/projects";
+import { BUSINESS, SERVICE_AREA_CITIES } from "../data/business";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -34,7 +35,6 @@ const WHY_CHOOSE = [
   { icon: BadgeCheck, label: "Quality Repairs", sub: "We do it right the first time." },
 ];
 
-const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
 
 function FaqItem({ q, a }) {
   const [open, setOpen] = useState(false);
@@ -173,11 +173,11 @@ export default function Home() {
             <p className="text-jc-black/80 font-semibold mt-1">Mobile repair trucks dispatched to your yard, dock, or roadside.</p>
             <p className="text-jc-black/70 text-sm mt-1">Call during business hours and we'll get a truck moving.</p>
           </div>
-          <a href="tel:7709064781" className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white hover:bg-jc-black-soft transition-colors">
+          <a href={BUSINESS.phone.href} className="inline-flex items-center gap-3 rounded-md bg-jc-black px-8 py-4 text-jc-white hover:bg-jc-black-soft transition-colors">
             <Phone size={20} className="text-jc-orange-primary" />
             <span>
               <span className="block text-xs uppercase tracking-wide text-jc-gray-steel">Call Now</span>
-              <span className="block font-black text-lg">770-906-4781</span>
+              <span className="block font-black text-lg">{BUSINESS.phone.display}</span>
             </span>
           </a>
         </div>
@@ -294,7 +294,7 @@ export default function Home() {
           <div>
             <SectionHeading center={false} eyebrow="Coverage" title="Service Area" subtitle="Proudly serving metro Atlanta and surrounding areas." />
             <ul className="grid grid-cols-2 gap-2 text-sm text-jc-gray-steel">
-              {CITIES.map((c) => (
+              {SERVICE_AREA_CITIES.map((c) => (
                 <li key={c} className="flex items-center gap-2"><MapPin size={13} className="text-jc-orange-primary" /> {c}</li>
               ))}
             </ul>

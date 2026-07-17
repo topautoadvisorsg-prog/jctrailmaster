@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin } from "lucide-react";
-
-const CITIES = ["Ellenwood", "Atlanta", "Alpharetta", "Marietta", "McDonough", "Lawrenceville", "Fairburn", "Conyers", "Douglasville"];
+import { BUSINESS, SERVICE_AREA_CITIES } from "../data/business";
+import { serviceCategories } from "../data/services";
 
 function FacebookIcon(props) {
   return (
@@ -56,31 +56,33 @@ export default function Footer() {
         <div>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mb-3">Services</h4>
           <ul className="space-y-2 text-sm text-jc-gray-steel">
-            <li>Trailer & Chassis Repairs</li>
-            <li>Brake & Suspension</li>
-            <li>Fleet Maintenance</li>
-            <li>Electrical Services</li>
-            <li>Cleaning & Appearance</li>
-            <li>Mobile Service</li>
+            {serviceCategories.map((c) => <li key={c.slug}>{c.title}</li>)}
           </ul>
         </div>
 
         <div>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mb-3">Contact Us</h4>
           <ul className="space-y-3 text-sm text-jc-gray-steel">
-            <li className="flex items-center gap-2"><Phone size={15} className="text-jc-orange-primary shrink-0" /> 770-906-4781</li>
-            <li className="flex items-center gap-2"><Mail size={15} className="text-jc-orange-primary shrink-0" /> info@jctrailmaster.com</li>
-            <li className="flex items-start gap-2"><MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> 5225 John G Glover Ind Ct, Ellenwood, GA 30294</li>
+            <li className="flex items-center gap-2"><Phone size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.phone.display}</li>
+            <li className="flex items-center gap-2"><Mail size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.email.service}</li>
+            <li className="flex items-start gap-2"><MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> {BUSINESS.address.full}</li>
           </ul>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mt-5 mb-2">Hours</h4>
-          <p className="text-sm text-jc-gray-steel">Mon–Fri: 9:00 AM – 6:00 PM<br />Saturday: By Appointment Only</p>
+          <p className="text-sm text-jc-gray-steel">
+            {BUSINESS.hours.map((h, i) => (
+              <span key={h.days}>
+                {i > 0 && <br />}
+                {h.days}: {h.time}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-2 text-xs text-jc-gray-steel">
           <p>&copy; {new Date().getFullYear()} JC Trailmaster. All rights reserved.</p>
-          <p>Serving {CITIES.join(", ")} & surrounding areas</p>
+          <p>Serving {SERVICE_AREA_CITIES.join(", ")} & surrounding areas</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-jc-white">Privacy Policy</a>
             <a href="#" className="hover:text-jc-white">Terms of Service</a>

@@ -1,3 +1,5 @@
+import { BUSINESS, SERVICE_AREA_CITIES } from "./business";
+
 // Service categories — CONFIRMED structure per spec Section 5 / 6A / 14
 export const serviceCategories = [
   {
@@ -87,13 +89,17 @@ export const brandsServiced = [
   { name: "Stoughton", logo: "/images/brand-stoughton.svg" },
 ];
 
+// "metro Atlanta" already covers Atlanta itself, so drop it from the "including" list.
+const otherServiceAreaCities = SERVICE_AREA_CITIES.filter((c) => c !== "Atlanta");
+const serviceAreaCityList = `${otherServiceAreaCities.slice(0, -1).join(", ")}, and ${otherServiceAreaCities.at(-1)}`;
+
 export const faqs = [
   { question: "Do you offer mobile/on-site repair?", answer: "Yes. Our fully equipped mobile repair trucks come to your yard, dock, or breakdown location — no need to bring the trailer to us." },
-  { question: "What areas do you service?", answer: "We proudly serve metro Atlanta and the surrounding areas, including Ellenwood, Alpharetta, Marietta, McDonough, Lawrenceville, Fairburn, Conyers, Douglasville, and Snellville." },
+  { question: "What areas do you service?", answer: `We proudly serve metro Atlanta and the surrounding areas, including ${serviceAreaCityList}.` },
   { question: "Do you work with fleets and repeat accounts?", answer: "Yes. We partner with fleet managers and owner-operators on priority scheduling and billing accounts." },
   { question: "How fast can you respond to a breakdown?", answer: "Call us during business hours and we'll get a mobile repair truck moving to your location as fast as possible." },
   { question: "What types of trailers/chassis do you repair?", answer: "Dry vans, reefers, flatbeds, and intermodal chassis across all major manufacturers." },
-  { question: "What are your business hours?", answer: "Monday–Friday, 9:00 AM–6:00 PM. Saturdays by appointment only." },
+  { question: "What are your business hours?", answer: `${BUSINESS.hours.map((h) => `${h.days} ${h.time}`).join(". ")}.` },
 ];
 
 // STATUS: MOCKUP per spec Section 5 — placeholder values, swap before launch.

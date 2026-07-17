@@ -1,4 +1,5 @@
 import { Phone, Wrench } from "lucide-react";
+import { BUSINESS } from "../data/business";
 
 const BASE =
   "inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold uppercase tracking-wide text-sm transition-colors duration-200";
@@ -10,7 +11,7 @@ const VARIANTS = {
   dark: "bg-jc-black text-jc-white hover:bg-jc-black-soft",
 };
 
-export default function Button({ children, variant = "primary", icon, href = "tel:7709064781", className = "", ...props }) {
+export default function Button({ children, variant = "primary", icon, href = BUSINESS.phone.href, className = "", ...props }) {
   const Icon = icon === "phone" ? Phone : icon === "wrench" ? Wrench : null;
   return (
     <a href={href} className={`${BASE} ${VARIANTS[variant]} ${className}`} {...props}>

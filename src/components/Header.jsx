@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
+import { BUSINESS } from "../data/business";
 
 const NAV = [
   { label: "Home", to: "/" },
@@ -47,9 +48,9 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href="tel:7709064781" className="flex items-center gap-2 text-jc-orange-primary font-bold">
+          <a href={BUSINESS.phone.href} className="flex items-center gap-2 text-jc-orange-primary font-bold">
             <Phone size={18} />
-            770-906-4781
+            {BUSINESS.phone.display}
           </a>
           <a
             href="/contact"
@@ -81,9 +82,9 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <a href="tel:7709064781" className="flex items-center gap-2 text-jc-orange-primary font-bold pt-2 border-t border-white/10">
+            <a href={BUSINESS.phone.href} className="flex items-center gap-2 text-jc-orange-primary font-bold pt-2 border-t border-white/10">
               <Phone size={18} />
-              770-906-4781
+              {BUSINESS.phone.display}
             </a>
           </nav>
         </div>
