@@ -1,4 +1,4 @@
-import { Phone, Wrench, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Button from "./Button";
 import { bgImage } from "../lib/media";
 
