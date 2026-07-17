@@ -19,7 +19,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 lg:px-8">
         <NavLink to="/" className="flex items-center gap-2 shrink-0">
           <span className="flex h-11 w-11 items-center justify-center rounded-full bg-jc-black">
-            <span className="font-brand italic text-jc-orange-deep text-2xl leading-none">JC</span>
+            <span className="font-brand italic text-jc-orange-deep text-3xl leading-none">JC</span>
           </span>
           <span className="leading-tight text-left">
             <span className="block font-brand text-jc-orange-primary text-xl tracking-wide">
