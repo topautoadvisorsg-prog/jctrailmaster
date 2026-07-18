@@ -10,7 +10,6 @@ import { serviceCategories } from "../../data/services";
 const VARIANTS = [
   { path: "a", label: "A · Stacked" },
   { path: "b", label: "B · Tabbed" },
-  { path: "c", label: "C · Grid" },
 ];
 
 export default function ServicesB() {

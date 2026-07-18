@@ -6,7 +6,6 @@ import MobileCallBar from "./components/MobileCallBar";
 import Home from "./pages/Home";
 import ServicesA from "./pages/services/ServicesA";
 import ServicesB from "./pages/services/ServicesB";
-import ServicesC from "./pages/services/ServicesC";
 import ProjectsA from "./pages/projects/ProjectsA";
 import ProjectsB from "./pages/projects/ProjectsB";
 import ProjectsC from "./pages/projects/ProjectsC";
@@ -61,7 +60,9 @@ export default function App() {
           <Route path="/services" element={<Navigate to="/services/a" replace />} />
           <Route path="/services/a" element={<ServicesA />} />
           <Route path="/services/b" element={<ServicesB />} />
-          <Route path="/services/c" element={<ServicesC />} />
+          {/* Option C (grid-to-detail) was dropped — read too much like a homepage
+              copy-paste. Redirect any old links/bookmarks to A instead of 404ing. */}
+          <Route path="/services/c" element={<Navigate to="/services/a" replace />} />
           <Route path="/projects" element={<Navigate to="/projects/a" replace />} />
           <Route path="/projects/a" element={<ProjectsA />} />
           <Route path="/projects/b" element={<ProjectsB />} />

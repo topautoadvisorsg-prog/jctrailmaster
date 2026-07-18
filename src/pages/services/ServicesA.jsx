@@ -9,7 +9,6 @@ import { serviceCategories } from "../../data/services";
 const VARIANTS = [
   { path: "a", label: "A · Stacked" },
   { path: "b", label: "B · Tabbed" },
-  { path: "c", label: "C · Grid" },
 ];
 
 export default function ServicesA() {
@@ -29,12 +28,12 @@ export default function ServicesA() {
       />
 
       <nav className="bg-jc-black-soft border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 py-3 flex flex-wrap gap-2 overflow-x-auto">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 py-5 flex flex-wrap justify-center gap-3 overflow-x-auto">
           {serviceCategories.map((c) => (
             <a
               key={c.slug}
               href={`#${c.slug}`}
-              className="whitespace-nowrap rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold text-jc-gray-steel hover:border-jc-orange-primary hover:text-jc-orange-primary transition-colors"
+              className="whitespace-nowrap rounded-full border-2 border-jc-orange-primary px-6 py-3 text-sm md:text-base font-bold uppercase tracking-wide text-jc-white transition-colors hover:bg-jc-orange-primary hover:text-jc-black"
             >
               {c.title}
             </a>
