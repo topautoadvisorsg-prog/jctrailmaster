@@ -79,14 +79,17 @@ export const serviceCategories = [
   },
 ];
 
+// Rendered as a text strip on the homepage (spec Section 5 allows "logo strip
+// OR simple list"). To switch to real logos later: add an image per brand and
+// map over it in the "Brands & Equipment Serviced" section of Home.jsx.
 export const brandsServiced = [
-  { name: "Wabash", logo: "/images/brand-wabash.svg" },
-  { name: "Utility", logo: "/images/brand-utility.svg" },
-  { name: "Great Dane", logo: "/images/brand-great-dane.svg" },
-  { name: "Hyundai Translead", logo: "/images/brand-hyundai-translead.svg" },
-  { name: "Thermo King", logo: "/images/brand-thermo-king.svg" },
-  { name: "Carrier Transicold", logo: "/images/brand-carrier.svg" },
-  { name: "Stoughton", logo: "/images/brand-stoughton.svg" },
+  "Wabash",
+  "Utility",
+  "Great Dane",
+  "Hyundai Translead",
+  "Thermo King",
+  "Carrier Transicold",
+  "Stoughton",
 ];
 
 // "metro Atlanta" already covers Atlanta itself, so drop it from the "including" list.

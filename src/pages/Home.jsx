@@ -232,8 +232,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8">Brands & Equipment Serviced</p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
-            {brandsServiced.map((b) => (
-              <span key={b.name} className="text-jc-gray-steel font-bold text-lg tracking-wide">{b.name}</span>
+            {brandsServiced.map((brand) => (
+              <span key={brand} className="text-jc-gray-steel font-bold text-lg tracking-wide">{brand}</span>
             ))}
           </div>
         </div>

@@ -31,6 +31,14 @@ body {
   color: var(--color-jc-black);
 }
 
+/* Visible keyboard-focus ring (accessibility — WCAG 2.4.7). Only shows for
+   keyboard navigation, not mouse clicks, thanks to :focus-visible. */
+:focus-visible {
+  outline: 2px solid var(--color-jc-orange-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .jc-divider {
   width: 1px;
   background: linear-gradient(to bottom, transparent, var(--color-jc-orange-primary), transparent);

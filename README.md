@@ -23,7 +23,7 @@ src/
 │
 ├── data/                    ALL editable content lives here. No copy should be hardcoded in a page/component.
 │   ├── business.js           ⭐ Phone, email, address, hours, service-area cities. Single source of truth.
-│   ├── services.js           The 6 service categories (titles, descriptions, images), FAQ, brand-logo list, stats bar
+│   ├── services.js           The 6 service categories (titles, descriptions, images), FAQ, brands-serviced list, stats bar
 │   └── projects.js           The 6 portfolio projects (title/image/before/after/description), testimonials
 │
 ├── pages/                   One file per route. This is where sections get assembled top-to-bottom.
@@ -42,6 +42,7 @@ src/
 ├── components/               Reusable building blocks, used by 2+ pages. Edit here to change something everywhere at once.
 │   ├── Header.jsx / Footer.jsx / MobileCallBar.jsx    Site chrome, on every page
 │   ├── Button.jsx / CtaBand.jsx / SectionHeading.jsx / Reveal.jsx    Small generic pieces (Reveal = scroll-in animation)
+│   ├── PageHero.jsx            Interior-facility hero for every internal page (Services/Projects/About/Contact)
 │   ├── ServiceDetailBlock.jsx   The "one category, full detail" card — shared by all 3 Services variants
 │   ├── CategoryFilter.jsx / Lightbox.jsx / BeforeAfterSlider.jsx    Projects-page building blocks
 │   ├── VariantSwitcher.jsx      The "Layout Preview: A · B · C" pill bar (temporary, for client review)
@@ -54,6 +55,11 @@ src/
     └── media.js             bgImage() helper — makes any photo slot fall back to a branded pattern
                               instead of a blank box if the file is missing/not-yet-added
 ```
+
+### Backgrounds & imagery
+- **Homepage hero** — unique, `public/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg` (baked-in wordmark), set directly in `Home.jsx`.
+- **Internal-page heros** — all share `components/PageHero.jsx`, which uses `public/images/hero-interior.jpg` behind a flat dark overlay. Change the image or overlay once there, applies to Services/Projects/About/Contact.
+- **Atmospheric texture** — the `.jc-texture` class (`src/index.css`) puts `hero-interior.jpg` behind a heavy ~92% overlay so it reads as faint depth. It's applied to every flat `bg-jc-black` content section; `bg-jc-black-soft` sections stay flat on purpose so the two alternate. To add/remove texture on a section, add/remove `jc-texture` next to `bg-jc-black`.
 
 ### Want to change something? Start here.
 | I want to change... | Edit this file |
