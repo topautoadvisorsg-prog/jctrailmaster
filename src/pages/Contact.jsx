@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import usePageMeta from "../hooks/usePageMeta";
 import MapEmbed from "../components/MapEmbed";
+import PageHero from "../components/PageHero";
 import { BUSINESS, SERVICE_AREA_CITIES } from "../data/business";
 import { serviceCategories } from "../data/services";
 
@@ -21,15 +22,13 @@ export default function Contact() {
 
   return (
     <>
-      <section className="bg-jc-black py-16 text-center border-b border-white/10">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Get In Touch</p>
-          <h1 className="text-3xl md:text-5xl font-black text-jc-white">Request Service</h1>
-          <p className="mt-4 text-jc-gray-steel">Tell us what's going on — we'll get back to you fast, or call us directly.</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Get In Touch"
+        title="Request Service"
+        subtitle="Tell us what's going on — we'll get back to you fast, or call us directly."
+      />
 
-      <section className="bg-jc-black py-16">
+      <section className="bg-jc-black jc-texture py-16">
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid gap-10 lg:grid-cols-5">
           {/* Form */}
           <div className="lg:col-span-3 rounded-lg border border-white/10 bg-jc-black-soft p-6 md:p-8">

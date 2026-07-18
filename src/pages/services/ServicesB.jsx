@@ -3,6 +3,7 @@ import { Plus } from "lucide-react";
 import VariantSwitcher from "../../components/VariantSwitcher";
 import ServiceDetailBlock from "../../components/ServiceDetailBlock";
 import CtaBand from "../../components/CtaBand";
+import PageHero from "../../components/PageHero";
 import usePageMeta from "../../hooks/usePageMeta";
 import { serviceCategories } from "../../data/services";
 
@@ -25,17 +26,13 @@ export default function ServicesB() {
     <>
       <VariantSwitcher base="/services" variants={VARIANTS} />
 
-      <section className="bg-jc-black py-16 text-center border-b border-white/10">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Our Services</p>
-          <h1 className="text-3xl md:text-5xl font-black text-jc-white">Every Repair. One Call.</h1>
-          <p className="mt-4 text-jc-gray-steel">
-            Pick a service category to see exactly what's included.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Services"
+        title="Every Repair. One Call."
+        subtitle="Pick a service category to see exactly what's included."
+      />
 
-      <section className="bg-jc-black py-14">
+      <section className="bg-jc-black jc-texture py-14">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           {/* Desktop tabs */}
           <div role="tablist" className="hidden md:flex flex-wrap gap-2 mb-10 border-b border-white/10 pb-4">

@@ -35,3 +35,15 @@ body {
   width: 1px;
   background: linear-gradient(to bottom, transparent, var(--color-jc-orange-primary), transparent);
 }
+
+/* Subtle atmospheric texture behind large flat-black sections. Heavy dark
+   overlay keeps the facility interior barely-there — depth, not distraction.
+   Full-width cover, no tiling. */
+.jc-texture {
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)),
+    url("/images/hero-interior.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

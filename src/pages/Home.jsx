@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* TRUST BADGES */}
-      <section className="bg-jc-black py-12 border-b border-white/10">
+      <section className="bg-jc-black jc-texture py-12 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 grid grid-cols-2 gap-6 md:grid-cols-4">
           {TRUST_BADGES.map((b) => (
             <div key={b.label} className="text-center">
@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* SERVICE CATEGORIES */}
-      <section className="bg-jc-black py-20">
+      <section className="bg-jc-black jc-texture py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <Reveal>
             <SectionHeading title={<>Complete <span className="text-jc-orange-primary">Repair and Maintenance</span> Solutions.</>} />
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="bg-jc-black py-20">
+      <section className="bg-jc-black jc-texture py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <Reveal>
             <SectionHeading title={<>Why Choose <span className="text-jc-orange-primary">JC Trailmaster?</span></>} />
@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* BRANDS SERVICED */}
-      <section className="bg-jc-black py-14">
+      <section className="bg-jc-black jc-texture py-14">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8">Brands & Equipment Serviced</p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
@@ -268,7 +268,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-jc-black py-20">
+      <section className="bg-jc-black jc-texture py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <Reveal>
             <SectionHeading eyebrow="Reviews" title="What Our Customers Say" />
@@ -309,7 +309,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-jc-black py-20">
+      <section className="bg-jc-black jc-texture py-20">
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <SectionHeading eyebrow="Questions" title="Frequently Asked Questions" />
           <div>

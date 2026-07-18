@@ -4,6 +4,7 @@ import CategoryFilter from "../../components/CategoryFilter";
 import Lightbox from "../../components/Lightbox";
 import CtaBand from "../../components/CtaBand";
 import Reveal from "../../components/Reveal";
+import PageHero from "../../components/PageHero";
 import usePageMeta from "../../hooks/usePageMeta";
 import { bgImage } from "../../lib/media";
 import { projects } from "../../data/projects";
@@ -42,15 +43,13 @@ export default function ProjectsA() {
     <>
       <VariantSwitcher base="/projects" variants={VARIANTS} />
 
-      <section className="bg-jc-black py-16 text-center border-b border-white/10">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Our Work</p>
-          <h1 className="text-3xl md:text-5xl font-black text-jc-white">Real Repairs. Real Results.</h1>
-          <p className="mt-4 text-jc-gray-steel">Browse completed jobs by service category.</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Work"
+        title="Real Repairs. Real Results."
+        subtitle="Browse completed jobs by service category."
+      />
 
-      <section className="bg-jc-black py-14">
+      <section className="bg-jc-black jc-texture py-14">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <CategoryFilter active={category} onChange={changeCategory} />
 

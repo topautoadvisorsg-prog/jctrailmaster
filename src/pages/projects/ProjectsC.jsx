@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import VariantSwitcher from "../../components/VariantSwitcher";
 import CtaBand from "../../components/CtaBand";
 import Button from "../../components/Button";
+import PageHero from "../../components/PageHero";
 import usePageMeta from "../../hooks/usePageMeta";
 import { bgImage } from "../../lib/media";
 import { serviceCategories } from "../../data/services";
@@ -62,15 +63,13 @@ export default function ProjectsC() {
     <>
       <VariantSwitcher base="/projects" variants={VARIANTS} />
 
-      <section className="bg-jc-black py-16 text-center border-b border-white/10">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Our Work</p>
-          <h1 className="text-3xl md:text-5xl font-black text-jc-white">Browse By Category.</h1>
-          <p className="mt-4 text-jc-gray-steel">Swipe through completed jobs, organized by service type.</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Work"
+        title="Browse By Category."
+        subtitle="Swipe through completed jobs, organized by service type."
+      />
 
-      <section className="bg-jc-black py-14">
+      <section className="bg-jc-black jc-texture py-14">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           {serviceCategories.map((cat) => <CategoryCarousel key={cat.slug} category={cat} />)}
           <div className="text-center mt-4">

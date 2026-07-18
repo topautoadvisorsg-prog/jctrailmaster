@@ -2,6 +2,7 @@ import { ShieldCheck, Award, Wrench } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 import CtaBand from "../components/CtaBand";
 import Reveal from "../components/Reveal";
+import PageHero from "../components/PageHero";
 import usePageMeta from "../hooks/usePageMeta";
 import { bgImage } from "../lib/media";
 
@@ -20,15 +21,10 @@ export default function About() {
 
   return (
     <>
-      <section className="bg-jc-black py-20 text-center border-b border-white/10">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">About Us</p>
-          <h1 className="text-3xl md:text-5xl font-black text-jc-white">We Keep You Rolling.</h1>
-        </div>
-      </section>
+      <PageHero eyebrow="About Us" title="We Keep You Rolling." />
 
       {/* Company Story */}
-      <section className="bg-jc-black py-20">
+      <section className="bg-jc-black jc-texture py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
           <Reveal>
             <div>
@@ -60,7 +56,7 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="bg-jc-black py-16 text-center">
+      <section className="bg-jc-black jc-texture py-16 text-center">
         <div className="mx-auto max-w-2xl px-4">
           <SectionHeading eyebrow="Our Mission" title={<>"We do what it takes to get the job done, rain or shine."</>} />
           <p className="text-jc-gray-steel">
@@ -92,7 +88,7 @@ export default function About() {
       </section>
 
       {/* Why customers choose us */}
-      <section className="bg-jc-black py-20">
+      <section className="bg-jc-black jc-texture py-20">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <SectionHeading eyebrow="Why Us" title="Why Customers Choose JC Trailmaster" />
           <div className="grid gap-6 sm:grid-cols-2">

@@ -5,6 +5,7 @@ import BeforeAfterSlider from "../../components/BeforeAfterSlider";
 import CtaBand from "../../components/CtaBand";
 import Button from "../../components/Button";
 import Reveal from "../../components/Reveal";
+import PageHero from "../../components/PageHero";
 import usePageMeta from "../../hooks/usePageMeta";
 import { projects } from "../../data/projects";
 
@@ -31,15 +32,13 @@ export default function ProjectsB() {
     <>
       <VariantSwitcher base="/projects" variants={VARIANTS} />
 
-      <section className="bg-jc-black py-16 text-center border-b border-white/10">
-        <div className="mx-auto max-w-3xl px-4">
-          <p className="text-jc-orange-primary text-xs font-bold uppercase tracking-widest mb-2">Our Work</p>
-          <h1 className="text-3xl md:text-5xl font-black text-jc-white">See The Difference.</h1>
-          <p className="mt-4 text-jc-gray-steel">Drag the slider to see each repair, before and after.</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our Work"
+        title="See The Difference."
+        subtitle="Drag the slider to see each repair, before and after."
+      />
 
-      <section className="bg-jc-black py-14">
+      <section className="bg-jc-black jc-texture py-14">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <CategoryFilter active={category} onChange={setCategory} />
 
