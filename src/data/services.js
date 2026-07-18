@@ -79,17 +79,20 @@ export const serviceCategories = [
   },
 ];
 
-// Rendered as a text strip on the homepage (spec Section 5 allows "logo strip
-// OR simple list"). To switch to real logos later: add an image per brand and
-// map over it in the "Brands & Equipment Serviced" section of Home.jsx.
+// Homepage "Brands & Equipment Serviced" strip. Each entry renders its logo
+// image (components/BrandLogo.jsx) and falls back to the text name until the
+// real logo file is added. Drop official brand logos (ideally white/monochrome
+// transparent PNG or SVG) at the `logo` path below and they appear automatically.
+// These are third-party trademarks — use each brand's official press/media-kit
+// asset, don't recreate them.
 export const brandsServiced = [
-  "Wabash",
-  "Utility",
-  "Great Dane",
-  "Hyundai Translead",
-  "Thermo King",
-  "Carrier Transicold",
-  "Stoughton",
+  { name: "Wabash", logo: "/images/brands/wabash.svg" },
+  { name: "Utility", logo: "/images/brands/utility.svg" },
+  { name: "Great Dane", logo: "/images/brands/great-dane.svg" },
+  { name: "Hyundai Translead", logo: "/images/brands/hyundai-translead.svg" },
+  { name: "Thermo King", logo: "/images/brands/thermo-king.svg" },
+  { name: "Carrier Transicold", logo: "/images/brands/carrier-transicold.svg" },
+  { name: "Stoughton", logo: "/images/brands/stoughton.svg" },
 ];
 
 // "metro Atlanta" already covers Atlanta itself, so drop it from the "including" list.

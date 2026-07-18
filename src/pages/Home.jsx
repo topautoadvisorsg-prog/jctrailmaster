@@ -9,6 +9,7 @@ import SectionHeading from "../components/SectionHeading";
 import CtaBand from "../components/CtaBand";
 import Reveal from "../components/Reveal";
 import MapEmbed from "../components/MapEmbed";
+import BrandLogo from "../components/BrandLogo";
 import usePageMeta from "../hooks/usePageMeta";
 import { bgImage } from "../lib/media";
 import { serviceCategories, brandsServiced, faqs, stats } from "../data/services";
@@ -233,7 +234,7 @@ export default function Home() {
           <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8">Brands & Equipment Serviced</p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
             {brandsServiced.map((brand) => (
-              <span key={brand} className="text-jc-gray-steel font-bold text-lg tracking-wide">{brand}</span>
+              <BrandLogo key={brand.name} name={brand.name} logo={brand.logo} />
             ))}
           </div>
         </div>

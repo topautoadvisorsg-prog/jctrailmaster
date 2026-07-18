@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { BUSINESS, SERVICE_AREA_CITIES } from "../data/business";
 import { serviceCategories } from "../data/services";
 
@@ -19,6 +20,14 @@ function InstagramIcon(props) {
     </svg>
   );
 }
+
+const QUICK_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "Services", to: "/services/a" },
+  { label: "Projects", to: "/projects/a" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -45,27 +54,46 @@ export default function Footer() {
         <div>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mb-3">Quick Links</h4>
           <ul className="space-y-2 text-sm text-jc-gray-steel">
-            <li><a href="/" className="hover:text-jc-white">Home</a></li>
-            <li><a href="/services/a" className="hover:text-jc-white">Services</a></li>
-            <li><a href="/projects/a" className="hover:text-jc-white">Projects</a></li>
-            <li><a href="/about" className="hover:text-jc-white">About</a></li>
-            <li><a href="/contact" className="hover:text-jc-white">Contact</a></li>
+            {QUICK_LINKS.map((link) => (
+              <li key={link.to}><Link to={link.to} className="hover:text-jc-white transition-colors">{link.label}</Link></li>
+            ))}
           </ul>
         </div>
 
         <div>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mb-3">Services</h4>
           <ul className="space-y-2 text-sm text-jc-gray-steel">
-            {serviceCategories.map((c) => <li key={c.slug}>{c.title}</li>)}
+            {serviceCategories.map((c) => (
+              <li key={c.slug}>
+                <Link to={`/services/a#${c.slug}`} className="hover:text-jc-white transition-colors">{c.title}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mb-3">Contact Us</h4>
           <ul className="space-y-3 text-sm text-jc-gray-steel">
-            <li className="flex items-center gap-2 whitespace-nowrap"><Phone size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.phone.display}</li>
-            <li className="flex items-center gap-2"><Mail size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.email.service}</li>
-            <li className="flex items-start gap-2"><MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> {BUSINESS.address.full}</li>
+            <li>
+              <a href={BUSINESS.phone.href} className="flex items-center gap-2 whitespace-nowrap hover:text-jc-white transition-colors">
+                <Phone size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.phone.display}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${BUSINESS.email.service}`} className="flex items-center gap-2 hover:text-jc-white transition-colors break-all">
+                <Mail size={15} className="text-jc-orange-primary shrink-0" /> {BUSINESS.email.service}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS.address.full)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 hover:text-jc-white transition-colors"
+              >
+                <MapPin size={15} className="text-jc-orange-primary shrink-0 mt-0.5" /> {BUSINESS.address.full}
+              </a>
+            </li>
           </ul>
           <h4 className="text-jc-orange-primary font-bold text-sm uppercase tracking-wide mt-5 mb-2">Hours</h4>
           <p className="text-sm text-jc-gray-steel">

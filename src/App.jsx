@@ -16,7 +16,26 @@ import Contact from "./pages/Contact";
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
-    if (!hash) window.scrollTo(0, 0);
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    // Client-side nav doesn't auto-scroll to anchors, and the target page may
+    // not have painted yet — retry until the element exists, then scroll.
+    // scroll-mt-* on the target clears the sticky header.
+    const id = decodeURIComponent(hash.slice(1));
+    let attempts = 0;
+    let timer;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else if (attempts++ < 20) {
+        timer = setTimeout(tryScroll, 50);
+      }
+    };
+    timer = setTimeout(tryScroll, 80);
+    return () => clearTimeout(timer);
   }, [pathname, hash]);
   return null;
 }
