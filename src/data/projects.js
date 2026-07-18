@@ -28,14 +28,14 @@ export const projects = [
   },
   {
     id: "p3",
-    title: "Reefer Unit Replacement",
+    title: "Trailer Wiring & Lighting Repair",
     category: "electrical-services",
-    categoryLabel: "Reefer Repair",
+    categoryLabel: "Electrical Services",
     location: "Marietta, GA",
     image: "/images/project-3.jpg",
     before: "/images/project-3-before.jpg",
     after: "/images/project-3-after.jpg",
-    description: "Full reefer unit swap and electrical integration for a temperature-controlled fleet.",
+    description: "Full wiring harness and lighting repair to bring a fleet trailer back to DOT-legal.",
     featured: true,
   },
   {

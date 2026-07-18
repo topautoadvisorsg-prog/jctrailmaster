@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import {
   ShieldCheck, Clock, BadgeCheck, Wrench, Phone, Star, MapPin, ChevronDown,
+  Truck, Container, CircleDollarSign,
 } from "lucide-react";
 import { useState } from "react";
 import Button from "../components/Button";
@@ -26,13 +27,15 @@ const TRUST_BADGES = [
   { icon: Wrench, label: "In Shop & Mobile Service", sub: "We come to you or you come to us." },
 ];
 
+// Distinct from the hero trust badges above (Expert Technicians / Fast Response /
+// Quality Guaranteed / In-Shop & Mobile) — these expand the pitch rather than repeat it.
 const WHY_CHOOSE = [
-  { icon: Wrench, label: "Mobile Service", sub: "We come to you. Minimize downtime." },
-  { icon: Clock, label: "Fast Response", sub: "Quick arrivals. Fast solutions." },
-  { icon: BadgeCheck, label: "Experienced Technicians", sub: "Skilled experts with years of hands-on experience." },
-  { icon: ShieldCheck, label: "Fleet Specialists", sub: "We understand commercial fleets and deadlines." },
-  { icon: ShieldCheck, label: "Licensed & Insured", sub: "Fully licensed and insured for your protection." },
-  { icon: BadgeCheck, label: "Quality Repairs", sub: "We do it right the first time." },
+  { icon: Truck, label: "Fleet Specialists", sub: "Priority scheduling and billing built around your fleet." },
+  { icon: ShieldCheck, label: "Licensed & Insured", sub: "Fully licensed and insured, so every job is protected." },
+  { icon: BadgeCheck, label: "All Major Brands", sub: "Wabash, Great Dane, Utility, Thermo King, Carrier, and more." },
+  { icon: Container, label: "Every Trailer Type", sub: "Dry vans, reefers, flatbeds, and intermodal chassis." },
+  { icon: CircleDollarSign, label: "Fair, Honest Pricing", sub: "High-quality work at a fair price — no surprises." },
+  { icon: Wrench, label: "One Call, Every Repair", sub: "Trailer, container, and chassis — all under one roof." },
 ];
 
 
