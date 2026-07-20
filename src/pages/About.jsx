@@ -28,15 +28,23 @@ export default function About() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
           <Reveal>
             <div>
-              <SectionHeading center={false} eyebrow="Our Story" title="Built on 20 years of hands-on experience." />
+              <SectionHeading center={false} eyebrow="Our Story" title="20 years. One standard. No excuses." />
               <p className="text-jc-gray-steel mb-4 leading-relaxed">
-                JC Trailmaster is backed by two decades in the trailer, container, and chassis repair business. After 20 years
-                in the industry, JC brought that experience in-house with a dedicated shop — now offering both in-shop repair
-                and fully equipped mobile trucks for jobs that can't come to us.
+                JC Trailmaster repairs trailers, containers, and chassis, in our shop or yours. That's the whole business,
+                built on twenty years of hands on experience before we ever opened our own doors. We learned this industry
+                the hard way, working on every kind of trailer, every kind of breakdown, until we knew exactly what it took
+                to do it right the first time.
+              </p>
+              <p className="text-jc-gray-steel mb-4 leading-relaxed">
+                Today that means a fully equipped shop for structural repairs, brake and suspension work, electrical
+                diagnostics, and everything in between. It also means a mobile fleet ready to roll to your yard, your dock,
+                or the side of the road when the trailer can't come to us. DOT inspections. FHWA inspections. Preventive
+                maintenance that keeps you from needing us in an emergency in the first place.
               </p>
               <p className="text-jc-gray-steel leading-relaxed">
-                Every job — whether it's a single trailer in our shop or a mobile call out to a fleet yard — gets the same
-                standard of work. That's the promise behind "We Keep You Rolling."
+                Single trailer or full fleet, shop repair or roadside call, every job gets the same standard. No shortcuts,
+                no half fixes, no guessing. That's the promise behind "We Keep You Rolling," and it's the only way we know
+                how to run a shop.
               </p>
             </div>
           </Reveal>
