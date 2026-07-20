@@ -12,6 +12,7 @@ import { projects } from "../../data/projects";
 const VARIANTS = [
   { path: "a", label: "A · Grid + Lightbox" },
   { path: "b", label: "B · Carousel + Before/After" },
+  { path: "c", label: "C · Before/After Grid" },
 ];
 
 export default function ProjectsA() {

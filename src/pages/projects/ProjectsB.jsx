@@ -13,6 +13,7 @@ import { serviceCategories } from "../../data/services";
 const VARIANTS = [
   { path: "a", label: "A · Grid + Lightbox" },
   { path: "b", label: "B · Carousel + Before/After" },
+  { path: "c", label: "C · Before/After Grid" },
 ];
 
 function CategoryCarousel({ category, onSelect }) {

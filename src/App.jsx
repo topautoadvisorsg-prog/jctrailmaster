@@ -8,6 +8,7 @@ import ServicesA from "./pages/services/ServicesA";
 import ServicesB from "./pages/services/ServicesB";
 import ProjectsA from "./pages/projects/ProjectsA";
 import ProjectsB from "./pages/projects/ProjectsB";
+import ProjectsC from "./pages/projects/ProjectsC";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -65,9 +66,7 @@ export default function App() {
           <Route path="/projects" element={<Navigate to="/projects/a" replace />} />
           <Route path="/projects/a" element={<ProjectsA />} />
           <Route path="/projects/b" element={<ProjectsB />} />
-          {/* Option C (plain carousel, no before/after) was dropped — didn't cover a
-              feature the client specifically wants. Redirect old links/bookmarks to A. */}
-          <Route path="/projects/c" element={<Navigate to="/projects/a" replace />} />
+          <Route path="/projects/c" element={<ProjectsC />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
