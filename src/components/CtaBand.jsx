@@ -19,7 +19,7 @@ export default function CtaBand({
           </a>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-jc-black px-6 py-3 text-sm font-bold uppercase text-jc-white hover:bg-jc-black-soft transition-colors"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-jc-black px-6 py-3 text-sm font-bold uppercase text-jc-white hover:bg-jc-black-soft transition-colors"
           >
             <Wrench size={16} /> Request Service
           </a>
