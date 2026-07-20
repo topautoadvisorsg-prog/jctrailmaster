@@ -232,7 +232,7 @@ export default function Home() {
       <section className="bg-jc-black jc-texture py-14">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8">Brands & Equipment Serviced</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80">
+          <div className="flex flex-wrap items-center justify-center gap-6">
             {brandsServiced.map((brand) => (
               <BrandLogo key={brand.name} name={brand.name} logo={brand.logo} />
             ))}

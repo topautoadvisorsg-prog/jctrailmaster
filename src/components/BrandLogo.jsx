@@ -11,11 +11,13 @@ export default function BrandLogo({ name, logo }) {
   }
 
   return (
-    <img
-      src={logo}
-      alt={`${name} — serviced by JC Trailmaster`}
-      className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-      onError={() => setFailed(true)}
-    />
+    <div className="flex h-14 md:h-16 items-center rounded-md bg-jc-white px-4 py-2 shadow-sm">
+      <img
+        src={logo}
+        alt={`${name} — serviced by JC Trailmaster`}
+        className="h-8 md:h-10 w-auto object-contain"
+        onError={() => setFailed(true)}
+      />
+    </div>
   );
 }

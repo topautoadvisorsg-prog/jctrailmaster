@@ -80,19 +80,17 @@ export const serviceCategories = [
 ];
 
 // Homepage "Brands & Equipment Serviced" strip. Each entry renders its logo
-// image (components/BrandLogo.jsx) and falls back to the text name until the
-// real logo file is added. Drop official brand logos (ideally white/monochrome
-// transparent PNG or SVG) at the `logo` path below and they appear automatically.
-// These are third-party trademarks — use each brand's official press/media-kit
-// asset, don't recreate them.
+// image (components/BrandLogo.jsx), rendered on a white chip so full-color
+// marks stay legible on the site's dark background. Each file is that brand's
+// real official logo pulled from their own site/press kit — not recreated.
 export const brandsServiced = [
-  { name: "Wabash", logo: "/images/brands/wabash.svg" },
-  { name: "Utility", logo: "/images/brands/utility.svg" },
-  { name: "Great Dane", logo: "/images/brands/great-dane.svg" },
-  { name: "Hyundai Translead", logo: "/images/brands/hyundai-translead.svg" },
+  { name: "Wabash", logo: "/images/brands/wabash.png" },
+  { name: "Utility", logo: "/images/brands/utility.png" },
+  { name: "Great Dane", logo: "/images/brands/great-dane.png" },
+  { name: "Hyundai Translead", logo: "/images/brands/hyundai-translead.png" },
   { name: "Thermo King", logo: "/images/brands/thermo-king.svg" },
-  { name: "Carrier Transicold", logo: "/images/brands/carrier-transicold.svg" },
-  { name: "Stoughton", logo: "/images/brands/stoughton.svg" },
+  { name: "Carrier Transicold", logo: "/images/brands/carrier-transicold.png" },
+  { name: "Stoughton", logo: "/images/brands/stoughton.png" },
 ];
 
 // "metro Atlanta" already covers Atlanta itself, so drop it from the "including" list.
