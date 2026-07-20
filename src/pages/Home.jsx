@@ -229,8 +229,10 @@ export default function Home() {
       </section>
 
       {/* BRANDS SERVICED */}
-      <section className="bg-jc-black jc-texture py-14">
-        <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8 px-4">Brands & Equipment Serviced</p>
+      <section className="bg-jc-black jc-texture py-16">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Trusted By" title="Brands & Equipment We Service" />
+        </div>
         <BrandsMarquee brands={brandsServiced} />
       </section>
 

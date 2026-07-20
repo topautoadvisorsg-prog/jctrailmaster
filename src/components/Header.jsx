@@ -139,7 +139,7 @@ export default function Header() {
           </a>
           <a
             href="/contact"
-            className="rounded-md bg-jc-orange-primary px-5 py-2.5 text-sm font-bold uppercase text-jc-black hover:bg-jc-orange-deep transition-colors"
+            className="whitespace-nowrap rounded-md bg-jc-orange-primary px-5 py-2.5 text-sm font-bold uppercase text-jc-black hover:bg-jc-orange-deep transition-colors"
           >
             Request Service
           </a>
