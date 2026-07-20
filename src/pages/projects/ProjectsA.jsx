@@ -11,8 +11,7 @@ import { projects } from "../../data/projects";
 
 const VARIANTS = [
   { path: "a", label: "A · Grid + Lightbox" },
-  { path: "b", label: "B · Before/After" },
-  { path: "c", label: "C · Carousel" },
+  { path: "b", label: "B · Carousel + Before/After" },
 ];
 
 export default function ProjectsA() {
@@ -36,8 +35,6 @@ export default function ProjectsA() {
 
   const openLightbox = (id) => setLightboxIndex(filtered.findIndex((p) => p.id === id));
   const close = () => setLightboxIndex(null);
-  const prev = () => setLightboxIndex((i) => (i - 1 + filtered.length) % filtered.length);
-  const next = () => setLightboxIndex((i) => (i + 1) % filtered.length);
 
   return (
     <>
@@ -83,7 +80,7 @@ export default function ProjectsA() {
         </div>
       </section>
 
-      <Lightbox project={filtered[lightboxIndex]} onClose={close} onPrev={prev} onNext={next} />
+      <Lightbox project={filtered[lightboxIndex]} onClose={close} />
 
       <CtaBand />
     </>

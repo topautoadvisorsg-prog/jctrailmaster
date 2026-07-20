@@ -74,6 +74,18 @@ export const projects = [
     description: "Full air ride suspension overhaul for a fleet trailer nearing end of service life.",
     featured: false,
   },
+  {
+    id: "p7",
+    title: "Fleet Wash & Detail",
+    category: "cleaning-appearance",
+    categoryLabel: "Cleaning & Appearance",
+    location: "Ellenwood, GA",
+    image: "/images/project-7.jpg",
+    before: "/images/project-7-before.jpg",
+    after: "/images/project-7-after.jpg",
+    description: "Full exterior wash and detail to get a fleet vehicle back to a professional, road-ready appearance.",
+    featured: false,
+  },
 ];
 
 // STATUS: PLACEHOLDER — swap for real Google reviews before launch.
