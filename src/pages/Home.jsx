@@ -9,7 +9,7 @@ import SectionHeading from "../components/SectionHeading";
 import CtaBand from "../components/CtaBand";
 import Reveal from "../components/Reveal";
 import MapEmbed from "../components/MapEmbed";
-import BrandLogo from "../components/BrandLogo";
+import BrandsMarquee from "../components/BrandsMarquee";
 import usePageMeta from "../hooks/usePageMeta";
 import { bgImage } from "../lib/media";
 import { serviceCategories, brandsServiced, faqs, stats } from "../data/services";
@@ -230,14 +230,8 @@ export default function Home() {
 
       {/* BRANDS SERVICED */}
       <section className="bg-jc-black jc-texture py-14">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8">Brands & Equipment Serviced</p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {brandsServiced.map((brand) => (
-              <BrandLogo key={brand.name} name={brand.name} logo={brand.logo} />
-            ))}
-          </div>
-        </div>
+        <p className="text-center text-sm font-bold uppercase tracking-widest text-jc-gray-steel mb-8 px-4">Brands & Equipment Serviced</p>
+        <BrandsMarquee brands={brandsServiced} />
       </section>
 
       {/* FEATURED PROJECTS */}

@@ -44,6 +44,32 @@ body {
   background: linear-gradient(to bottom, transparent, var(--color-jc-orange-primary), transparent);
 }
 
+/* Brand logo marquee — track holds two identical copies of the list back to
+   back; animating exactly -50% loops seamlessly back to the start. */
+@keyframes jc-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.jc-marquee-track {
+  animation: jc-marquee 32s linear infinite;
+}
+
+.jc-marquee:hover .jc-marquee-track {
+  animation-play-state: paused;
+}
+
+.jc-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jc-marquee-track {
+    animation: none;
+  }
+}
+
 /* Subtle atmospheric texture behind large flat-black sections. Heavy dark
    overlay keeps the facility interior barely-there — depth, not distraction.
    Full-width cover, no tiling. */
