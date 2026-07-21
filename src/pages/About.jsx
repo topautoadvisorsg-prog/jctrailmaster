@@ -16,7 +16,7 @@ const DIFFERENTIATORS = [
 export default function About() {
   usePageMeta(
     "About Us",
-    "20+ years of hands-on trailer and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
+    "25+ years of hands-on trailer and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
   );
 
   return (
@@ -30,13 +30,13 @@ export default function About() {
             <div>
               <SectionHeading center={false} eyebrow="Our Story" title="Why JC Trailmaster" />
               <p className="text-jc-gray-steel mb-4 leading-relaxed">
-                Experience isn't measured by years alone—it's measured by the problems you've solved. For more than 20 years,
+                Experience isn't measured by years alone—it's measured by the problems you've solved. For more than 25 years,
                 we've worked on trailers, containers, and chassis in every condition imaginable, from routine fleet
                 maintenance to emergency roadside repairs. That hands-on experience gives us the confidence to take on any
                 job and the knowledge to get it done right.
               </p>
               <p className="text-jc-gray-steel mb-4 leading-relaxed">
-                Whether it's structural repairs, brake and suspension work, electrical diagnostics, reefer panels, lift
+                Whether it's structural repairs, brake and suspension work, electrical diagnostics, side panels, lift
                 gates, roofs, decals, or preventive maintenance, our team has seen it, repaired it, and stands behind the
                 work. With a fully equipped shop and mobile service throughout the Metro Atlanta area, we deliver the same
                 level of quality and attention whether you bring your equipment to us or we come to you.
@@ -62,7 +62,7 @@ export default function About() {
       {/* Experience */}
       <section className="bg-jc-black-soft py-16 border-y border-white/10">
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid grid-cols-3 gap-6 text-center">
-          <div><p className="text-3xl font-black text-jc-orange-primary">20+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Years of Experience</p></div>
+          <div><p className="text-3xl font-black text-jc-orange-primary">25+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Years of Experience</p></div>
           <div><p className="text-3xl font-black text-jc-orange-primary">5000+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Trailers Repaired</p></div>
           <div><p className="text-3xl font-black text-jc-orange-primary">1000+</p><p className="text-xs uppercase tracking-wide text-jc-gray-steel">Fleet Clients Served</p></div>
         </div>

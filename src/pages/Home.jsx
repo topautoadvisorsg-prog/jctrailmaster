@@ -63,7 +63,7 @@ function FaqItem({ q, a }) {
 export default function Home() {
   usePageMeta(
     "Trailer, Container & Chassis Repair in Metro Atlanta",
-    "Experienced, reliable trailer and chassis repair — in shop or on site. 20+ years serving metro Atlanta fleets and owner-operators."
+    "Experienced, reliable trailer and chassis repair — in shop or on site. 25+ years serving metro Atlanta fleets and owner-operators."
   );
 
   return (
@@ -93,7 +93,7 @@ export default function Home() {
             initial="hidden" animate="show" variants={fadeUp} transition={{ delay: 0.1 }}
             className="mx-auto mt-5 max-w-2xl text-jc-gray-steel text-lg"
           >
-            With over 20 years of hands-on experience, we deliver high-quality trailer and chassis repairs — In Shop or On Site.
+            With over 25 years of hands-on experience, we deliver high-quality trailer and chassis repairs — In Shop or On Site.
           </motion.p>
           <motion.div
             initial="hidden" animate="show" variants={fadeUp} transition={{ delay: 0.2 }}
