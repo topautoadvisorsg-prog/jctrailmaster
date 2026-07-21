@@ -28,23 +28,28 @@ export default function About() {
         <div className="mx-auto max-w-6xl px-4 lg:px-8 grid gap-10 md:grid-cols-2 items-center">
           <Reveal>
             <div>
-              <SectionHeading center={false} eyebrow="Our Story" title="20 years. One standard. No excuses." />
+              <SectionHeading center={false} eyebrow="Our Story" title="Why JC Trailmaster" />
               <p className="text-jc-gray-steel mb-4 leading-relaxed">
-                JC Trailmaster repairs trailers, containers, and chassis, in our shop or yours. That's the whole business,
-                built on twenty years of hands on experience before we ever opened our own doors. We learned this industry
-                the hard way, working on every kind of trailer, every kind of breakdown, until we knew exactly what it took
-                to do it right the first time.
+                Experience isn't measured by years alone—it's measured by the problems you've solved. For more than 20 years,
+                we've worked on trailers, containers, and chassis in every condition imaginable, from routine fleet
+                maintenance to emergency roadside repairs. That hands-on experience gives us the confidence to take on any
+                job and the knowledge to get it done right.
               </p>
               <p className="text-jc-gray-steel mb-4 leading-relaxed">
-                Today that means a fully equipped shop for structural repairs, brake and suspension work, electrical
-                diagnostics, and everything in between. It also means a mobile fleet ready to roll to your yard, your dock,
-                or the side of the road when the trailer can't come to us. DOT inspections. FHWA inspections. Preventive
-                maintenance that keeps you from needing us in an emergency in the first place.
+                Whether it's structural repairs, brake and suspension work, electrical diagnostics, reefer panels, lift
+                gates, roofs, decals, or preventive maintenance, our team has seen it, repaired it, and stands behind the
+                work. With a fully equipped shop and mobile service throughout the Metro Atlanta area, we deliver the same
+                level of quality and attention whether you bring your equipment to us or we come to you.
+              </p>
+              <p className="text-jc-gray-steel mb-4 leading-relaxed">
+                Every repair is backed by the same commitment: quality workmanship, honest service, and doing the job right
+                the first time. Whether it's a single trailer or an entire fleet, our goal is simple—to keep your equipment
+                safe, reliable, and on the road with as little downtime as possible.
               </p>
               <p className="text-jc-gray-steel leading-relaxed">
-                Single trailer or full fleet, shop repair or roadside call, every job gets the same standard. No shortcuts,
-                no half fixes, no guessing. That's the promise behind "We Keep You Rolling," and it's the only way we know
-                how to run a shop.
+                Whether you manage one trailer or an entire fleet, we're ready to help. Contact us today to discuss your
+                repair or maintenance needs, and see why businesses across Metro Atlanta trust JC Trailmaster to keep their
+                equipment moving.
               </p>
             </div>
           </Reveal>
