@@ -111,5 +111,5 @@ export const faqs = [
 export const stats = [
   { label: "Years of Experience", value: "25+" },
   { label: "Satisfied Customers", value: "1000+" },
-  { label: "Trailers Repaired", value: "10,000+" },
+  { label: "Repairs Completed", value: "10,000+" },
 ];
