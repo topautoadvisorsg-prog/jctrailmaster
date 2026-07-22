@@ -23,6 +23,7 @@ export const serviceCategories = [
     featured: false,
     services: [
       { name: "Brake Service", description: "Brake inspection, adjustment, drum/shoe and air system service." },
+      { name: "ABS Diagnostics", description: "Anti-lock braking system diagnostics and fault troubleshooting." },
       { name: "Axle Repair", description: "Axle alignment, bearing replacement, and load-bearing repair." },
       { name: "Suspension Repair", description: "Air ride and spring suspension diagnostics and component replacement." },
       { name: "Bearing Service", description: "Wheel bearing inspection, repack, and replacement." },
@@ -35,9 +36,10 @@ export const serviceCategories = [
     image: "/images/service-fleet-maintenance.jpg",
     featured: false,
     services: [
-      { name: "DOT Inspections", description: "Annual DOT inspections to keep every unit road-legal." },
-      { name: "FHWA Inspections", description: "Federal highway compliance inspections for interstate operators." },
+      { name: "DOT/FHWA Inspections", description: "Annual DOT and federal highway compliance inspections to keep every unit road-legal for interstate operation." },
       { name: "Tire Changes", description: "Tire mounting, balancing, and replacement for trailers and chassis." },
+      { name: "Unit Preventative Maintenance Inspections", description: "Scheduled inspections that catch issues early and keep your fleet out of the shop for emergencies." },
+      { name: "Reefer Unit Preventative Maintenance", description: "Scheduled maintenance for refrigeration units to protect temperature-sensitive loads." },
     ],
   },
   {
@@ -47,8 +49,7 @@ export const serviceCategories = [
     image: "/images/service-electrical.jpg",
     featured: false,
     services: [
-      { name: "Trailer Wiring", description: "Full wiring harness repair and replacement." },
-      { name: "Lighting", description: "Marker, brake, and tail light repair and replacement." },
+      { name: "Trailer Wiring & Lighting", description: "Full wiring harness repair, plus marker, brake, and tail light repair and replacement." },
       { name: "Electrical Diagnostics", description: "Full electrical system troubleshooting and fault-finding." },
       { name: "Electrical Repairs", description: "Repairs for ABS, junction boxes, and electrical components." },
     ],
@@ -61,8 +62,8 @@ export const serviceCategories = [
     featured: false,
     services: [
       { name: "Pressure Washing", description: "Exterior and undercarriage pressure washing." },
-      { name: "Decal Installation", description: "Fleet branding, DOT numbers, and decal application." },
-      { name: "Decal Removal", description: "Clean removal of old decals and adhesive residue." },
+      { name: "Decal Installation & Removal", description: "Fleet branding, DOT numbers, and decal application, plus clean removal of old decals and adhesive residue." },
+      { name: "Interior Cabin Cleaning", description: "Full interior cleaning and detailing — a service not many shops in the area offer." },
     ],
   },
   {
@@ -102,7 +103,7 @@ export const faqs = [
   { question: "What areas do you service?", answer: `We proudly serve metro Atlanta and the surrounding areas, including ${serviceAreaCityList}.` },
   { question: "Do you work with fleets and repeat accounts?", answer: "Yes. We partner with fleet managers and owner-operators on priority scheduling and billing accounts." },
   { question: "How fast can you respond to a breakdown?", answer: "Call us during business hours and we'll get a mobile repair truck moving to your location as fast as possible." },
-  { question: "What types of trailers/chassis do you repair?", answer: "Dry vans, reefers, flatbeds, and intermodal chassis across all major manufacturers." },
+  { question: "What types of trailers and vehicles do you repair?", answer: "Dry vans, reefers, flatbeds, box trucks, and intermodal chassis across all major manufacturers." },
   { question: "What are your business hours?", answer: `${BUSINESS.hours.map((h) => `${h.days} ${h.time}`).join(". ")}.` },
 ];
 

@@ -34,9 +34,9 @@ const WHY_CHOOSE = [
   { icon: Truck, label: "Fleet Specialists", sub: "Priority scheduling and billing built around your fleet." },
   { icon: ShieldCheck, label: "Licensed & Insured", sub: "Fully licensed and insured, so every job is protected." },
   { icon: BadgeCheck, label: "All Major Brands", sub: "Wabash, Great Dane, Utility, Thermo King, Carrier, and more." },
-  { icon: Container, label: "Every Trailer Type", sub: "Dry vans, reefers, flatbeds, and intermodal chassis." },
+  { icon: Container, label: "Every Trailer & Truck Type", sub: "Dry vans, reefers, flatbeds, box trucks, and intermodal chassis." },
   { icon: CircleDollarSign, label: "Fair, Honest Pricing", sub: "High-quality work at a fair price — no surprises." },
-  { icon: Wrench, label: "One Call, Every Repair", sub: "Trailer, container, and chassis — all under one roof." },
+  { icon: Wrench, label: "One Call, Every Repair", sub: "Trailers, containers, chassis, and box trucks — all under one roof." },
 ];
 
 
