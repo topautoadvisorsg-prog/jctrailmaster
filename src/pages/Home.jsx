@@ -252,7 +252,6 @@ export default function Home() {
                       {p.categoryLabel}
                     </span>
                     <p className="text-sm font-bold text-jc-white leading-tight">{p.title}</p>
-                    <p className="text-xs text-jc-gray-steel">{p.location}</p>
                   </div>
                 </a>
               </Reveal>

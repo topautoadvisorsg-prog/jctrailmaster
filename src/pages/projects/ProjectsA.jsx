@@ -68,7 +68,6 @@ export default function ProjectsA() {
                       {p.categoryLabel}
                     </span>
                     <p className="font-bold text-jc-white">{p.title}</p>
-                    <p className="text-xs text-jc-gray-steel">{p.location}</p>
                   </div>
                 </button>
               </Reveal>

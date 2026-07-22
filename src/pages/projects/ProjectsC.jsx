@@ -67,8 +67,7 @@ export default function ProjectsC() {
                     <span className="inline-block mb-2 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
                       {p.categoryLabel}
                     </span>
-                    <h3 className="text-xl font-black text-jc-white mb-1">{p.title}</h3>
-                    <p className="text-sm text-jc-gray-steel mb-3">{p.location}</p>
+                    <h3 className="text-xl font-black text-jc-white mb-3">{p.title}</h3>
                     <p className="text-jc-gray-steel mb-5">{p.description}</p>
                     <div className="flex gap-3">
                       <Button variant="outline" href={`/services/a#${p.category}`}>Related Service</Button>

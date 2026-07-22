@@ -99,7 +99,6 @@ export default function Lightbox({ project, onClose }) {
             {project.categoryLabel}
           </span>
           <h3 className="text-xl font-black text-jc-white">{project.title}</h3>
-          <p className="text-sm text-jc-gray-steel">{project.location}</p>
           <p className="mt-2 text-sm text-jc-gray-steel max-w-lg mx-auto">{project.description}</p>
         </div>
       </div>
