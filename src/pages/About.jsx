@@ -73,7 +73,7 @@ export default function About() {
         <div className="mx-auto max-w-2xl px-4">
           <SectionHeading eyebrow="Our Mission" title={<>"We do what it takes to get the job done, rain or shine."</>} />
           <p className="text-jc-gray-steel">
-            We deliver outstanding, high-quality work at a fair price — whether that's in our shop or on site.
+            We deliver outstanding, high-quality work at a fair price — whether that's in our shop or with mobile service.
             Let our work speak for itself.
           </p>
         </div>

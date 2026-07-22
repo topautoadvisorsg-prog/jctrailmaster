@@ -98,7 +98,7 @@ const otherServiceAreaCities = SERVICE_AREA_CITIES.filter((c) => c !== "Atlanta"
 const serviceAreaCityList = `${otherServiceAreaCities.slice(0, -1).join(", ")}, and ${otherServiceAreaCities.at(-1)}`;
 
 export const faqs = [
-  { question: "Do you offer mobile/on-site repair?", answer: "Yes. Our fully equipped mobile repair trucks come to your yard, dock, or breakdown location — no need to bring the trailer to us." },
+  { question: "Do you offer mobile repair?", answer: "Yes. Our fully equipped mobile repair trucks come to your yard, dock, or breakdown location — no need to bring the trailer to us." },
   { question: "What areas do you service?", answer: `We proudly serve metro Atlanta and the surrounding areas, including ${serviceAreaCityList}.` },
   { question: "Do you work with fleets and repeat accounts?", answer: "Yes. We partner with fleet managers and owner-operators on priority scheduling and billing accounts." },
   { question: "How fast can you respond to a breakdown?", answer: "Call us during business hours and we'll get a mobile repair truck moving to your location as fast as possible." },
