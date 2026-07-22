@@ -23,6 +23,7 @@ export default function BeforeAfterSlider({ before, after, label }) {
         max={100}
         value={pos}
         onChange={(e) => setPos(Number(e.target.value))}
+        onClick={(e) => e.stopPropagation()}
         className="absolute inset-x-0 bottom-2 mx-auto w-[90%] accent-jc-orange-primary"
         aria-label={`${label} before and after slider`}
       />

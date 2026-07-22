@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import VariantSwitcher from "../../components/VariantSwitcher";
 import CategoryFilter from "../../components/CategoryFilter";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider";
+import Lightbox from "../../components/Lightbox";
 import CtaBand from "../../components/CtaBand";
 import Button from "../../components/Button";
 import Reveal from "../../components/Reveal";
@@ -22,6 +23,7 @@ export default function ProjectsC() {
   );
 
   const [category, setCategory] = useState("all");
+  const [lightboxProject, setLightboxProject] = useState(null);
 
   const filtered = useMemo(
     () => (category === "all" ? projects : projects.filter((p) => p.category === category)),
@@ -46,7 +48,21 @@ export default function ProjectsC() {
             {filtered.map((p) => (
               <Reveal key={p.id}>
                 <div className="grid gap-6 md:grid-cols-2 items-center border-b border-white/10 pb-16 last:border-b-0 last:pb-0">
-                  <BeforeAfterSlider before={p.before} after={p.after} label={p.title} />
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setLightboxProject(p)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setLightboxProject(p);
+                      }
+                    }}
+                    aria-label={`View full photo album for ${p.title}`}
+                    className="cursor-pointer rounded-lg outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-jc-orange-primary"
+                  >
+                    <BeforeAfterSlider before={p.before} after={p.after} label={p.title} />
+                  </div>
                   <div>
                     <span className="inline-block mb-2 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
                       {p.categoryLabel}
@@ -69,6 +85,8 @@ export default function ProjectsC() {
           )}
         </div>
       </section>
+
+      <Lightbox project={lightboxProject} onClose={() => setLightboxProject(null)} />
 
       <CtaBand />
     </>
