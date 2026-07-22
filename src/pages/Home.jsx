@@ -71,7 +71,7 @@ export default function Home() {
       {/* HERO — image carries the JC Trailmaster wordmark baked in; headline sits below it.
           Height is capped (not aspect-ratio-locked) so it stays big/full without ballooning
           past ~820px on ultra-wide screens and dragging the headline behind dead black space. */}
-      <section className="bg-jc-black">
+      <section className="bg-jc-black pt-4">
         <div
           className="relative w-full h-[420px] sm:h-[520px] md:h-[680px] lg:h-[760px] xl:h-[820px] bg-cover bg-center"
           style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg")}
