@@ -74,7 +74,7 @@ export default function Home() {
           desktop width — a capped height here forces a wider-than-image box past that cap,
           which crops the sky above the logo and the road below the truck. Mobile/sm keep fixed
           heights — narrow portrait viewports already center-crop the sides, not top/bottom. */}
-      <section className="bg-jc-black pt-4">
+      <section className="bg-jc-black">
         <div
           className="relative w-full h-[420px] sm:h-[520px] md:h-auto md:aspect-[1672/941] bg-cover bg-center"
           style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg")}
