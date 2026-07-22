@@ -14,7 +14,7 @@ const VARIANTS = [
 export default function ServicesA() {
   usePageMeta(
     "Services — Trailer, Chassis & Fleet Repair",
-    "Trailer & chassis repair, brake & suspension, fleet maintenance, electrical, cleaning, and mobile service — full details on every repair we offer."
+    "Trailer, reefer, dry van, box truck & chassis repair, brake & suspension, fleet maintenance, electrical, cleaning, and mobile service — full details on every repair we offer."
   );
 
   return (

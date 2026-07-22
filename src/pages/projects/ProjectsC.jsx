@@ -18,7 +18,7 @@ const VARIANTS = [
 export default function ProjectsC() {
   usePageMeta(
     "Completed Projects — Before & After",
-    "See real trailer and chassis repairs before and after — drag the slider to compare each completed job."
+    "See real trailer, reefer, dry van, box truck, and chassis repairs before and after — drag the slider to compare each completed job."
   );
 
   const [category, setCategory] = useState("all");

@@ -77,7 +77,7 @@ function CategoryCarousel({ category, onSelect }) {
 export default function ProjectsB() {
   usePageMeta(
     "Completed Projects — Before & After",
-    "Scroll through completed trailer, chassis, and fleet repair jobs across metro Atlanta with an interactive before/after view of every project."
+    "Scroll through completed trailer, reefer, dry van, box truck, and chassis repair jobs across metro Atlanta with an interactive before/after view of every project."
   );
 
   const [active, setActive] = useState(null);

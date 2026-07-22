@@ -9,7 +9,7 @@ import { serviceCategories } from "../data/services";
 export default function Contact() {
   usePageMeta(
     "Contact Us — Request Service",
-    `Request trailer or chassis repair service from JC Trailmaster. Call ${BUSINESS.phone.display} or send us your details and we'll get back to you fast.`
+    `Request trailer, reefer, dry van, box truck, or chassis repair service from JC Trailmaster. Call ${BUSINESS.phone.display} or send us your details and we'll get back to you fast.`
   );
 
   const [submitted, setSubmitted] = useState(false);

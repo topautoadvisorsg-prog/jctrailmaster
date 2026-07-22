@@ -16,7 +16,7 @@ const DIFFERENTIATORS = [
 export default function About() {
   usePageMeta(
     "About Us",
-    "25+ years of hands-on trailer and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
+    "25+ years of hands-on trailer, reefer, dry van, box truck, and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
   );
 
   return (

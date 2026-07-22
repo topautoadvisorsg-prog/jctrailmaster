@@ -63,7 +63,7 @@ function FaqItem({ q, a }) {
 export default function Home() {
   usePageMeta(
     "Trailer, Container & Chassis Repair in Metro Atlanta",
-    "Experienced, reliable trailer and chassis repair — in shop or mobile service. 25+ years serving metro Atlanta fleets and owner-operators."
+    "Experienced, reliable trailer, reefer, dry van, box truck, and chassis repair — in shop or mobile service. 25+ years serving metro Atlanta fleets and owner-operators."
   );
 
   return (

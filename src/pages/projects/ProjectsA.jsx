@@ -18,7 +18,7 @@ const VARIANTS = [
 export default function ProjectsA() {
   usePageMeta(
     "Completed Projects — Trailer & Chassis Repairs",
-    "Browse real completed trailer, chassis, and fleet repair jobs across metro Atlanta, filterable by service category."
+    "Browse real completed trailer, reefer, dry van, box truck, and chassis repair jobs across metro Atlanta, filterable by service category."
   );
 
   const [category, setCategory] = useState("all");
