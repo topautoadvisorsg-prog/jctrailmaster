@@ -1,30 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Plus } from "lucide-react";
-import VariantSwitcher from "../../components/VariantSwitcher";
-import ServiceDetailBlock from "../../components/ServiceDetailBlock";
-import CtaBand from "../../components/CtaBand";
-import PageHero from "../../components/PageHero";
-import usePageMeta from "../../hooks/usePageMeta";
-import { serviceCategories } from "../../data/services";
+import ServiceDetailBlock from "../components/ServiceDetailBlock";
+import CtaBand from "../components/CtaBand";
+import PageHero from "../components/PageHero";
+import usePageMeta from "../hooks/usePageMeta";
+import { serviceCategories } from "../data/services";
 
-const VARIANTS = [
-  { path: "a", label: "A · Stacked" },
-  { path: "b", label: "B · Tabbed" },
-];
+// Links elsewhere on the site (header dropdown, footer, home page cards) deep-link
+// to a specific category via #slug — resolve that on first render so the right
+// tab opens immediately, and keep it in sync if the hash changes while already
+// on this page (e.g. clicking a different category link from the header).
+function categoryFromHash(hash) {
+  const slug = hash.replace("#", "");
+  return serviceCategories.some((c) => c.slug === slug) ? slug : serviceCategories[0].slug;
+}
 
-export default function ServicesB() {
+export default function Services() {
   usePageMeta(
     "Services — Trailer, Chassis & Fleet Repair",
     "Trailer, reefer, dry van, box truck & chassis repair, brake & suspension, fleet maintenance, electrical, cleaning, and mobile service — full details on every repair we offer."
   );
 
-  const [active, setActive] = useState(serviceCategories[0].slug);
+  const { hash } = useLocation();
+  const [active, setActive] = useState(() => categoryFromHash(hash));
+
+  useEffect(() => {
+    setActive(categoryFromHash(hash));
+  }, [hash]);
+
   const activeCategory = serviceCategories.find((c) => c.slug === active);
 
   return (
     <>
-      <VariantSwitcher base="/services" variants={VARIANTS} />
-
       <PageHero
         eyebrow="Our Services"
         title="Every Repair. One Call."

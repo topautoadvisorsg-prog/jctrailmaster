@@ -27,7 +27,7 @@ export default function ServiceDetailBlock({ category, reverse = false }) {
           ))}
         </ul>
         <div className="flex flex-wrap gap-3">
-          <a href="/projects/a" className="inline-flex items-center gap-1 text-sm font-bold text-jc-orange-primary hover:text-jc-amber">
+          <a href="/projects" className="inline-flex items-center gap-1 text-sm font-bold text-jc-orange-primary hover:text-jc-amber">
             View Related Projects <ArrowRight size={14} />
           </a>
           <Button variant="outline" href="/contact" className="ml-auto">Request a Quote</Button>

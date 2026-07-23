@@ -1,22 +1,15 @@
 import { useState, useMemo } from "react";
-import VariantSwitcher from "../../components/VariantSwitcher";
-import CategoryFilter from "../../components/CategoryFilter";
-import BeforeAfterSlider from "../../components/BeforeAfterSlider";
-import Lightbox from "../../components/Lightbox";
-import CtaBand from "../../components/CtaBand";
-import Button from "../../components/Button";
-import Reveal from "../../components/Reveal";
-import PageHero from "../../components/PageHero";
-import usePageMeta from "../../hooks/usePageMeta";
-import { projects } from "../../data/projects";
+import CategoryFilter from "../components/CategoryFilter";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import Lightbox from "../components/Lightbox";
+import CtaBand from "../components/CtaBand";
+import Button from "../components/Button";
+import Reveal from "../components/Reveal";
+import PageHero from "../components/PageHero";
+import usePageMeta from "../hooks/usePageMeta";
+import { projects } from "../data/projects";
 
-const VARIANTS = [
-  { path: "a", label: "A · Grid + Lightbox" },
-  { path: "b", label: "B · Carousel + Before/After" },
-  { path: "c", label: "C · Before/After Grid" },
-];
-
-export default function ProjectsC() {
+export default function Projects() {
   usePageMeta(
     "Completed Projects — Before & After",
     "See real trailer, reefer, dry van, box truck, and chassis repairs before and after — drag the slider to compare each completed job."
@@ -32,8 +25,6 @@ export default function ProjectsC() {
 
   return (
     <>
-      <VariantSwitcher base="/projects" variants={VARIANTS} />
-
       <PageHero
         eyebrow="Our Work"
         title="See The Difference."
@@ -70,7 +61,7 @@ export default function ProjectsC() {
                     <h3 className="text-xl font-black text-jc-white mb-3">{p.title}</h3>
                     <p className="text-jc-gray-steel mb-5">{p.description}</p>
                     <div className="flex gap-3">
-                      <Button variant="outline" href={`/services/a#${p.category}`}>Related Service</Button>
+                      <Button variant="outline" href={`/services#${p.category}`}>Related Service</Button>
                       <Button variant="primary" href="/contact">Request a Quote</Button>
                     </div>
                   </div>

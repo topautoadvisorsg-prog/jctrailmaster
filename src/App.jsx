@@ -4,11 +4,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MobileCallBar from "./components/MobileCallBar";
 import Home from "./pages/Home";
-import ServicesA from "./pages/services/ServicesA";
-import ServicesB from "./pages/services/ServicesB";
-import ProjectsA from "./pages/projects/ProjectsA";
-import ProjectsB from "./pages/projects/ProjectsB";
-import ProjectsC from "./pages/projects/ProjectsC";
+import Services from "./pages/Services";
+import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -39,6 +36,14 @@ function ScrollToTop() {
   return null;
 }
 
+// Old per-layout-option URLs (/services/a, /projects/b, ...) no longer exist now
+// that a single final layout was chosen for each — redirect old links/bookmarks
+// to the clean route instead of 404ing, preserving any #category hash.
+function RedirectWithHash({ to }) {
+  const { hash } = useLocation();
+  return <Navigate to={`${to}${hash}`} replace />;
+}
+
 function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-jc-black">
@@ -57,16 +62,14 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Navigate to="/services/a" replace />} />
-          <Route path="/services/a" element={<ServicesA />} />
-          <Route path="/services/b" element={<ServicesB />} />
-          {/* Option C (grid-to-detail) was dropped — read too much like a homepage
-              copy-paste. Redirect any old links/bookmarks to A instead of 404ing. */}
-          <Route path="/services/c" element={<Navigate to="/services/a" replace />} />
-          <Route path="/projects" element={<Navigate to="/projects/a" replace />} />
-          <Route path="/projects/a" element={<ProjectsA />} />
-          <Route path="/projects/b" element={<ProjectsB />} />
-          <Route path="/projects/c" element={<ProjectsC />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/a" element={<RedirectWithHash to="/services" />} />
+          <Route path="/services/b" element={<RedirectWithHash to="/services" />} />
+          <Route path="/services/c" element={<RedirectWithHash to="/services" />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/a" element={<RedirectWithHash to="/projects" />} />
+          <Route path="/projects/b" element={<RedirectWithHash to="/projects" />} />
+          <Route path="/projects/c" element={<RedirectWithHash to="/projects" />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

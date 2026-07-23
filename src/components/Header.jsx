@@ -6,20 +6,19 @@ import { serviceCategories } from "../data/services";
 
 const NAV = [
   { label: "Home", to: "/" },
-  { label: "Services", to: "/services/a" },
-  { label: "Projects", to: "/projects/a" },
+  { label: "Services", to: "/services" },
+  { label: "Projects", to: "/projects" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
 
-// Dropdown links always point at the stacked layout (/services/a) since it's
-// the one with real #slug anchors to jump straight to — that holds regardless
-// of which Services layout (A or B) the client ultimately picks.
+// Category links deep-link via #slug — Services.jsx reads the hash on load
+// (and on change) to open the matching tab directly.
 function ServicesDropdown() {
   return (
     <div className="group relative">
       <NavLink
-        to="/services/a"
+        to="/services"
         className={({ isActive }) =>
           `flex items-center gap-1 text-sm font-semibold uppercase tracking-wide transition-colors ${
             isActive ? "text-jc-orange-primary" : "text-jc-white group-hover:text-jc-orange-primary"
@@ -35,7 +34,7 @@ function ServicesDropdown() {
           {serviceCategories.map((cat) => (
             <Link
               key={cat.slug}
-              to={`/services/a#${cat.slug}`}
+              to={`/services#${cat.slug}`}
               className="block rounded-md px-3 py-2.5 text-sm font-semibold text-jc-white transition-colors hover:bg-jc-orange-primary/10 hover:text-jc-orange-primary"
             >
               {cat.title}
@@ -43,7 +42,7 @@ function ServicesDropdown() {
           ))}
           <div className="mt-1 border-t border-white/10 pt-1">
             <Link
-              to="/services/a"
+              to="/services"
               className="block rounded-md px-3 py-2.5 text-xs font-bold uppercase tracking-wide text-jc-orange-primary transition-colors hover:bg-jc-orange-primary/10"
             >
               View All Services →
@@ -62,7 +61,7 @@ function MobileServicesLinks({ onNavigate }) {
     <div>
       <div className="flex items-center justify-between">
         <NavLink
-          to="/services/a"
+          to="/services"
           onClick={onNavigate}
           className="text-sm font-semibold uppercase tracking-wide text-jc-white hover:text-jc-orange-primary"
         >
@@ -82,7 +81,7 @@ function MobileServicesLinks({ onNavigate }) {
           {serviceCategories.map((cat) => (
             <Link
               key={cat.slug}
-              to={`/services/a#${cat.slug}`}
+              to={`/services#${cat.slug}`}
               onClick={onNavigate}
               className="text-sm text-jc-gray-steel hover:text-jc-orange-primary"
             >

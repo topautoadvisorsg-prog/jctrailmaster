@@ -161,7 +161,7 @@ export default function Home() {
                     <ul className="mb-4 space-y-1 text-sm text-jc-gray-steel">
                       {cat.services.map((s) => <li key={s.name}>{s.name}</li>)}
                     </ul>
-                    <a href={`/services/a#${cat.slug}`} className="text-sm font-bold text-jc-orange-primary group-hover:text-jc-amber transition-colors">
+                    <a href={`/services#${cat.slug}`} className="text-sm font-bold text-jc-orange-primary group-hover:text-jc-amber transition-colors">
                       Learn More →
                     </a>
                   </div>
@@ -248,7 +248,7 @@ export default function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {projects.filter((p) => p.featured).map((p, i) => (
               <Reveal key={p.id} delay={i * 0.05}>
-                <a href="/projects/a" className="group block rounded-lg overflow-hidden border border-white/10 hover:border-jc-orange-primary/60 transition-colors">
+                <a href="/projects" className="group block rounded-lg overflow-hidden border border-white/10 hover:border-jc-orange-primary/60 transition-colors">
                   <div className="aspect-[4/3] bg-cover bg-center bg-jc-black" style={bgImage(p.image)} />
                   <div className="p-3">
                     <span className="inline-block mb-1 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
@@ -261,7 +261,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <Button variant="outline" href="/projects/a">View All Projects</Button>
+            <Button variant="outline" href="/projects">View All Projects</Button>
           </div>
         </div>
       </section>

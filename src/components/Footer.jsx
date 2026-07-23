@@ -23,8 +23,8 @@ function InstagramIcon(props) {
 
 const QUICK_LINKS = [
   { label: "Home", to: "/" },
-  { label: "Services", to: "/services/a" },
-  { label: "Projects", to: "/projects/a" },
+  { label: "Services", to: "/services" },
+  { label: "Projects", to: "/projects" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
@@ -65,7 +65,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-jc-gray-steel">
             {serviceCategories.map((c) => (
               <li key={c.slug}>
-                <Link to={`/services/a#${c.slug}`} className="hover:text-jc-white transition-colors">{c.title}</Link>
+                <Link to={`/services#${c.slug}`} className="hover:text-jc-white transition-colors">{c.title}</Link>
               </li>
             ))}
           </ul>
