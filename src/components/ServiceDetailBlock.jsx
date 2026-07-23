@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import Button from "./Button";
 import { bgImage } from "../lib/media";
 
@@ -26,10 +25,9 @@ export default function ServiceDetailBlock({ category, reverse = false }) {
             </li>
           ))}
         </ul>
+        {/* "View Related Projects" link removed while Projects is hidden (2026-07-22) —
+            add back once real project photos are in: <a href="/projects" ...>. */}
         <div className="flex flex-wrap gap-3">
-          <a href="/projects" className="inline-flex items-center gap-1 text-sm font-bold text-jc-orange-primary hover:text-jc-amber">
-            View Related Projects <ArrowRight size={14} />
-          </a>
           <Button variant="outline" href="/contact" className="ml-auto">Request a Quote</Button>
         </div>
       </div>

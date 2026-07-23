@@ -21,6 +21,13 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+// STATUS: hidden pending real client content (2026-07-22) — Featured Projects
+// still shows placeholder stock photos, Testimonials still shows placeholder
+// reviews. Flip back to true once real project photos / real Google reviews
+// are in.
+const SHOW_FEATURED_PROJECTS = false;
+const SHOW_TESTIMONIALS = false;
+
 const TRUST_BADGES = [
   { icon: ShieldCheck, label: "Expert Technicians", sub: "Skilled. Certified. Trusted." },
   { icon: Clock, label: "Fast Response", sub: "Minimizing downtime. Maximizing uptime." },
@@ -240,55 +247,59 @@ export default function Home() {
       </section>
 
       {/* FEATURED PROJECTS */}
-      <section className="bg-jc-black-soft py-20 border-y border-white/10">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <Reveal>
-            <SectionHeading eyebrow="Our Work" title={<>Featured <span className="text-jc-orange-primary">Projects</span></>} />
-          </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {projects.filter((p) => p.featured).map((p, i) => (
-              <Reveal key={p.id} delay={i * 0.05}>
-                <a href="/projects" className="group block rounded-lg overflow-hidden border border-white/10 hover:border-jc-orange-primary/60 transition-colors">
-                  <div className="aspect-[4/3] bg-cover bg-center bg-jc-black" style={bgImage(p.image)} />
-                  <div className="p-3">
-                    <span className="inline-block mb-1 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
-                      {p.categoryLabel}
-                    </span>
-                    <p className="text-sm font-bold text-jc-white leading-tight">{p.title}</p>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
+      {SHOW_FEATURED_PROJECTS && (
+        <section className="bg-jc-black-soft py-20 border-y border-white/10">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <Reveal>
+              <SectionHeading eyebrow="Our Work" title={<>Featured <span className="text-jc-orange-primary">Projects</span></>} />
+            </Reveal>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+              {projects.filter((p) => p.featured).map((p, i) => (
+                <Reveal key={p.id} delay={i * 0.05}>
+                  <a href="/projects" className="group block rounded-lg overflow-hidden border border-white/10 hover:border-jc-orange-primary/60 transition-colors">
+                    <div className="aspect-[4/3] bg-cover bg-center bg-jc-black" style={bgImage(p.image)} />
+                    <div className="p-3">
+                      <span className="inline-block mb-1 rounded bg-jc-orange-primary/15 px-2 py-0.5 text-[10px] font-bold uppercase text-jc-orange-primary">
+                        {p.categoryLabel}
+                      </span>
+                      <p className="text-sm font-bold text-jc-white leading-tight">{p.title}</p>
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Button variant="outline" href="/projects">View All Projects</Button>
+            </div>
           </div>
-          <div className="mt-8 text-center">
-            <Button variant="outline" href="/projects">View All Projects</Button>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* TESTIMONIALS */}
-      <section className="bg-jc-black jc-texture py-20">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <Reveal>
-            <SectionHeading eyebrow="Reviews" title="What Our Customers Say" />
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.06}>
-                <div className="h-full rounded-lg border border-white/10 p-6 hover:border-jc-orange-primary/30 transition-colors">
-                  <div className="flex gap-1 mb-3 text-jc-orange-primary">
-                    {Array.from({ length: t.rating }).map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+      {SHOW_TESTIMONIALS && (
+        <section className="bg-jc-black jc-texture py-20">
+          <div className="mx-auto max-w-7xl px-4 lg:px-8">
+            <Reveal>
+              <SectionHeading eyebrow="Reviews" title="What Our Customers Say" />
+            </Reveal>
+            <div className="grid gap-6 md:grid-cols-3">
+              {testimonials.map((t, i) => (
+                <Reveal key={t.name} delay={i * 0.06}>
+                  <div className="h-full rounded-lg border border-white/10 p-6 hover:border-jc-orange-primary/30 transition-colors">
+                    <div className="flex gap-1 mb-3 text-jc-orange-primary">
+                      {Array.from({ length: t.rating }).map((_, j) => <Star key={j} size={16} fill="currentColor" />)}
+                    </div>
+                    <p className="text-jc-gray-steel text-sm italic mb-4">&ldquo;{t.quote}&rdquo;</p>
+                    <p className="text-sm font-bold text-jc-white">{t.name}</p>
+                    <p className="text-xs text-jc-gray-steel">{t.location}</p>
+                    <p className="text-xs text-jc-orange-primary mt-1">Google · 5.0</p>
                   </div>
-                  <p className="text-jc-gray-steel text-sm italic mb-4">&ldquo;{t.quote}&rdquo;</p>
-                  <p className="text-sm font-bold text-jc-white">{t.name}</p>
-                  <p className="text-xs text-jc-gray-steel">{t.location}</p>
-                  <p className="text-xs text-jc-orange-primary mt-1">Google · 5.0</p>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* SERVICE AREA */}
       <section className="bg-jc-black-soft py-20 border-y border-white/10">

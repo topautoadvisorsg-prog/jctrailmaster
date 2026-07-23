@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import MobileCallBar from "./components/MobileCallBar";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
-import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -66,10 +65,12 @@ export default function App() {
           <Route path="/services/a" element={<RedirectWithHash to="/services" />} />
           <Route path="/services/b" element={<RedirectWithHash to="/services" />} />
           <Route path="/services/c" element={<RedirectWithHash to="/services" />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/a" element={<RedirectWithHash to="/projects" />} />
-          <Route path="/projects/b" element={<RedirectWithHash to="/projects" />} />
-          <Route path="/projects/c" element={<RedirectWithHash to="/projects" />} />
+          {/* STATUS: Projects hidden pending real client photos (2026-07-22) — swap
+              back to <Projects /> (src/pages/Projects.jsx, untouched) once ready. */}
+          <Route path="/projects" element={<Navigate to="/" replace />} />
+          <Route path="/projects/a" element={<Navigate to="/" replace />} />
+          <Route path="/projects/b" element={<Navigate to="/" replace />} />
+          <Route path="/projects/c" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

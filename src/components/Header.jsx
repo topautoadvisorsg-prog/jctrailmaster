@@ -4,10 +4,11 @@ import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { BUSINESS } from "../data/business";
 import { serviceCategories } from "../data/services";
 
+// STATUS: Projects hidden pending real client photos (2026-07-22) — add
+// { label: "Projects", to: "/projects" } back once real photos are in.
 const NAV = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
-  { label: "Projects", to: "/projects" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

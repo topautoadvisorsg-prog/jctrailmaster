@@ -21,10 +21,11 @@ function InstagramIcon(props) {
   );
 }
 
+// STATUS: Projects hidden pending real client photos (2026-07-22) — add
+// { label: "Projects", to: "/projects" } back once real photos are in.
 const QUICK_LINKS = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
-  { label: "Projects", to: "/projects" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
