@@ -92,6 +92,9 @@ export const brandsServiced = [
   { name: "Thermo King", logo: "/images/brands/thermo-king.svg" },
   { name: "Carrier Transicold", logo: "/images/brands/carrier-transicold.png" },
   { name: "Stoughton", logo: "/images/brands/stoughton.png" },
+  { name: "Vanguard", logo: "/images/brands/vanguard.svg" },
+  { name: "Strick", logo: "/images/brands/strick.png" },
+  { name: "Fruehauf", logo: "/images/brands/fruehauf.png" },
 ];
 
 // "metro Atlanta" already covers Atlanta itself, so drop it from the "including" list.
