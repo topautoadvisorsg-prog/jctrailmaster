@@ -110,8 +110,8 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} JC Trailmaster. All rights reserved.</p>
           <p>Serving {SERVICE_AREA_CITIES.join(", ")} & surrounding areas</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-jc-white">Privacy Policy</a>
-            <a href="#" className="hover:text-jc-white">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-jc-white">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-jc-white">Terms of Service</Link>
           </div>
         </div>
       </div>

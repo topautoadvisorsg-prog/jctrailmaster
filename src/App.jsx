@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import LegalPage from "./pages/LegalPage";
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -73,6 +74,8 @@ export default function App() {
           <Route path="/projects/c" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<LegalPage type="privacy" />} />
+          <Route path="/terms-of-service" element={<LegalPage type="terms" />} />
         </Routes>
       </Layout>
     </BrowserRouter>
