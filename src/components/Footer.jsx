@@ -11,16 +11,6 @@ function FacebookIcon(props) {
   );
 }
 
-function InstagramIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 // STATUS: Projects hidden pending real client photos (2026-07-22) — add
 // { label: "Projects", to: "/projects" } back once real photos are in.
 const QUICK_LINKS = [
@@ -47,8 +37,15 @@ export default function Footer() {
             Your trusted partner for trailer and chassis repairs. We keep you rolling.
           </p>
           <div className="flex gap-3 mt-4">
-            <a href="#" aria-label="Facebook" className="text-jc-gray-steel hover:text-jc-orange-primary"><FacebookIcon /></a>
-            <a href="#" aria-label="Instagram" className="text-jc-gray-steel hover:text-jc-orange-primary"><InstagramIcon /></a>
+            <a
+              href={BUSINESS.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-jc-gray-steel hover:text-jc-orange-primary"
+            >
+              <FacebookIcon />
+            </a>
           </div>
         </div>
 

@@ -22,6 +22,9 @@ export const BUSINESS = {
     { days: "Mon–Fri", time: "9:00 AM – 6:00 PM" },
     { days: "Saturday", time: "By Appointment Only" },
   ],
+  social: {
+    facebook: "https://www.facebook.com/jctrailmaster",
+  },
 };
 
 // Ellenwood first (where the shop actually is), rest are the surrounding
