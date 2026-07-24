@@ -123,7 +123,7 @@ npm run build     # production build to /dist
 - **Layout variant decision** — Services = tabbed, Projects = before/after grid + album. See "Layout decisions" above.
 - **Contact form** — wired to Formspree, verified with a real test submission before shipping.
 - **Facebook link** — live in the footer, pointed at the client's real page. No Instagram icon (not a real account).
-- **Privacy Policy / Terms of Service** — real pages at `/privacy-policy` and `/terms-of-service`, replacing dead footer links. General boilerplate covering the actual site (contact form, quotes, mobile service); flagged on-page as a template pending owner/legal review before being treated as final.
+- **Privacy Policy / Terms of Service** — real pages at `/privacy-policy` and `/terms-of-service`, replacing dead footer links. General boilerplate covering the actual site (contact form, quotes, mobile service); client reviewed and approved.
 
 ## Open items (still needs client input)
 - **Real logo file** — header still uses a generated "JC" text badge, not the client's actual logo file/image.

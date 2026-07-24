@@ -20,10 +20,6 @@ export default function LegalPage({ type }) {
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           <div className="mb-8 border-l-4 border-jc-orange-primary bg-jc-black-soft/85 p-5">
             <p className="text-jc-gray-steel leading-relaxed">{page.intro}</p>
-            <p className="mt-3 text-sm text-jc-gray-steel">
-              This page is a general template and should be reviewed by the business owner and legal counsel before it is
-              treated as final legal advice.
-            </p>
           </div>
 
           <div className="space-y-8">
