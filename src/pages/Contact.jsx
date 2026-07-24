@@ -13,11 +13,29 @@ export default function Contact() {
   );
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Wire to CRM/email endpoint before launch — see Section 17 open questions.
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(false);
+    try {
+      const response = await fetch("https://formspree.io/f/mykrnjvr", {
+        method: "POST",
+        body: new FormData(e.target),
+        headers: { Accept: "application/json" },
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -66,11 +84,17 @@ export default function Contact() {
                   <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Message</label>
                   <textarea id="message" name="message" rows={4} className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" placeholder="Tell us what's going on with your trailer or chassis..." />
                 </div>
+                {error && (
+                  <p className="text-sm text-red-400" role="alert">
+                    Something went wrong sending your request. Please try again, or call {BUSINESS.phone.display} directly.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded-md bg-jc-orange-primary px-6 py-3 font-bold uppercase text-jc-black hover:bg-jc-orange-deep transition-colors"
+                  disabled={submitting}
+                  className="inline-flex items-center gap-2 rounded-md bg-jc-orange-primary px-6 py-3 font-bold uppercase text-jc-black hover:bg-jc-orange-deep transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <Send size={16} /> Send Request
+                  <Send size={16} /> {submitting ? "Sending..." : "Send Request"}
                 </button>
               </form>
             )}
