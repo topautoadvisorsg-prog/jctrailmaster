@@ -106,7 +106,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-2 text-xs text-jc-gray-steel">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8 pt-4 pb-20 lg:py-4 flex flex-wrap items-center justify-between gap-2 text-xs text-jc-gray-steel">
           <p>&copy; {new Date().getFullYear()} JC Trailmaster. All rights reserved.</p>
           <p>Serving {SERVICE_AREA_CITIES.join(", ")} & surrounding areas</p>
           <div className="flex gap-4">
