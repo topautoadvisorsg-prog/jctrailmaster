@@ -53,7 +53,7 @@ export default function Contact() {
             {submitted ? (
               <div className="text-center py-10" role="status" aria-live="polite">
                 <p className="text-jc-orange-primary font-black text-xl mb-2">Request Received.</p>
-                <p className="text-jc-gray-steel">We'll be in touch shortly. For anything urgent, call {BUSINESS.phone.display}.</p>
+                <p className="text-jc-gray-steel">We'll get back to you within 24–48 business hours. Or give us a call at {BUSINESS.phone.display} if that's easier.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
