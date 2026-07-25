@@ -36,7 +36,7 @@ export default function Services() {
       <PageHero
         eyebrow="Our Services"
         title="Every Repair. One Call."
-        subtitle="Pick a service category to see exactly what's included."
+        subtitle="From routine maintenance to major structural repairs, on trailers, reefers, dry vans, and box trucks."
       />
 
       <section className="bg-jc-black jc-texture py-14">
