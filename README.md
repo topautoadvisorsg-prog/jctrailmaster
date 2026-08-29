@@ -130,7 +130,7 @@ npm run build     # production build to /dist
 - **"Licensed" language removed sitewide** — there's no state licensing board for trailer/chassis repair in Georgia, so "Licensed & Insured" was an inaccurate, borrowed claim. Replaced everywhere with "Insured & DOT Registered," backed by the verified USDOT number above.
 - **"Certified" language removed sitewide** — "Certified Technicians" was never independently verifiable (no cert body, no ASE numbers on file). Replaced with "Experienced" / "Trailer & Chassis Specialists" — factual, not a credential claim that can't be backed up.
 - **Contact form spam** — added a Formspree honeypot field (`_gotcha` in `Contact.jsx`). Formspree's built-in ML spam filter (Formshield) was already on; its tunable classifiers are paid-tier only, so the honeypot is the actual fix that shipped.
-- **Map embed** — switched from a dark CSS filter to the plain light-mode embed, and the query now searches by business name + address (not just the bare address) so the "JC Trailmaster" label resolves on the pin without a visitor needing to zoom in manually.
+- **Map embed — DONE, both client asks met, do not reopen.** She asked for two things: that the business actually show up on the map, and that the map be light instead of dark. Both shipped: the dark CSS filter is gone (plain light-mode embed), and the query searches by business name + address rather than the bare address, so the "JC Trailmaster" label resolves on the pin without a visitor having to zoom in. She did **not** ask for a custom-coloured or branded pin — that was never a client request.
 
 ## Open items — waiting on a file/asset from the client
 Nothing else is actionable on these until she sends them:
@@ -148,9 +148,6 @@ Nothing else is actionable on these until she sends them:
 - **FAQ** (`data/services.js` → `faqs`) — still the original placeholder question set. She was asked on the 2026-08-25 call if she wants her own real top questions swapped in instead; no answer yet.
 - **"Fleet & Commercial Accounts" copy** (`pages/Home.jsx`) — she called it "too salesy" on the call; no replacement was ever agreed on.
 - **Which service categories/services get top billing on the homepage** — blocked on the master service list above; once that arrives, still needs her (and her husband's) final call on priority.
-
-## Open items — bigger lift, not blocked, just not started
-- **Map marker "pop"** (`components/MapEmbed.jsx`) — the embed is light-mode now and resolves to the named Business Profile pin (not just a bare address dot), but making the pin itself visually branded/distinct beyond Google's default styling would need the Maps JavaScript API instead of the current iframe embed — a real scope increase, not a small tweak.
 
 ## Image slots
 Two different kinds of images in this build — don't confuse them:
