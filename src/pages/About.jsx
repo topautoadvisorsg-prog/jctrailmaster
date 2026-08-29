@@ -9,14 +9,14 @@ import { bgImage } from "../lib/media";
 const DIFFERENTIATORS = [
   { title: "Mobile & In-Shop", body: "We come to you or you come to us — whichever gets you back on the road faster." },
   { title: "Fleet-Ready", body: "We understand commercial fleet deadlines and billing, not just single-trailer repairs." },
-  { title: "Licensed & Insured", body: "Fully licensed and insured, so every job is protected." },
+  { title: "Insured & DOT Registered", body: "Fully insured for your protection and registered with the FMCSA. USDOT #3782640." },
   { title: "Quality First", body: "We do it right the first time — every repair, every time." },
 ];
 
 export default function About() {
   usePageMeta(
     "About Us",
-    "25+ years of hands-on trailer, reefer, dry van, box truck, and chassis repair experience. Licensed, insured, and trusted by fleet managers and owner-operators across metro Atlanta."
+    "25+ years of hands-on trailer, reefer, dry van, box truck, and chassis repair experience. Insured, DOT registered, and trusted by fleet managers and owner-operators across metro Atlanta."
   );
 
   return (
@@ -79,14 +79,15 @@ export default function About() {
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Credentials */}
       <section className="bg-jc-black-soft py-16 border-y border-white/10">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <SectionHeading eyebrow="Credentials" title="Licensed, Insured, and Certified" />
+          <SectionHeading eyebrow="Credentials" title="Insured, DOT Registered, and Experienced" />
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
               <ShieldCheck className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
-              <p className="font-bold text-jc-white">Fully Licensed</p>
+              <p className="font-bold text-jc-white">DOT Registered</p>
+              <p className="text-xs text-jc-gray-steel mt-1">USDOT #3782640</p>
             </div>
             <div className="rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
               <Award className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
@@ -94,7 +95,7 @@ export default function About() {
             </div>
             <div className="rounded-lg border border-white/10 p-6 text-center hover:border-jc-orange-primary/40 transition-colors">
               <Wrench className="mx-auto mb-3 text-jc-orange-primary" size={28} strokeWidth={1.5} />
-              <p className="font-bold text-jc-white">Certified Technicians</p>
+              <p className="font-bold text-jc-white">Trailer & Chassis Specialists</p>
             </div>
           </div>
         </div>

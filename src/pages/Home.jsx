@@ -29,7 +29,7 @@ const SHOW_FEATURED_PROJECTS = false;
 const SHOW_TESTIMONIALS = false;
 
 const TRUST_BADGES = [
-  { icon: ShieldCheck, label: "Expert Technicians", sub: "Skilled. Certified. Trusted." },
+  { icon: ShieldCheck, label: "Expert Technicians", sub: "Skilled. Experienced. Trusted." },
   { icon: Clock, label: "Fast Response", sub: "Minimizing downtime. Maximizing uptime." },
   { icon: BadgeCheck, label: "Quality Guaranteed", sub: "We do it right the first time." },
   { icon: Wrench, label: "In Shop & Mobile Service", sub: "We come to you or you come to us." },
@@ -39,8 +39,8 @@ const TRUST_BADGES = [
 // Quality Guaranteed / In-Shop & Mobile) — these expand the pitch rather than repeat it.
 const WHY_CHOOSE = [
   { icon: Truck, label: "Fleet Specialists", sub: "Priority scheduling and billing built around your fleet." },
-  { icon: ShieldCheck, label: "Licensed & Insured", sub: "Fully licensed and insured, so every job is protected." },
-  { icon: BadgeCheck, label: "All Major Brands", sub: "Wabash, Great Dane, Utility, Thermo King, Carrier, and more." },
+  { icon: ShieldCheck, label: "Insured & DOT Registered", sub: "Fully insured for your protection. FMCSA registered — USDOT #3782640." },
+  { icon: BadgeCheck, label: "All Major Brands", sub: "Wabash, Utility, Great Dane, Hyundai Translead, Thermo King, Carrier, Stoughton, Vanguard, Strick, and Fruehauf." },
   { icon: Container, label: "Every Trailer & Truck Type", sub: "Dry vans, reefers, flatbeds, box trucks, and intermodal chassis." },
   { icon: CircleDollarSign, label: "Fair, Honest Pricing", sub: "High-quality work at a fair price — no surprises." },
   { icon: Wrench, label: "One Call, Every Repair", sub: "Trailers, containers, chassis, and box trucks — all under one roof." },
@@ -84,7 +84,7 @@ export default function Home() {
       <section className="bg-jc-black">
         <div
           className="relative w-full h-[420px] sm:h-[520px] md:h-auto md:aspect-[1672/941] bg-cover bg-center"
-          style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg")}
+          style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.png")}
           role="img"
           aria-label="JC Trailmaster semi-truck and trailer at sunset"
         >

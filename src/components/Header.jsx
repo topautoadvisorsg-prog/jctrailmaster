@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { BUSINESS } from "../data/business";
 import { serviceCategories } from "../data/services";
+import FacebookLink from "./FacebookLink";
 
 // STATUS: Projects hidden pending real client photos (2026-07-22) — add
 // { label: "Projects", to: "/projects" } back once real photos are in.
@@ -100,15 +101,20 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-jc-black/95 backdrop-blur border-b border-white/10">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 lg:px-8">
-        <NavLink to="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-jc-black">
-            <span className="font-brand italic text-jc-orange-deep text-3xl leading-none">JC</span>
-          </span>
-          <span className="leading-tight text-left">
-            <span className="block font-brand text-jc-orange-primary text-xl tracking-wide">
-              TRAILMASTER
-            </span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 lg:px-8">
+        <NavLink to="/" className="flex items-center gap-3 shrink-0">
+          {/* Complete logo artwork, uncropped — object-contain + w-auto so the
+              circle and truck keep their natural 1448x1086 proportions. */}
+          <img
+            src="/images/brand/jc-trailmaster-logo.png"
+            alt="JC Trailmaster — Trailer, Container & Chassis Repair"
+            className="h-[78px] w-auto object-contain"
+          />
+          {/* The wordmark baked into the badge renders at ~9px cap-height here —
+              too small to identify the company at desktop viewing distance — so the
+              name is repeated in readable type beside the mark. */}
+          <span className="font-brand text-jc-orange-primary text-xl sm:text-2xl tracking-wide leading-none">
+            TRAILMASTER
           </span>
         </NavLink>
 
@@ -143,6 +149,7 @@ export default function Header() {
           >
             Request Service
           </a>
+          <FacebookLink />
         </div>
 
         <button
@@ -171,7 +178,8 @@ export default function Header() {
                 </NavLink>
               )
             )}
-            <a href={BUSINESS.phone.href} className="flex items-center gap-2 whitespace-nowrap text-jc-orange-primary font-bold pt-2 border-t border-white/10">
+            <FacebookLink className="pt-2 border-t border-white/10" />
+            <a href={BUSINESS.phone.href} className="flex items-center gap-2 whitespace-nowrap text-jc-orange-primary font-bold">
               <Phone size={18} className="shrink-0" />
               {BUSINESS.phone.display}
             </a>

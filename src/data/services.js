@@ -110,7 +110,8 @@ export const faqs = [
   { question: "What are your business hours?", answer: `${BUSINESS.hours.map((h) => `${h.days} ${h.time}`).join(". ")}.` },
 ];
 
-// STATUS: MOCKUP per spec Section 5 — placeholder values, swap before launch.
+// Years of Experience and Repairs Completed confirmed by client (2026-08-25 call).
+// Satisfied Customers ("1000+") is NOT independently confirmed — see README Open Items.
 export const stats = [
   { label: "Years of Experience", value: "25+" },
   { label: "Satisfied Customers", value: "1000+" },

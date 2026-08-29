@@ -2,14 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BUSINESS, SERVICE_AREA_CITIES } from "../data/business";
 import { serviceCategories } from "../data/services";
-
-function FacebookIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={1.5} {...props}>
-      <path d="M14 9h2V6h-2c-1.66 0-3 1.34-3 3v2H9v3h2v6h3v-6h2.2l.8-3H14V9c0-.28.22-.5.5-.5H14V9z" />
-    </svg>
-  );
-}
+import FacebookLink from "./FacebookLink";
 
 // STATUS: Projects hidden pending real client photos (2026-07-22) — add
 // { label: "Projects", to: "/projects" } back once real photos are in.
@@ -25,27 +18,18 @@ export default function Footer() {
     <footer className="bg-jc-black border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 py-14 lg:px-8 grid gap-10 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-jc-black">
-              <span className="font-brand italic text-jc-orange-deep text-2xl leading-none">JC</span>
-            </span>
-            <span className="font-brand text-jc-orange-primary text-lg tracking-wide">
-              TRAILMASTER
-            </span>
+          <div className="mb-3">
+            <img
+              src="/images/brand/jc-trailmaster-logo.png"
+              alt="JC Trailmaster — Trailer, Container & Chassis Repair"
+              className="h-24 w-auto object-contain"
+            />
           </div>
           <p className="text-sm text-jc-gray-steel leading-relaxed">
             Your trusted partner for trailer and chassis repairs. We keep you rolling.
           </p>
-          <div className="flex gap-3 mt-4">
-            <a
-              href={BUSINESS.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-jc-gray-steel hover:text-jc-orange-primary"
-            >
-              <FacebookIcon />
-            </a>
+          <div className="mt-4">
+            <FacebookLink />
           </div>
         </div>
 

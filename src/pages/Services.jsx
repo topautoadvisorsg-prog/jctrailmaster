@@ -4,8 +4,10 @@ import { Plus } from "lucide-react";
 import ServiceDetailBlock from "../components/ServiceDetailBlock";
 import CtaBand from "../components/CtaBand";
 import PageHero from "../components/PageHero";
+import SectionHeading from "../components/SectionHeading";
+import BrandsMarquee from "../components/BrandsMarquee";
 import usePageMeta from "../hooks/usePageMeta";
-import { serviceCategories } from "../data/services";
+import { serviceCategories, brandsServiced } from "../data/services";
 
 // Links elsewhere on the site (header dropdown, footer, home page cards) deep-link
 // to a specific category via #slug — resolve that on first render so the right
@@ -87,6 +89,14 @@ export default function Services() {
             })}
           </div>
         </div>
+      </section>
+
+      {/* BRANDS SERVICED */}
+      <section className="bg-jc-black jc-texture py-16 border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <SectionHeading eyebrow="Trusted By" title="Brands & Equipment We Service" />
+        </div>
+        <BrandsMarquee brands={brandsServiced} />
       </section>
 
       <CtaBand />

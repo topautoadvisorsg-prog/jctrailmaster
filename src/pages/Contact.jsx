@@ -84,6 +84,8 @@ export default function Contact() {
                   <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wide text-jc-gray-steel mb-2">Message</label>
                   <textarea id="message" name="message" rows={4} className="w-full rounded-md border border-white/15 bg-jc-black px-4 py-3 text-jc-white outline-none focus:border-jc-orange-primary" placeholder="Tell us what's going on with your trailer or chassis..." />
                 </div>
+                {/* Honeypot: hidden from real visitors, bots fill it in — Formspree drops the submission when this is non-empty */}
+                <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" className="hidden" aria-hidden="true" />
                 {error && (
                   <p className="text-sm text-red-400" role="alert">
                     Something went wrong sending your request. Please try again, or call {BUSINESS.phone.display} directly.

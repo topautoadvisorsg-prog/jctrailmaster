@@ -1,6 +1,6 @@
 # JC Trailmaster — Website Rebuild
 
-Trailer, container, and chassis repair company site. Built per `SPEC.md` (v2.3).
+Trailer, container, and chassis repair company site. Built per `SPEC.md` (v2.3) — though SPEC.md is the original plan and hasn't been kept in sync; where they conflict, this README and the live code are current. Known drift: SPEC.md still uses "Licensed & Insured" and "Certified Technicians" language (Sections 5, 6B, 8, 17) — both were removed sitewide as unverifiable claims (see Resolved below). `jc-trailmaster-spec-v2.md` at the project root is a duplicate of SPEC.md, safe to delete once confirmed unneeded.
 
 ## Stack
 - React 19 + Vite (React Router for pages)
@@ -43,7 +43,8 @@ src/
 │   ├── ServiceDetailBlock.jsx   The "one category, full detail" card, used by Services.jsx
 │   ├── CategoryFilter.jsx / Lightbox.jsx / BeforeAfterSlider.jsx / BeforeAfterModal.jsx    Projects-page building blocks
 │   ├── BrandsMarquee.jsx / BrandLogo.jsx    Auto-scrolling brands-serviced strip
-│   └── MapEmbed.jsx             Google Maps iframe, reads the address from data/business.js
+│   ├── FacebookLink.jsx         Icon + "Facebook" wordmark, shared by Header and Footer so they can't drift apart
+│   └── MapEmbed.jsx             Google Maps iframe, reads name+address from data/business.js (light mode, no CSS filter)
 │
 ├── hooks/
 │   └── usePageMeta.js        Sets the browser tab title + meta description per page
@@ -122,17 +123,34 @@ npm run build     # production build to /dist
 - **Brands & Equipment Serviced** — 10 real brands confirmed and live, each logo sourced from the brand's own official site: Wabash, Utility, Great Dane, Hyundai Translead, Thermo King, Carrier Transicold, Stoughton, Vanguard, Strick, Fruehauf.
 - **Layout variant decision** — Services = tabbed, Projects = before/after grid + album. See "Layout decisions" above.
 - **Contact form** — wired to Formspree, verified with a real test submission before shipping.
-- **Facebook link** — live in the footer, pointed at the client's real page. No Instagram icon (not a real account).
+- **Facebook link** — live in both `Header.jsx` (top-right, past the CTA) and `Footer.jsx`, same icon+wordmark component (`components/FacebookLink.jsx`) in both places so they can't drift out of sync. No Instagram icon (not a real account).
 - **Privacy Policy / Terms of Service** — real pages at `/privacy-policy` and `/terms-of-service`, replacing dead footer links. General boilerplate covering the actual site (contact form, quotes, mobile service); client reviewed and approved.
+- **Brands & Equipment Serviced** — now also shown on the Services page (`pages/Services.jsx`), not just Home.
+- **USDOT #3782640** — verified live against FMCSA SAFER (the federal database itself, not a directory site) — exact match on business address and phone. Displayed on Home and About.
+- **"Licensed" language removed sitewide** — there's no state licensing board for trailer/chassis repair in Georgia, so "Licensed & Insured" was an inaccurate, borrowed claim. Replaced everywhere with "Insured & DOT Registered," backed by the verified USDOT number above.
+- **"Certified" language removed sitewide** — "Certified Technicians" was never independently verifiable (no cert body, no ASE numbers on file). Replaced with "Experienced" / "Trailer & Chassis Specialists" — factual, not a credential claim that can't be backed up.
+- **Contact form spam** — added a Formspree honeypot field (`_gotcha` in `Contact.jsx`). Formspree's built-in ML spam filter (Formshield) was already on; its tunable classifiers are paid-tier only, so the honeypot is the actual fix that shipped.
+- **Map embed** — switched from a dark CSS filter to the plain light-mode embed, and the query now searches by business name + address (not just the bare address) so the "JC Trailmaster" label resolves on the pin without a visitor needing to zoom in manually.
 
-## Open items (still needs client input)
-- **Real logo file** — header still uses a generated "JC" text badge, not the client's actual logo file/image.
-- **Satisfied Customers stat** — still a placeholder (`1000+`) in `data/services.js` → `stats`.
-- **Real Google reviews** — see "Hidden pending real content" above.
+## Open items — waiting on a file/asset from the client
+Nothing else is actionable on these until she sends them:
+- **Real logo file** — header/footer still use a generated "JC" text badge, not an uploaded logo. She wants it larger and in 4 places: nav, hero, map/service-area section, footer.
+- **Master service list (~50 services)** — blocks deciding which services get top billing per category on the homepage (client said she'd send a full list rather than pick verbally on the 2026-08-25 call).
+- **Top 10 target cities** — current `SERVICE_AREA_CITIES` (`data/business.js`) hasn't been confirmed as her actual priority list; she agreed to send one.
+- **Owner/crew photos** (headshots, not action shots) — for AI face-swap into the hero-style marketing images.
 - **Real completed-job photos** — see "Hidden pending real content" above.
+- **Real Google reviews** — see "Hidden pending real content" above.
+- **Satisfied Customers stat** — `1000+` in `data/services.js` → `stats` is NOT independently confirmed, unlike the other two stats next to it (see Resolved above). Worth a direct re-check before treating it as settled.
 - **Brand hex values** — current palette taken from spec Section 2.1, never cross-checked against the client's actual logo files.
 - **Hero image realism** — client asked for a more natural/less AI-obvious sunset; a new hero has since been swapped in, but this hasn't been explicitly re-confirmed with the client as resolving that specific note.
-- **Which 4 service categories to feature on the homepage** — currently all 6 show in the "Complete Repair and Maintenance Solutions" grid. Client said she and her husband would decide which 4 get top billing (rest stay one click away under "Learn More"); no answer yet.
+
+## Open items — needs a client decision, not a file
+- **FAQ** (`data/services.js` → `faqs`) — still the original placeholder question set. She was asked on the 2026-08-25 call if she wants her own real top questions swapped in instead; no answer yet.
+- **"Fleet & Commercial Accounts" copy** (`pages/Home.jsx`) — she called it "too salesy" on the call; no replacement was ever agreed on.
+- **Which service categories/services get top billing on the homepage** — blocked on the master service list above; once that arrives, still needs her (and her husband's) final call on priority.
+
+## Open items — bigger lift, not blocked, just not started
+- **Map marker "pop"** (`components/MapEmbed.jsx`) — the embed is light-mode now and resolves to the named Business Profile pin (not just a bare address dot), but making the pin itself visually branded/distinct beyond Google's default styling would need the Maps JavaScript API instead of the current iframe embed — a real scope increase, not a small tweak.
 
 ## Image slots
 Two different kinds of images in this build — don't confuse them:
