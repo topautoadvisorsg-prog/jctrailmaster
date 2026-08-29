@@ -1,6 +1,12 @@
 // STATUS: TEMPORARY STOCK PHOTOS (Pexels, free-license) — filling the gap so nothing looks
 // missing during review. Swap for real completed-job photos before launch; copy/descriptions
 // are also placeholder and need real client job details.
+//
+// THE FILES BELOW ARE NOT IN public/images. The Projects page is unrouted and
+// SHOW_FEATURED_PROJECTS is false, so nothing renders these — they were moved to
+// archive/unused-images/ to keep ~3.8MB of never-served stock photos out of the
+// production build. Before flipping Projects back on, either drop the real client
+// photos into public/images/ under these names, or move the archived files back.
 export const projects = [
   {
     id: "p1",
