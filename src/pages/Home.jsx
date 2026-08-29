@@ -76,14 +76,12 @@ export default function Home() {
   return (
     <>
       {/* HERO — image carries the JC Trailmaster wordmark baked in; headline sits below it.
-          From md up, the box is aspect-ratio-locked to the source image's exact proportions
-          (1672x941) with NO height cap, so bg-cover never has to crop the top/bottom at any
-          desktop width — a capped height here forces a wider-than-image box past that cap,
-          which crops the sky above the logo and the road below the truck. Mobile/sm keep fixed
-          heights — narrow portrait viewports already center-crop the sides, not top/bottom. */}
+          The source (1672x911) is already cropped so the badge sits flush at the top edge, so
+          from md up the box is locked to that exact aspect and the whole frame shows as cut —
+          no bg-position offset needed. Mobile/sm keep fixed heights and centre-crop the sides. */}
       <section className="bg-jc-black">
         <div
-          className="relative w-full h-[420px] sm:h-[520px] md:h-auto md:aspect-[1672/941] bg-cover bg-center"
+          className="relative w-full h-[420px] sm:h-[520px] md:h-auto md:aspect-[1672/911] bg-cover bg-center"
           style={bgImage("/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.png")}
           role="img"
           aria-label="JC Trailmaster semi-truck and trailer at sunset"

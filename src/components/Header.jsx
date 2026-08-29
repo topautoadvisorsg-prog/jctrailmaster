@@ -101,7 +101,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-jc-black/95 backdrop-blur border-b border-white/10">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 lg:px-8">
         <NavLink to="/" className="flex items-center gap-3 shrink-0">
           {/* Complete logo artwork, uncropped — object-contain + w-auto so the
               circle and truck keep their natural 1448x1086 proportions. */}
