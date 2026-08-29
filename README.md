@@ -55,7 +55,8 @@ src/
 ```
 
 ### Backgrounds & imagery
-- **Homepage hero** — unique, `public/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.jpg` (baked-in wordmark), set directly in `Home.jsx`.
+- **Homepage hero** — unique, `public/images/trailer-chassis-repair-atlanta-jc-trailmaster-hero.png` (1672x911, badge/wordmark baked in), set directly in `Home.jsx`. The `md:aspect-[1672/911]` on that div must stay matched to the file's real dimensions — the image is pre-cropped so the badge sits flush under the header, and a mismatched aspect reintroduces a sky gap or crops the truck.
+- **Brand logo** — `public/images/brand/jc-trailmaster-logo.webp` (1448x1086, transparent). Used by `Header.jsx` and `Footer.jsx`. WebP q85: 128KB vs the 1.07MB PNG it replaced, alpha verified intact, indistinguishable at the 104-128px it actually renders at. The original PNG master is preserved outside the repo at `Downloads/jc-trailmaster-logo-ORIGINAL-BACKUP.png`.
 - **Internal-page heros** — all share `components/PageHero.jsx`, which uses `public/images/hero-interior.jpg` behind a flat dark overlay. Change the image or overlay once there, applies to Services/Projects/About/Contact.
 - **Atmospheric texture** — the `.jc-texture` class (`src/index.css`) puts `hero-interior.jpg` behind a heavy ~92% overlay so it reads as faint depth. It's applied to every flat `bg-jc-black` content section; `bg-jc-black-soft` sections stay flat on purpose so the two alternate. To add/remove texture on a section, add/remove `jc-texture` next to `bg-jc-black`.
 
@@ -156,6 +157,17 @@ Two different kinds of images in this build — don't confuse them:
   will be replaced with the client's own files, never generated.
 - **Marketing photos** (hero, category cards, Fleet Accounts banner, About shop shot) — all
   real client-provided photos. See `IMAGE_PROMPTS.md` for the prompt/sourcing history per slot.
+
+## archive/unused-images/
+The 21 `project-*.jpg` stock photos live here, not in `public/`. They are still referenced by
+`src/data/projects.js`, but the `/projects` route redirects and `SHOW_FEATURED_PROJECTS` is
+`false`, so nothing renders them — keeping them in `public/` only added ~3.8MB of never-served
+files to every production build. Before turning Projects back on, either drop the client's real
+photos into `public/images/` under these same filenames, or move these back.
+
+**Do not "clean up" `public/.htaccess`.** No source file references it, so orphan scans flag it,
+but it is the Apache rewrite rule that makes client-side routing work on Bluehost. Remove it and
+every route except `/` 404s on refresh.
 
 ## Deploy
 Pushed to GitHub: https://github.com/topautoadvisorsg-prog/jctrailmaster (main branch).

@@ -20,7 +20,7 @@ export default function Footer() {
         <div>
           <div className="mb-3">
             <img
-              src="/images/brand/jc-trailmaster-logo.png"
+              src="/images/brand/jc-trailmaster-logo.webp"
               alt="JC Trailmaster — Trailer, Container & Chassis Repair"
               className="h-24 w-auto object-contain"
             />

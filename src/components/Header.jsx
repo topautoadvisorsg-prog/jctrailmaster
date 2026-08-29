@@ -106,7 +106,7 @@ export default function Header() {
           {/* Complete logo artwork, uncropped — object-contain + w-auto so the
               circle and truck keep their natural 1448x1086 proportions. */}
           <img
-            src="/images/brand/jc-trailmaster-logo.png"
+            src="/images/brand/jc-trailmaster-logo.webp"
             alt="JC Trailmaster — Trailer, Container & Chassis Repair"
             className="h-[78px] w-auto object-contain"
           />
